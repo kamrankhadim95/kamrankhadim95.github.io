@@ -35,26 +35,26 @@ h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spa
 .menu a.active,.menu a:hover{background:var(--ink);color:var(--bg)}
 
 /* hero */
-.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 70px;overflow:hidden}
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 70px;overflow:hidden;background:var(--bg);isolation:isolate}
 .watermark{position:absolute;top:10vh;left:50%;transform:translateX(-50%);font-size:min(30vw,380px);font-weight:800;letter-spacing:-.06em;color:var(--ink);opacity:.045;white-space:nowrap;user-select:none;line-height:1}
-.avatar{position:absolute;left:58%;bottom:0;transform:translateX(-50%);height:88vh;max-height:860px;aspect-ratio:9/16;display:flex;align-items:flex-end;justify-content:center}
-.avatar::after{content:"";position:absolute;bottom:1.5%;left:50%;width:46%;height:5%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(29,33,64,.28),transparent);z-index:-1}
-.bubble{position:absolute;top:2%;left:62%;background:var(--card);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:10px 16px;font-size:15px;font-weight:600;white-space:nowrap;box-shadow:var(--shadow);transform-origin:bottom left;opacity:0;transform:scale(.6);transition:opacity .35s,transform .35s cubic-bezier(.3,1.6,.5,1);z-index:2}
+.avatar{position:absolute;left:0;right:0;bottom:0;height:88vh;max-height:860px;display:flex;align-items:flex-end;justify-content:center;pointer-events:none}
+.bubble{position:absolute;top:9%;left:calc(50% + 7vh);background:var(--card);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:10px 16px;font-size:15px;font-weight:600;white-space:nowrap;box-shadow:var(--shadow);transform-origin:bottom left;opacity:0;transform:scale(.6);transition:opacity .35s,transform .35s cubic-bezier(.3,1.6,.5,1);z-index:2}
 .bubble.show{opacity:1;transform:scale(1)}
 .bubble::after{content:"";position:absolute;left:-1px;bottom:-9px;border:9px solid transparent;border-top-color:var(--card);border-left-color:var(--card)}
 .bubble .caret{display:inline-block;width:2px;height:1em;background:var(--ink);margin-left:2px;vertical-align:-2px;animation:caret 1s steps(1) infinite}
 @keyframes caret{50%{opacity:0}}
 .avatar img{animation:sway 6s ease-in-out infinite!important}
 @keyframes sway{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-1.2deg) translateY(-3px)}50%{transform:rotate(0) translateY(0)}75%{transform:rotate(1.2deg) translateY(-3px)}}
-.avatar video{height:100%;width:auto;mix-blend-mode:multiply;object-fit:contain}
+.avatar video{height:100%;width:auto;mix-blend-mode:multiply;object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 6%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 6%);mask-composite:intersect}
 .avatar img{height:94%;width:auto;object-fit:contain;object-position:bottom;position:relative;margin-bottom:3%;animation:breath 5s ease-in-out infinite;transform-origin:bottom center}
 @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.012) translateY(-2px)}}
 .avatar .placeholder{height:78%;width:70%;border:2px dashed var(--line);border-radius:200px 200px 24px 24px;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:13px;padding:30px;background:linear-gradient(var(--bg),var(--bg-2))}
 .avatar .placeholder b{display:block;font-size:64px;color:var(--ink);opacity:.15;font-weight:800;margin-bottom:8px}
 .hero .wrap{position:relative;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
-.hero h1{font-size:clamp(48px,8vw,108px);line-height:.92;font-weight:700;letter-spacing:-.045em}
+.hero .wrap>div:first-child{max-width:min(36%,520px)}
+.hero h1{font-size:clamp(40px,5vw,76px);line-height:.92;font-weight:700;letter-spacing:-.045em}
 .hero h1 span{color:var(--muted)}
-.hero .sub{margin-top:18px;color:var(--ink-2);font-size:15px}
+.hero .sub{margin-top:18px;color:var(--ink-2);font-size:15px;max-width:340px}
 .ctas{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
 .btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid var(--ink);transition:.2s;cursor:pointer;background:none;color:var(--ink);font-family:inherit}
 .btn.solid{background:var(--ink);color:var(--bg)}
@@ -159,9 +159,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
   .hero .wrap{flex-direction:column;align-items:flex-start}
   .ctas{align-items:flex-start;flex-direction:row}
   .hero{flex-direction:column;justify-content:flex-start;min-height:auto;padding-top:84px}
-  .avatar{position:relative;left:auto;bottom:auto;transform:none;height:min(42vh,380px);align-self:center;margin-bottom:12px}
+  .avatar{position:relative;left:auto;right:auto;bottom:auto;width:100%;height:min(46vh,420px);align-self:center;margin-bottom:12px}
   .watermark{top:14vh}
-  .bubble{left:58%;font-size:13px;padding:8px 12px}
+  .hero .wrap>div:first-child{max-width:none}
+  .hero h1{font-size:clamp(40px,11vw,60px)}
+  .bubble{left:calc(50% + 34px);top:8%;font-size:13px;padding:8px 12px}
   .work-row{flex-direction:column;height:auto}
   .proj{flex:0 0 64px}
   .proj.open{flex:0 0 auto}
@@ -285,7 +287,7 @@ const PROFILE = {
   initials: "KK",
   title: "Senior Mobile Developer",
   tagline: "Kotlin · Jetpack Compose · Flutter · Mobile Architecture — 7+ years",
-  heroVideo: "assets/hero.mp4",                    // your AI avatar intro (see README)
+  heroVideo: "assets/hero.mp4",                    // waving 3D avatar (Google Flow, audio removed)
   heroPoster: "assets/hero-cartoon.png",            // 3D cartoon avatar, used when hero.mp4 is absent
   photo: "assets/photo.jpg",                       // ID-card photo (optional)
   about: "Senior Mobile Developer with 7+ years designing, building and scaling secure, high-performance mobile apps — primarily Android with Kotlin, Jetpack Compose and Clean Architecture, plus cross-platform work in Flutter. I've delivered government-grade and enterprise products including Dubai Police (Esaad Card) and The ENTERTAINER, and I lead modules, review code and mentor developers alongside product, backend and QA teams.",
@@ -429,7 +431,10 @@ $("heroSub").textContent = P.tagline;
   const box = $("avatar");
   const placeholder = () => box.innerHTML = `<div class="placeholder"><div><b>${P.initials}</b>Your animated 3D avatar goes here<br><code>assets/hero.mp4</code></div></div>`;
   const v = document.createElement("video");
-  Object.assign(v, { src: P.heroVideo, autoplay: true, muted: true, loop: true, playsInline: true });
+  Object.assign(v, { src: P.heroVideo, autoplay: true, muted: true, playsInline: true, poster: P.heroPoster });
+  v.setAttribute("aria-label", P.name);
+  // play once, hold the crossed-arms ending, then play again
+  v.onended = () => setTimeout(() => { v.currentTime = 0; v.play(); }, 5000);
   v.onerror = () => {
     const img = new Image(); img.src = P.heroPoster; img.alt = P.name;
     img.onload = () => { box.innerHTML = ""; box.appendChild(img); };
