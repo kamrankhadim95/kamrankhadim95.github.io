@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kamran Khadim — Senior Mobile Developer</title>
+<meta name="description" content="Kamran Khadim — Senior Mobile Developer in Dubai. Kotlin, Jetpack Compose, Flutter, mobile architecture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3efe6; --bg-2:#ebe5d8; --card:#fbf9f4; --ink:#1d2140; --ink-2:#4a4e68; --muted:#8a8a96;
+  --line:#ddd6c6; --accent:#1d2140; --tile-dark:#232848; --tile-mid:#a39e95; --tile-light:#d8d2c5;
+  --radius:18px; --shadow:0 18px 40px -18px rgba(29,33,64,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:110px 0}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;gap:14px;align-items:center;margin-bottom:18px}
+.eyebrow b{color:var(--ink);font-weight:600}
+h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spacing:-.03em}
+
+/* nav */
+.nav{position:fixed;inset:16px 16px auto;z-index:50;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.brand,.menu{pointer-events:auto;background:rgba(251,249,244,.75);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;font-weight:600;font-size:14px}
+.brand i{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-style:normal;font-size:12px}
+.menu{display:flex;gap:2px;padding:5px}
+.menu a{font-size:13px;padding:7px 14px;border-radius:999px;color:var(--ink-2);transition:.2s}
+.menu a.active,.menu a:hover{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 70px;overflow:hidden}
+.watermark{position:absolute;top:10vh;left:50%;transform:translateX(-50%);font-size:min(30vw,380px);font-weight:800;letter-spacing:-.06em;color:var(--ink);opacity:.045;white-space:nowrap;user-select:none;line-height:1}
+.avatar{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:88vh;max-height:860px;aspect-ratio:9/16;display:flex;align-items:flex-end;justify-content:center}
+.avatar video,.avatar img{height:100%;width:auto;mix-blend-mode:multiply;object-fit:contain}
+.avatar .placeholder{height:78%;width:70%;border:2px dashed var(--line);border-radius:200px 200px 24px 24px;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:13px;padding:30px;background:linear-gradient(var(--bg),var(--bg-2))}
+.avatar .placeholder b{display:block;font-size:64px;color:var(--ink);opacity:.15;font-weight:800;margin-bottom:8px}
+.hero .wrap{position:relative;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.hero h1{font-size:clamp(48px,8vw,108px);line-height:.92;font-weight:700;letter-spacing:-.045em}
+.hero h1 span{color:var(--muted)}
+.hero .sub{margin-top:18px;color:var(--ink-2);font-size:15px}
+.ctas{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid var(--ink);transition:.2s;cursor:pointer;background:none;color:var(--ink);font-family:inherit}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.2fr .9fr 1fr;gap:48px;align-items:start}
+.about h2{font-size:clamp(44px,6vw,76px);line-height:1;letter-spacing:-.03em;font-weight:700}
+.about p{color:var(--ink-2);margin-top:22px;font-size:16px}
+.about .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.lanyard{display:flex;flex-direction:column;align-items:center}
+.strap{width:22px;height:110px;background:repeating-linear-gradient(180deg,var(--ink) 0 14px,#2c3160 14px 28px);border-radius:3px}
+.clip{width:40px;height:16px;background:#b9b3a6;border-radius:4px;margin-top:-2px}
+.idcard{width:250px;background:var(--card);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-top:6px;transform-origin:top center;animation:swing 5s ease-in-out infinite;border:1px solid var(--line)}
+@keyframes swing{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+.idcard .top{background:var(--ink);color:var(--bg);padding:14px 18px;font-size:11px;letter-spacing:.15em;display:flex;justify-content:space-between}
+.idcard .photo{width:120px;height:140px;margin:22px auto 14px;border-radius:12px;background:var(--bg-2) center/cover;display:grid;place-items:center;font-weight:800;font-size:40px;color:var(--ink);opacity:.9}
+.idcard h4{text-align:center;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.idcard .role{text-align:center;font-size:12px;color:var(--muted)}
+.idcard .bar{margin:16px 18px 18px;height:34px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,var(--ink) 5px 6px,transparent 6px 9px);opacity:.8}
+.facts{border-top:1px solid var(--line)}
+.facts div{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;gap:16px}
+.facts span{color:var(--muted)}
+.quote{margin-top:26px;font-size:24px;line-height:1.25;color:var(--ink-2)}
+
+/* skills */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0}
+.chip{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-family:inherit;color:var(--ink-2);transition:.2s}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.skills-grid{display:grid;grid-template-columns:1fr 260px;gap:32px;align-items:start}
+.table{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
+.el{aspect-ratio:1;border-radius:10px;padding:7px 8px;display:flex;flex-direction:column;justify-content:space-between;cursor:default;transition:.25s;position:relative}
+.el small{font-size:9px;opacity:.7}
+.el strong{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.el em{font-size:9px;font-style:normal;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.el.t0,.el.t3,.el.t6{background:var(--tile-dark);color:#f3efe6}
+.el.t1,.el.t4,.el.t7{background:var(--tile-mid);color:#fff}
+.el.t2,.el.t5{background:var(--tile-light);color:var(--ink)}
+.el:hover{transform:translateY(-4px) scale(1.04);box-shadow:var(--shadow);z-index:2}
+.el.dim{opacity:.18;filter:grayscale(1)}
+.detail{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:sticky;top:100px;min-height:240px}
+.detail .sym{width:84px;height:84px;border-radius:14px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:34px;font-weight:700}
+.detail h3{margin-top:18px;font-size:22px}
+.detail p{color:var(--ink-2);font-size:14px;margin-top:6px}
+.detail .lvl{margin-top:18px;height:6px;background:var(--bg-2);border-radius:9px;overflow:hidden}
+.detail .lvl i{display:block;height:100%;background:var(--ink);transition:width .5s}
+
+/* work */
+.work-row{display:flex;gap:12px;margin-top:40px;height:440px}
+.proj{flex:0 0 84px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:flex .6s cubic-bezier(.7,0,.2,1);position:relative}
+.proj.open{flex:1 1 auto;cursor:default}
+.proj .spine{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 0;transition:opacity .3s}
+.proj .spine b{writing-mode:vertical-rl;transform:rotate(180deg);font-size:17px;letter-spacing:-.01em}
+.proj .spine i{font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:13px}
+.proj.open .spine{opacity:0;pointer-events:none}
+.proj .body{position:absolute;inset:0;padding:40px;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;opacity:0;transition:opacity .3s;min-width:640px}
+.proj.open .body{opacity:1;transition-delay:.35s}
+.proj .num{font-size:12px;color:var(--muted);letter-spacing:.15em}
+.proj h3{font-size:clamp(28px,3vw,40px);letter-spacing:-.03em;margin:10px 0 12px;line-height:1.05}
+.proj p{color:var(--ink-2);font-size:15px}
+.proj ul{list-style:none;margin:18px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:13px}
+.proj li::before{content:"• ";color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.tags span{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
+.shot{border-radius:14px;background:var(--bg-2) center/cover;display:grid;place-items:center;color:var(--muted);font-size:13px;border:1px solid var(--line);text-align:center;padding:16px}
+
+/* experience */
+.timeline{margin-top:40px;border-top:1px solid var(--line)}
+.job{display:grid;grid-template-columns:200px 1fr auto;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.job .when{color:var(--muted);font-size:14px}
+.job h3{font-size:22px;letter-spacing:-.02em}
+.job p{color:var(--ink-2);font-size:14px;margin-top:6px;max-width:640px}
+.job .co{font-size:14px;font-weight:600}
+
+/* achievements */
+.ach{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:30px;transition:.3s}
+.stat:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.stat .ic{min-width:44px;padding:0 8px;font-size:14px;width:max-content;height:44px;border-radius:12px;background:var(--bg-2);display:grid;place-items:center;font-weight:700}
+.stat .row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.stat h4{font-size:16px}
+.stat small{display:block;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.stat .n{font-size:48px;font-weight:700;letter-spacing:-.04em;line-height:1}
+
+/* contact */
+.contact{text-align:center;padding-bottom:60px}
+.contact h2{font-size:clamp(48px,9vw,120px);line-height:.95;letter-spacing:-.045em;font-weight:700}
+.contact .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .menu{display:none}
+  .about-grid,.skills-grid{grid-template-columns:1fr}
+  .detail{position:static}
+  .hero .wrap{flex-direction:column;align-items:flex-start}
+  .ctas{align-items:flex-start;flex-direction:row}
+  .avatar{height:62vh;bottom:200px;opacity:.95}
+  .work-row{flex-direction:column;height:auto}
+  .proj{flex:0 0 64px}
+  .proj.open{flex:0 0 auto}
+  .proj .spine{flex-direction:row;padding:0 22px}
+  .proj .spine b{writing-mode:horizontal-tb;transform:none}
+  .proj .body{position:relative;min-width:0;grid-template-columns:1fr;padding:26px;display:none}
+  .proj.open .body{display:grid}
+  .proj .shot{min-height:180px}
+  .job{grid-template-columns:1fr}
+  section{padding:80px 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a href="#top" class="brand"><i id="initials">KK</i><span id="brandName"></span></a>
+  <nav class="menu" id="menu">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a>
+    <a href="#experience">Experience</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="watermark" id="watermark"></div>
+  <div class="avatar" id="avatar"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" id="heroEyebrow"></div>
+      <h1 id="heroTitle"></h1>
+      <div class="sub" id="heroSub"></div>
+    </div>
+    <div class="ctas">
+      <a href="#work" class="btn solid">Explore work →</a>
+      <a href="#contact" class="btn">Let's talk</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="rv">
+      <div class="eyebrow"><b>01</b> About</div>
+      <h2 id="aboutHi"></h2>
+      <p id="aboutText"></p>
+      <div class="links" id="aboutLinks"></div>
+    </div>
+    <div class="lanyard rv">
+      <div class="strap"></div><div class="clip"></div>
+      <div class="idcard">
+        <div class="top"><span>DEVELOPER ID</span><span id="idYear"></span></div>
+        <div class="photo" id="idPhoto"></div>
+        <h4 id="idName"></h4>
+        <div class="role" id="idRole"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="facts" id="facts"></div>
+      <div class="quote serif" id="quote"></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>02</b> Skills</div>
+    <h2 class="title rv">The <span class="serif">elements</span> I work with.</h2>
+    <div class="chips rv" id="chips"></div>
+    <div class="skills-grid rv">
+      <div class="table" id="table"></div>
+      <aside class="detail" id="detail"></aside>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>03</b> Work</div>
+    <h2 class="title rv">Things I've <span class="serif">shipped.</span></h2>
+    <div class="work-row rv" id="work-row"></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>04</b> Experience</div>
+    <h2 class="title rv">Where I've <span class="serif">been.</span></h2>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>05</b> Achievements</div>
+    <h2 class="title rv">Proud <span class="serif">moments.</span></h2>
+    <div class="ach" id="ach"></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap rv">
+    <div class="eyebrow" style="justify-content:center"><b>06</b> Contact</div>
+    <h2>Let's build <span class="serif">something.</span></h2>
+    <div class="btns" id="contactBtns"></div>
+  </div>
+</section>
+
+<footer id="footer"></footer>
+
+<script>
+/* ============================================================
+   EDIT EVERYTHING HERE — the rest of the page reads from this.
+   Lines marked TODO are placeholders: replace before publishing.
+   ============================================================ */
+const PROFILE = {
+  name: "Kamran Khadim",
+  firstName: "Kamran",
+  initials: "KK",
+  title: "Senior Mobile Developer",
+  tagline: "Kotlin · Jetpack Compose · Flutter · Mobile Architecture — 7+ years",
+  heroVideo: "assets/hero.mp4",                    // your AI avatar intro (see README)
+  heroPoster: "assets/hero.png",                   // optional still image of the avatar
+  photo: "assets/photo.jpg",                       // ID-card photo (optional)
+  about: "Senior Mobile Developer with 7+ years designing, building and scaling secure, high-performance mobile apps — primarily Android with Kotlin, Jetpack Compose and Clean Architecture, plus cross-platform work in Flutter. I've delivered government-grade and enterprise products including Dubai Police (Esaad Card) and The ENTERTAINER, and I lead modules, review code and mentor developers alongside product, backend and QA teams.",
+  quote: "“Secure, fast, and built to scale.”",
+  facts: [
+    ["Role", "Senior Mobile Developer"],
+    ["Company", "The ENTERTAINER"],
+    ["Based in", "Dubai, UAE"],
+    ["Experience", "7+ years"],
+    ["Education", "M.S. Computer Science"]
+  ],
+  links: {
+    email: "kamranch724@gmail.com",
+    linkedin: "https://www.linkedin.com/in/kamran-khadim",
+    github: "https://github.com/kamrankhadim95",
+    whatsapp: ""                                   // optional, e.g. "+9715XXXXXXXX" — shows a WhatsApp button
+  }
+};
+
+// category: 0 Languages, 1 Android, 2 Flutter, 3 Architecture, 4 Network & Security, 5 Data, 6 Tools & CI/CD, 7 AI
+const CATEGORIES = ["Languages", "Android", "Flutter", "Architecture", "Network & Security", "Data", "Tools & CI/CD", "AI"];
+const SKILLS = [
+  ["Kt","Kotlin",0,95,"Primary language for native Android."],
+  ["Jv","Java",0,85,"Legacy codebases and interop."],
+  ["Dt","Dart",0,80,"Flutter apps for Android & iOS."],
+  ["Jc","Jetpack Compose",1,92,"Declarative UI — 50%+ of new screens at ENTERTAINER."],
+  ["Xm","XML & Custom Views",1,92,"ConstraintLayout, animations, responsive UI."],
+  ["Co","Coroutines",1,90,"Structured concurrency for async work."],
+  ["Fw","Flow / StateFlow",1,88,"Reactive streams and UI state."],
+  ["Hi","Hilt",1,82,"Dependency injection."],
+  ["Nv","Navigation",1,85,"Single-activity navigation and deeplinks."],
+  ["Fl","Flutter",2,82,"Cross-platform apps (Android & iOS)."],
+  ["Bl","BLoC",2,80,"Predictable state management."],
+  ["Rp","Riverpod / Provider",2,75,"Flutter state & DI."],
+  ["Mv","MVVM / MVI",3,92,"ViewModel-driven, unidirectional screens."],
+  ["Ca","Clean Architecture",3,90,"Layered, testable, modular codebases."],
+  ["Sa","Single Activity",3,85,"Migrated legacy apps to single-activity MVVM."],
+  ["Rf","Retrofit",4,92,"REST networking with OkHttp."],
+  ["Kr","Ktor",4,70,"Kotlin-first HTTP client."],
+  ["Ws","WebSockets",4,75,"Real-time messaging and tracking."],
+  ["Oa","OAuth2 / JWT",4,85,"Secure authentication flows."],
+  ["Ms","Mutual SSL",4,85,"Client certificates & SSL pinning — Dubai Police."],
+  ["E2","E2E Encryption",4,80,"AES, SRTP — secure VoIP & chat."],
+  ["Rm","Room / SQLite",5,85,"Local persistence."],
+  ["Ds","DataStore",5,80,"Typed preferences storage."],
+  ["Sc","SQLCipher",5,72,"Encrypted local databases."],
+  ["Fb","Firebase",6,88,"FCM, Auth, Crashlytics, Remote Config."],
+  ["Gt","Git",6,92,"Branching, reviews, releases."],
+  ["Fa","Fastlane",6,80,"Automated build & deploy."],
+  ["Ga","GitHub Actions",6,78,"CI/CD for Android & Flutter."],
+  ["Az","Azure DevOps",6,75,"Pipelines for mobile builds."],
+  ["Ju","JUnit / Espresso",6,78,"Unit and UI testing."],
+  ["Ag","AI Agents",7,82,"Configured AI agents for engagement & personalisation."],
+  ["Mc","MCP Servers",7,80,"Model Context Protocol integrations."]
+];
+
+const PROJECTS = [
+  {
+    name: "The ENTERTAINER",
+    blurb: "High-traffic lifestyle rewards app across the GCC — Android & iOS. Leading UI modernisation from legacy architecture to Kotlin, Jetpack Compose and Flutter.",
+    bullets: ["Led Compose & Flutter UI migration", "Build times cut by 15%", "AI agents + MCP for personalisation", "CI/CD with Fastlane & Actions"],
+    tags: ["Kotlin","Jetpack Compose","Flutter","MVVM","Coroutines"],
+    link: "https://play.google.com/store/apps/details?id=com.theentertainerme.entertainer",
+    linkLabel: "View on Play Store",
+    image: ""                                      // e.g. "assets/entertainer.png"
+  },
+  {
+    name: "Esaad Card — Dubai Police",
+    blurb: "Secure government application, built from scratch with Clean Architecture and Jetpack Compose. Live on Google Play.",
+    bullets: ["Built from scratch", "Mutual SSL authentication", "Client-side certificates", "Government-grade security"],
+    tags: ["Kotlin","Jetpack Compose","Clean Architecture","mTLS"],
+    link: "#",                                     // TODO: Play Store link
+    linkLabel: "View on Play Store",
+    image: ""
+  },
+  {
+    name: "NEEO IM & Chat Translator",
+    blurb: "Messaging app with rewards and loyalty — maintained, modernised and extended with an AI-powered chat feature.",
+    bullets: ["AI chat using NLP frameworks", "Java → Kotlin improvements", "Redesigned channel & discussion UI", "OAuth2 secured APIs"],
+    tags: ["Android","Kotlin","Retrofit","OAuth2"],
+    link: "#",                                     // TODO
+    linkLabel: "View project",
+    image: ""
+  },
+  {
+    name: "Takeme — Ride Hailing",
+    blurb: "Real-time ride-tracking platform with live GPS, route visualisation and push-driven engagement.",
+    bullets: ["Real-time GPS & custom markers", "Route visualisation", "Push + deep linking", "Retrofit + Kotlin Flow network layer"],
+    tags: ["Kotlin","Flow","Firebase","Maps"],
+    link: "#",                                     // TODO
+    linkLabel: "View project",
+    image: ""
+  },
+  {
+    name: "Secure VoIP & Chat",
+    blurb: "End-to-end encrypted VoIP and chat app built at Bahria Enterprise Systems & Technologies.",
+    bullets: ["End-to-end encryption", "Security compliance up 30%", "Single-activity MVVM migration", "Fewer memory leaks"],
+    tags: ["Android","AES","SRTP","MVVM"],
+    link: "#",
+    linkLabel: "Details",
+    image: ""
+  }
+];
+
+const EXPERIENCE = [
+  { when: "Jul 2023 — Present", role: "Senior Mobile Developer", company: "The ENTERTAINER · Dubai", text: "Lead Android (Kotlin, Compose) and Flutter development. Migrated a large codebase to the latest SDKs and Compose (−15% build time), built 50%+ of UI screens in Compose/Flutter, configured AI agents with MCP, and mentored developers (−20% production bugs)." },
+  { when: "Sep 2022 — Jul 2023", role: "Senior Android Developer", company: "NeeoPal Software Solutions · Lahore", text: "Built and maintained Android (Java/Kotlin) and Flutter apps; integrated BLoC, Firebase, REST APIs and AI-powered chat; refactored for performance and large-screen support." },
+  { when: "May 2020 — Aug 2022", role: "Junior Research Officer (Android)", company: "Bahria Enterprise Systems & Technologies · Islamabad", text: "Built a secure end-to-end encrypted VoIP and chat app and migrated it to single-activity MVVM." },
+  { when: "Jun 2019 — Apr 2020", role: "Android Developer", company: "Cane Technologies & ODL", text: "Developed multiple Android apps focused on performance, stability and UX." },
+  { when: "Jun 2018 — May 2019", role: "Android Developer", company: "ODL – Oxmite Digital Ltd.", text: "Cut crash rates by 30% using Crashlytics and Play Console; accelerated release cycles by 20%." }
+];
+
+const ACHIEVEMENTS = [
+  { icon: "7+", name: "Experience", label: "Years building mobile", value: 7, suffix: "+" },
+  { icon: "UI", name: "Compose & Flutter", label: "Of UI screens built", value: 50, suffix: "%+" },
+  { icon: "↓", name: "Crash rate", label: "Reduction at ODL", value: 30, suffix: "%" },
+  { icon: "✓", name: "Production bugs", label: "Fewer via reviews", value: 20, suffix: "%" },
+  { icon: "⚡", name: "Build time", label: "Faster after migration", value: 15, suffix: "%" },
+  { icon: "🎓", name: "Certifications", label: "Flutter · Compose Multiplatform", value: 2, suffix: "" }
+];
+
+/* ====================== rendering ====================== */
+const $ = id => document.getElementById(id);
+const P = PROFILE;
+document.title = `${P.name} — ${P.title}`;
+$("initials").textContent = P.initials;
+$("brandName").textContent = P.name;
+$("watermark").textContent = P.firstName.toUpperCase();
+$("heroEyebrow").innerHTML = `<b>${P.name.toUpperCase()}</b>`;
+const tw = P.title.split(" ");
+$("heroTitle").innerHTML = `${tw.slice(0, -1).join(" ")}<br>${tw.slice(-1)}<span>.</span>`;
+$("heroSub").textContent = P.tagline;
+
+// hero avatar: video → poster image → placeholder
+(function(){
+  const box = $("avatar");
+  const placeholder = () => box.innerHTML = `<div class="placeholder"><div><b>${P.initials}</b>Your animated 3D avatar goes here<br><code>assets/hero.mp4</code></div></div>`;
+  const v = document.createElement("video");
+  Object.assign(v, { src: P.heroVideo, autoplay: true, muted: true, loop: true, playsInline: true });
+  v.onerror = () => {
+    const img = new Image(); img.src = P.heroPoster; img.alt = P.name;
+    img.onload = () => { box.innerHTML = ""; box.appendChild(img); };
+    img.onerror = placeholder;
+  };
+  v.onloadeddata = () => { box.innerHTML = ""; box.appendChild(v); };
+  placeholder();
+  v.load();
+})();
+
+// about
+$("aboutHi").innerHTML = `Hi, I'm <span class="serif">${P.firstName}.</span>`;
+$("aboutText").textContent = P.about;
+$("quote").textContent = P.quote;
+$("facts").innerHTML = P.facts.map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join("");
+$("idYear").textContent = new Date().getFullYear();
+$("idName").textContent = P.name;
+$("idRole").textContent = P.title;
+(function(){
+  const img = new Image(); img.src = P.photo;
+  img.onload = () => { $("idPhoto").style.backgroundImage = `url(${P.photo})`; };
+  img.onerror = () => { $("idPhoto").textContent = P.initials; };
+})();
+const L = P.links;
+const linkBtns = [
+  L.email && [`mailto:${L.email}`, "Email"],
+  L.linkedin && [L.linkedin, "LinkedIn ↗"],
+  L.github && [L.github, "GitHub ↗"],
+  L.whatsapp && [`https://wa.me/${L.whatsapp.replace(/\D/g, "")}`, "WhatsApp ↗"]
+].filter(Boolean);
+$("aboutLinks").innerHTML = linkBtns.map(([h, t], i) => `<a class="btn ${i ? "" : "solid"}" href="${h}" target="_blank" rel="noopener">${t}</a>`).join("");
+$("contactBtns").innerHTML = $("aboutLinks").innerHTML;
+$("footer").textContent = `© ${new Date().getFullYear()} ${P.name}`;
+
+// skills periodic table
+let activeCat = -1;
+$("chips").innerHTML = ["All", ...CATEGORIES].map((c, i) => `<button class="chip ${i ? "" : "on"}" data-c="${i - 1}">${c}</button>`).join("");
+$("table").innerHTML = SKILLS.map(([s, n, c], i) =>
+  `<div class="el t${c}" data-i="${i}" data-c="${c}"><small>${String(i + 1).padStart(2, "0")}</small><strong>${s}</strong><em>${n}</em></div>`).join("");
+function showSkill(i){
+  const [s, n, c, lvl, txt] = SKILLS[i];
+  $("detail").innerHTML = `<div class="sym">${s}</div><h3>${n}</h3><p style="color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase">${CATEGORIES[c]}</p><p>${txt}</p><div class="lvl"><i style="width:${lvl}%"></i></div>`;
+}
+showSkill(0);
+$("table").addEventListener("mouseover", e => { const el = e.target.closest(".el"); if (el) showSkill(+el.dataset.i); });
+$("table").addEventListener("click", e => { const el = e.target.closest(".el"); if (el) showSkill(+el.dataset.i); });
+$("chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  activeCat = +b.dataset.c;
+  document.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b));
+  document.querySelectorAll(".el").forEach(el => el.classList.toggle("dim", activeCat >= 0 && +el.dataset.c !== activeCat));
+});
+
+// work accordion
+$("work-row").innerHTML = PROJECTS.map((p, i) => `
+  <article class="proj ${i ? "" : "open"}" data-i="${i}">
+    <div class="spine"><b>${p.name}</b><i>+</i></div>
+    <div class="body">
+      <div>
+        <div class="num">${String(i + 1).padStart(2, "0")} / ${String(PROJECTS.length).padStart(2, "0")}</div>
+        <h3>${p.name}</h3>
+        <p>${p.blurb}</p>
+        <ul>${p.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
+        <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
+        <a class="btn solid" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel} ↗</a>
+      </div>
+      <div class="shot" style="${p.image ? `background-image:url(${p.image})` : ""}">${p.image ? "" : "Add a screenshot<br><code>assets/…png</code>"}</div>
+    </div>
+  </article>`).join("");
+$("work-row").addEventListener("click", e => {
+  const card = e.target.closest(".proj"); if (!card || card.classList.contains("open")) return;
+  document.querySelectorAll(".proj").forEach(c => c.classList.toggle("open", c === card));
+});
+
+// experience
+$("timeline").innerHTML = EXPERIENCE.map(j => `
+  <div class="job rv"><div class="when">${j.when}</div><div><h3>${j.role}</h3><p>${j.text}</p></div><div class="co">${j.company}</div></div>`).join("");
+
+// achievements with count-up
+$("ach").innerHTML = ACHIEVEMENTS.map(a => `
+  <div class="stat rv"><div class="ic">${a.icon}</div>
+  <div class="row"><div><h4>${a.name}</h4><small>${a.label}</small></div><div class="n" data-v="${a.value}" data-s="${a.suffix}">0</div></div></div>`).join("");
+function countUp(el){
+  const end = +el.dataset.v, suf = el.dataset.s, t0 = performance.now();
+  const step = t => { const k = Math.min((t - t0) / 1400, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + suf; if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+
+// reveal on scroll + nav highlight
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add("in");
+  e.target.querySelectorAll(".n").forEach(countUp);
+  io.unobserve(e.target);
+}), { threshold: .15 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+const navIo = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) document.querySelectorAll(".menu a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-45% 0px -50% 0px" });
+document.querySelectorAll("section[id]").forEach(s => navIo.observe(s));
+</script>
+</body>
+</html>
