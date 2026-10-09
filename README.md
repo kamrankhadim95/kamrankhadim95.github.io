@@ -8,7 +8,8 @@ All content lives in the data block at the top of the `<script>` in `index.html`
 
 | File | Used for | If missing |
 |---|---|---|
-| `assets/hero.mp4` | Waving 3D avatar video (Google Flow, audio removed); plays once, holds 5 s, repeats | Falls back to `assets/hero-cartoon.png` |
+| `assets/hero.mp4` | Waving 3D avatar video (Google Flow, full clip, audio removed); repeats every few seconds |
+| `assets/hero-poster.jpg` | First frame of `hero.mp4`, shown while it loads | — | Falls back to `assets/hero-cartoon.png` |
 | `assets/hero-cartoon.png` | 3D cartoon avatar (Gemini, background removed) | Dashed placeholder |
 | `assets/photo.jpg` | Photo on the ID card (GitHub profile photo) | Initials |
 | `assets/projects/*-icon.*` | App icon on each Work card | — |

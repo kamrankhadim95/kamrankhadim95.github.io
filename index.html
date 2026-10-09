@@ -38,13 +38,15 @@ h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spa
 .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 70px;overflow:hidden;background:var(--bg);isolation:isolate}
 .watermark{position:absolute;top:10vh;left:50%;transform:translateX(-50%);font-size:min(30vw,380px);font-weight:800;letter-spacing:-.06em;color:var(--ink);opacity:.045;white-space:nowrap;user-select:none;line-height:1}
 .avatar{position:absolute;left:0;right:0;bottom:0;height:88vh;max-height:860px;display:flex;align-items:flex-end;justify-content:center;pointer-events:none}
-.bubble{position:absolute;top:9%;left:calc(50% + 7vh);background:var(--card);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:10px 16px;font-size:15px;font-weight:600;white-space:nowrap;box-shadow:var(--shadow);transform-origin:bottom left;opacity:0;transform:scale(.6);transition:opacity .35s,transform .35s cubic-bezier(.3,1.6,.5,1);z-index:2}
+.bubble{position:absolute;top:3%;left:calc(50% + 10vh);background:var(--card);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:10px 16px;font-size:15px;font-weight:600;white-space:nowrap;box-shadow:var(--shadow);transform-origin:bottom left;opacity:0;transform:scale(.6);transition:opacity .35s,transform .35s cubic-bezier(.3,1.6,.5,1);z-index:2}
 .bubble.show{opacity:1;transform:scale(1)}
 .bubble::after{content:"";position:absolute;left:-1px;bottom:-9px;border:9px solid transparent;border-top-color:var(--card);border-left-color:var(--card)}
 .bubble .caret{display:inline-block;width:2px;height:1em;background:var(--ink);margin-left:2px;vertical-align:-2px;animation:caret 1s steps(1) infinite}
 @keyframes caret{50%{opacity:0}}
 .avatar img{animation:sway 6s ease-in-out infinite!important}
 @keyframes sway{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-1.2deg) translateY(-3px)}50%{transform:rotate(0) translateY(0)}75%{transform:rotate(1.2deg) translateY(-3px)}}
+.avatar .stage{position:relative;height:100%;display:flex;align-items:flex-end}
+.avatar .stage video+video{position:absolute;left:0;top:0}
 .avatar video{height:100%;width:auto;mix-blend-mode:multiply;object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 6%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 6%);mask-composite:intersect}
 .avatar img{height:94%;width:auto;object-fit:contain;object-position:bottom;position:relative;margin-bottom:3%;animation:breath 5s ease-in-out infinite;transform-origin:bottom center}
 @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.012) translateY(-2px)}}
@@ -163,7 +165,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
   .watermark{top:14vh}
   .hero .wrap>div:first-child{max-width:none}
   .hero h1{font-size:clamp(40px,11vw,60px)}
-  .bubble{left:calc(50% + 34px);top:8%;font-size:13px;padding:8px 12px}
+  .bubble{left:calc(50% + min(5.5vh,50px));top:1%;font-size:13px;padding:8px 12px}
   .work-row{flex-direction:column;height:auto}
   .proj{flex:0 0 64px}
   .proj.open{flex:0 0 auto}
@@ -427,27 +429,53 @@ $("heroTitle").innerHTML = `${tw.slice(0, -1).join(" ")}<br>${tw.slice(-1)}<span
 $("heroSub").textContent = P.tagline;
 
 // hero avatar: video → poster image → placeholder
+// Two stacked copies of the clip take turns: while one holds its last frame the other starts
+// from the beginning and they crossfade, so the loop never jumps or flickers.
+const HOLD_MS = 4000, FADE_MS = 700;
 (function(){
   const box = $("avatar");
   const placeholder = () => box.innerHTML = `<div class="placeholder"><div><b>${P.initials}</b>Your animated 3D avatar goes here<br><code>assets/hero.mp4</code></div></div>`;
-  const v = document.createElement("video");
-  Object.assign(v, { src: P.heroVideo, autoplay: true, muted: true, playsInline: true, poster: P.heroPoster });
-  v.setAttribute("aria-label", P.name);
-  // play once, hold the crossed-arms ending, then play again
-  v.onended = () => setTimeout(() => { v.currentTime = 0; v.play(); }, 5000);
-  v.onerror = () => {
+  const make = () => {
+    const el = document.createElement("video");
+    Object.assign(el, { src: P.heroVideo, muted: true, playsInline: true, preload: "auto", poster: "assets/hero-poster.jpg" });
+    el.setAttribute("aria-label", P.name);
+    el.style.transition = `opacity ${FADE_MS}ms ease`;
+    return el;
+  };
+  const a = make(), b = make();
+  b.style.opacity = 0;
+  a.classList.add("active");
+  const stage = document.createElement("div"); stage.className = "stage";
+  stage.append(a, b);
+  const play = el => el.play().catch(() => {});
+  const onEnd = function(){
+    if (!this.classList.contains("active")) return;
+    const cur = this, next = cur === a ? b : a;
+    box.dispatchEvent(new CustomEvent("avatar:hold"));
+    setTimeout(() => {
+      next.currentTime = 0; play(next);
+      next.classList.add("active"); cur.classList.remove("active");
+      next.style.opacity = 1; cur.style.opacity = 0;
+      setTimeout(() => { cur.pause(); cur.currentTime = 0; }, FADE_MS + 50);
+    }, HOLD_MS);
+  };
+  a.onended = onEnd; b.onended = onEnd;
+  document.addEventListener("visibilitychange", () => {
+    const cur = box.querySelector("video.active");
+    if (!document.hidden && cur && cur.paused && !cur.ended) play(cur);
+  });
+  a.onerror = () => {
     const img = new Image(); img.src = P.heroPoster; img.alt = P.name;
     img.onload = () => { box.innerHTML = ""; box.appendChild(img); };
     img.onerror = placeholder;
   };
-  v.onloadeddata = () => { box.innerHTML = ""; box.appendChild(v); };
+  a.onloadeddata = () => { if (stage.isConnected) return; box.innerHTML = ""; box.appendChild(stage); play(a); };
   placeholder();
-  v.load();
+  a.load(); b.load();
 })();
 
-// speech bubble that "says hello" next to the avatar
+// speech bubble next to the avatar, timed to the wave in the video
 (function(){
-  const lines = ["Hello! 👋", `I'm ${P.firstName}`, "I build mobile apps", "Let's work together"];
   const box = $("avatar");
   const b = document.createElement("div"); b.className = "bubble";
   const t = document.createElement("span"); const c = document.createElement("i"); c.className = "caret";
@@ -455,18 +483,33 @@ $("heroSub").textContent = P.tagline;
   const attach = () => { if (!b.isConnected && box.querySelector("img,video")) box.appendChild(b); };
   new MutationObserver(attach).observe(box, { childList: true });
   const sleep = ms => new Promise(r => setTimeout(r, ms));
-  (async function loop(){
-    await sleep(900);
-    for (;;) {
-      for (const line of lines) {
-        attach(); b.classList.add("show");
-        for (const ch of [...line]) { t.textContent += ch; await sleep(55); }
-        await sleep(1700);
-        while (t.textContent) { t.textContent = [...t.textContent].slice(0, -1).join(""); await sleep(22); }
-        await sleep(250);
-      }
-      b.classList.remove("show"); await sleep(2500);
-    }
+  let current = null, token = 0;
+  async function say(text){
+    if (text === current) return;
+    current = text; const my = ++token;
+    attach();
+    while (t.textContent) { if (my !== token) return; t.textContent = [...t.textContent].slice(0, -1).join(""); await sleep(18); }
+    if (!text) { b.classList.remove("show"); return; }
+    b.classList.add("show");
+    for (const ch of [...text]) { if (my !== token) return; t.textContent += ch; await sleep(50); }
+  }
+  // seconds into hero.mp4: arms uncross by ~2.8s, wave ~4.2-5.6s, arms cross again from ~7s; during the end hold the last line stays 1.5s, then "Let's work together"
+  const script = [[3.4, "Hello! 👋"], [6.0, `I'm ${P.firstName}`], [7.6, "I build mobile apps"]];
+  const lineAt = time => { let line = ""; for (const [at, text] of script) if (time >= at) line = text; return line; };
+  let holdUntil = 0;
+  box.addEventListener("avatar:hold", () => {
+    holdUntil = Date.now() + HOLD_MS;
+    setTimeout(() => say("Let's work together"), 1500);
+  });
+  setInterval(() => {
+    const v = box.querySelector("video.active");
+    if (v && !v.ended && Date.now() > holdUntil) say(lineAt(v.currentTime));
+  }, 100);
+  // still-image fallback (no video): cycle the lines on a timer
+  (async function(){
+    await sleep(1500);
+    if (box.querySelector("video")) return;
+    for (;;) for (const [, text] of [...script, [0, "Let's work together"]]) { say(text); await sleep(2600); }
   })();
 })();
 
