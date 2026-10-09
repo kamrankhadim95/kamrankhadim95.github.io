@@ -8,8 +8,8 @@ All content lives in the data block at the top of the `<script>` in `index.html`
 
 | File | Used for | If missing |
 |---|---|---|
-| `assets/hero.mp4` | AI-generated avatar intro video (optional) | Falls back to `assets/hero-cutout.png` |
-| `assets/hero-cutout.png` | Office photo with the background removed | Dashed placeholder |
+| `assets/hero.mp4` | AI-generated avatar intro video (optional) | Falls back to `assets/hero-cartoon.png` |
+| `assets/hero-cartoon.png` | 3D cartoon avatar (Gemini, background removed) | Dashed placeholder |
 | `assets/photo.jpg` | Photo on the ID card (GitHub profile photo) | Initials |
 | `assets/projects/*-icon.*` | App icon on each Work card | — |
 | `assets/projects/*.{png,jpg,svg}` | Screenshot in each Work card | "Add a screenshot" box |
