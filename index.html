@@ -38,7 +38,9 @@ h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spa
 .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 70px;overflow:hidden}
 .watermark{position:absolute;top:10vh;left:50%;transform:translateX(-50%);font-size:min(30vw,380px);font-weight:800;letter-spacing:-.06em;color:var(--ink);opacity:.045;white-space:nowrap;user-select:none;line-height:1}
 .avatar{position:absolute;left:58%;bottom:0;transform:translateX(-50%);height:88vh;max-height:860px;aspect-ratio:9/16;display:flex;align-items:flex-end;justify-content:center}
-.avatar video,.avatar img{height:100%;width:auto;mix-blend-mode:multiply;object-fit:contain}
+.avatar video{height:100%;width:auto;mix-blend-mode:multiply;object-fit:contain}
+.avatar img{height:100%;width:auto;object-fit:contain;object-position:bottom;-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent);animation:breath 5s ease-in-out infinite;transform-origin:bottom center}
+@keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.012) translateY(-2px)}}
 .avatar .placeholder{height:78%;width:70%;border:2px dashed var(--line);border-radius:200px 200px 24px 24px;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:13px;padding:30px;background:linear-gradient(var(--bg),var(--bg-2))}
 .avatar .placeholder b{display:block;font-size:64px;color:var(--ink);opacity:.15;font-weight:800;margin-bottom:8px}
 .hero .wrap{position:relative;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
@@ -275,7 +277,7 @@ const PROFILE = {
   title: "Senior Mobile Developer",
   tagline: "Kotlin · Jetpack Compose · Flutter · Mobile Architecture — 7+ years",
   heroVideo: "assets/hero.mp4",                    // your AI avatar intro (see README)
-  heroPoster: "assets/avatar.svg",                 // animated cartoon avatar, used when hero.mp4 is absent
+  heroPoster: "assets/hero-cutout.png",             // photo cut-out, used when hero.mp4 is absent
   photo: "assets/photo.jpg",                       // ID-card photo (optional)
   about: "Senior Mobile Developer with 7+ years designing, building and scaling secure, high-performance mobile apps — primarily Android with Kotlin, Jetpack Compose and Clean Architecture, plus cross-platform work in Flutter. I've delivered government-grade and enterprise products including Dubai Police (Esaad Card) and The ENTERTAINER, and I lead modules, review code and mentor developers alongside product, backend and QA teams.",
   quote: "“Secure, fast, and built to scale.”",
