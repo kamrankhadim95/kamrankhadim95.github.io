@@ -8,10 +8,13 @@ All content lives in the data block at the top of the `<script>` in `index.html`
 
 | File | Used for | If missing |
 |---|---|---|
-| `assets/hero.mp4` | Animated 3D avatar in the hero | Falls back to `assets/hero.png` |
-| `assets/hero.png` | Still avatar | Dashed placeholder |
-| `assets/photo.jpg` | Photo on the ID card | Initials |
-| `PROJECTS[].image` | Screenshot in each Work card | "Add a screenshot" box |
+| `assets/hero.mp4` | AI-generated avatar intro video (optional) | Falls back to `assets/avatar.svg` |
+| `assets/avatar.svg` | Hand-drawn animated avatar (wave, present, blink) | Dashed placeholder |
+| `assets/photo.jpg` | Photo on the ID card (GitHub profile photo) | Initials |
+| `assets/projects/*-icon.*` | App icon on each Work card | — |
+| `assets/projects/*.{png,jpg,svg}` | Screenshot in each Work card | "Add a screenshot" box |
+
+ENTERTAINER and Esaad images come from their Google Play listings and Neeo's from the App Store. Takeme and Secure VoIP have no public listing, so their icons and covers are designed SVGs.
 
 The hero video uses `mix-blend-mode: multiply`, so its white background disappears into the cream page. Use a plain white or light background, portrait or 9:16, under ~8 MB.
 

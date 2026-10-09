@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b7a6f"/><stop offset="1" stop-color="#0e2f2b"/></linearGradient></defs>
+<rect width="720" height="1280" fill="url(#g)"/>
+<circle cx="640" cy="180" r="260" fill="#fff" opacity=".07"/><circle cx="60" cy="1180" r="320" fill="#fff" opacity=".06"/>
+<image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyYjdhNmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxMjNmM2EiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIHJ4PSI1NiIgZmlsbD0idXJsKCNnKSIvPgo8cGF0aCBkPSJNMTI4IDQ2bDY2IDI0djUwYzAgNDQtMjggNzYtNjYgOTAtMzgtMTQtNjYtNDYtNjYtOTBWNzB6IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOTUiLz4KPHBhdGggZD0iTTEwNCAxMDRjNCAyMiAyMiA0MCA0NCA0NGwxMC0xMmMyLTIgNS0zIDgtMmwxNCA2YzMgMSA0IDQgNCA3djE0YzAgNC0zIDctNyA3LTQ4LTItODYtNDAtODgtODggMC00IDMtNyA3LTdoMTRjMyAwIDYgMSA3IDRsNiAxNGMxIDMgMCA2LTIgOHoiIGZpbGw9IiMxZjVjNTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYgMikgc2NhbGUoLjgyKSB0cmFuc2xhdGUoMjYgMjQpIi8+PC9zdmc+Cg==" x="260" y="300" width="200" height="200"/>
+<text x="360" y="600" text-anchor="middle" font-family="Inter Tight,Helvetica,Arial,sans-serif" font-size="68" font-weight="700" fill="#fff">Secure VoIP</text>
+<text x="360" y="670" text-anchor="middle" font-family="Inter Tight,Helvetica,Arial,sans-serif" font-size="34" fill="#fff" opacity=".85">End-to-end encrypted</text>
+<text x="360" y="716" text-anchor="middle" font-family="Inter Tight,Helvetica,Arial,sans-serif" font-size="34" fill="#fff" opacity=".85">voice &amp; chat</text>
+<g font-family="Inter Tight,Helvetica,Arial,sans-serif" font-size="28" fill="#fff" text-anchor="middle">
+<rect x="70" y="820" width="180" height="60" rx="30" fill="#fff" opacity=".18"/><text x="160" y="860">AES</text>
+<rect x="270" y="820" width="180" height="60" rx="30" fill="#fff" opacity=".18"/><text x="360" y="860">SRTP</text>
+<rect x="470" y="820" width="180" height="60" rx="30" fill="#fff" opacity=".18"/><text x="560" y="860">E2EE</text></g>
+</svg>

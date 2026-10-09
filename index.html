@@ -37,7 +37,7 @@ h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spa
 /* hero */
 .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 70px;overflow:hidden}
 .watermark{position:absolute;top:10vh;left:50%;transform:translateX(-50%);font-size:min(30vw,380px);font-weight:800;letter-spacing:-.06em;color:var(--ink);opacity:.045;white-space:nowrap;user-select:none;line-height:1}
-.avatar{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:88vh;max-height:860px;aspect-ratio:9/16;display:flex;align-items:flex-end;justify-content:center}
+.avatar{position:absolute;left:58%;bottom:0;transform:translateX(-50%);height:88vh;max-height:860px;aspect-ratio:9/16;display:flex;align-items:flex-end;justify-content:center}
 .avatar video,.avatar img{height:100%;width:auto;mix-blend-mode:multiply;object-fit:contain}
 .avatar .placeholder{height:78%;width:70%;border:2px dashed var(--line);border-radius:200px 200px 24px 24px;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:13px;padding:30px;background:linear-gradient(var(--bg),var(--bg-2))}
 .avatar .placeholder b{display:block;font-size:64px;color:var(--ink);opacity:.15;font-weight:800;margin-bottom:8px}
@@ -96,8 +96,8 @@ h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spa
 .work-row{display:flex;gap:12px;margin-top:40px;height:440px}
 .proj{flex:0 0 84px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:flex .6s cubic-bezier(.7,0,.2,1);position:relative}
 .proj.open{flex:1 1 auto;cursor:default}
-.proj .spine{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 0;transition:opacity .3s}
-.proj .spine b{writing-mode:vertical-rl;transform:rotate(180deg);font-size:17px;letter-spacing:-.01em}
+.proj .spine{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:14px;padding:22px 0;transition:opacity .3s}
+.proj .spine b{writing-mode:vertical-rl;transform:rotate(180deg);font-size:17px;letter-spacing:-.01em;flex:1;text-align:center}
 .proj .spine i{font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:13px}
 .proj.open .spine{opacity:0;pointer-events:none}
 .proj .body{position:absolute;inset:0;padding:40px;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;opacity:0;transition:opacity .3s;min-width:640px}
@@ -109,7 +109,10 @@ h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spa
 .proj li::before{content:"• ";color:var(--muted)}
 .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
 .tags span{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
-.shot{border-radius:14px;background:var(--bg-2) center/cover;display:grid;place-items:center;color:var(--muted);font-size:13px;border:1px solid var(--line);text-align:center;padding:16px}
+.shot{border-radius:14px;background:var(--bg-2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;border:1px solid var(--line);text-align:center;padding:16px;overflow:hidden;min-height:0}
+.shot img{height:100%;max-height:360px;width:auto;max-width:100%;object-fit:contain;border-radius:18px;box-shadow:var(--shadow)}
+.proj .ico{width:34px;height:34px;border-radius:9px;flex:none}
+.proj h3 .ico{width:44px;height:44px;border-radius:12px;vertical-align:middle;margin-right:12px;position:relative;top:-3px}
 
 /* experience */
 .timeline{margin-top:40px;border-top:1px solid var(--line)}
@@ -145,15 +148,18 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
   .detail{position:static}
   .hero .wrap{flex-direction:column;align-items:flex-start}
   .ctas{align-items:flex-start;flex-direction:row}
-  .avatar{height:62vh;bottom:200px;opacity:.95}
+  .hero{flex-direction:column;justify-content:flex-start;min-height:auto;padding-top:84px}
+  .avatar{position:relative;left:auto;bottom:auto;transform:none;height:min(42vh,380px);align-self:center;margin-bottom:12px}
+  .watermark{top:14vh}
   .work-row{flex-direction:column;height:auto}
   .proj{flex:0 0 64px}
   .proj.open{flex:0 0 auto}
   .proj .spine{flex-direction:row;padding:0 22px}
-  .proj .spine b{writing-mode:horizontal-tb;transform:none}
+  .proj .spine b{writing-mode:horizontal-tb;transform:none;text-align:left}
   .proj .body{position:relative;min-width:0;grid-template-columns:1fr;padding:26px;display:none}
   .proj.open .body{display:grid}
   .proj .shot{min-height:180px}
+  .shot img{max-height:420px}
   .job{grid-template-columns:1fr}
   section{padding:80px 0}
 }
@@ -269,7 +275,7 @@ const PROFILE = {
   title: "Senior Mobile Developer",
   tagline: "Kotlin · Jetpack Compose · Flutter · Mobile Architecture — 7+ years",
   heroVideo: "assets/hero.mp4",                    // your AI avatar intro (see README)
-  heroPoster: "assets/hero.png",                   // optional still image of the avatar
+  heroPoster: "assets/avatar.svg",                 // animated cartoon avatar, used when hero.mp4 is absent
   photo: "assets/photo.jpg",                       // ID-card photo (optional)
   about: "Senior Mobile Developer with 7+ years designing, building and scaling secure, high-performance mobile apps — primarily Android with Kotlin, Jetpack Compose and Clean Architecture, plus cross-platform work in Flutter. I've delivered government-grade and enterprise products including Dubai Police (Esaad Card) and The ENTERTAINER, and I lead modules, review code and mentor developers alongside product, backend and QA teams.",
   quote: "“Secure, fast, and built to scale.”",
@@ -333,43 +339,48 @@ const PROJECTS = [
     tags: ["Kotlin","Jetpack Compose","Flutter","MVVM","Coroutines"],
     link: "https://play.google.com/store/apps/details?id=com.theentertainerme.entertainer",
     linkLabel: "View on Play Store",
-    image: ""                                      // e.g. "assets/entertainer.png"
+    icon: "assets/projects/entertainer-icon.png",
+    image: "assets/projects/entertainer.png"
   },
   {
     name: "Esaad Card — Dubai Police",
     blurb: "Secure government application, built from scratch with Clean Architecture and Jetpack Compose. Live on Google Play.",
     bullets: ["Built from scratch", "Mutual SSL authentication", "Client-side certificates", "Government-grade security"],
     tags: ["Kotlin","Jetpack Compose","Clean Architecture","mTLS"],
-    link: "#",                                     // TODO: Play Store link
+    link: "https://play.google.com/store/apps/details?id=dubaipolice.esaad.ae.esaad_dubaipolice",
     linkLabel: "View on Play Store",
-    image: ""
+    icon: "assets/projects/esaad-icon.png",
+    image: "assets/projects/esaad.jpg"
   },
   {
     name: "NEEO IM & Chat Translator",
     blurb: "Messaging app with rewards and loyalty — maintained, modernised and extended with an AI-powered chat feature.",
     bullets: ["AI chat using NLP frameworks", "Java → Kotlin improvements", "Redesigned channel & discussion UI", "OAuth2 secured APIs"],
     tags: ["Android","Kotlin","Retrofit","OAuth2"],
-    link: "#",                                     // TODO
-    linkLabel: "View project",
-    image: ""
+    link: "https://apps.apple.com/app/id629518300",
+    linkLabel: "View on App Store",
+    icon: "assets/projects/neeo-icon.png",
+    image: "assets/projects/neeo.png"
   },
   {
     name: "Takeme — Ride Hailing",
     blurb: "Real-time ride-tracking platform with live GPS, route visualisation and push-driven engagement.",
     bullets: ["Real-time GPS & custom markers", "Route visualisation", "Push + deep linking", "Retrofit + Kotlin Flow network layer"],
     tags: ["Kotlin","Flow","Firebase","Maps"],
-    link: "#",                                     // TODO
-    linkLabel: "View project",
-    image: ""
+    link: "",                                      // no public listing
+    linkLabel: "",
+    icon: "assets/projects/takeme-icon.svg",
+    image: "assets/projects/takeme.svg"
   },
   {
     name: "Secure VoIP & Chat",
     blurb: "End-to-end encrypted VoIP and chat app built at Bahria Enterprise Systems & Technologies.",
     bullets: ["End-to-end encryption", "Security compliance up 30%", "Single-activity MVVM migration", "Fewer memory leaks"],
     tags: ["Android","AES","SRTP","MVVM"],
-    link: "#",
-    linkLabel: "Details",
-    image: ""
+    link: "",
+    linkLabel: "",
+    icon: "assets/projects/voip-icon.svg",
+    image: "assets/projects/voip.svg"
   }
 ];
 
@@ -464,17 +475,17 @@ $("chips").addEventListener("click", e => {
 // work accordion
 $("work-row").innerHTML = PROJECTS.map((p, i) => `
   <article class="proj ${i ? "" : "open"}" data-i="${i}">
-    <div class="spine"><b>${p.name}</b><i>+</i></div>
+    <div class="spine"><img class="ico" src="${p.icon}" alt=""><b>${p.name}</b><i>+</i></div>
     <div class="body">
       <div>
         <div class="num">${String(i + 1).padStart(2, "0")} / ${String(PROJECTS.length).padStart(2, "0")}</div>
-        <h3>${p.name}</h3>
+        <h3><img class="ico" src="${p.icon}" alt="">${p.name}</h3>
         <p>${p.blurb}</p>
         <ul>${p.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
         <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
-        <a class="btn solid" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel} ↗</a>
+        ${p.link ? `<a class="btn solid" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel} ↗</a>` : ""}
       </div>
-      <div class="shot" style="${p.image ? `background-image:url(${p.image})` : ""}">${p.image ? "" : "Add a screenshot<br><code>assets/…png</code>"}</div>
+      <div class="shot">${p.image ? `<img src="${p.image}" alt="${p.name} screenshot" loading="lazy">` : "Add a screenshot"}</div>
     </div>
   </article>`).join("");
 $("work-row").addEventListener("click", e => {

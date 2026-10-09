@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb72b"/><stop offset="1" stop-color="#ff6a13"/></linearGradient></defs>
+<rect width="720" height="1280" fill="url(#g)"/>
+<circle cx="640" cy="180" r="260" fill="#fff" opacity=".07"/><circle cx="60" cy="1180" r="320" fill="#fff" opacity=".06"/>
+<image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmI3MmIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZjdhMWEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIHJ4PSI1NiIgZmlsbD0idXJsKCNnKSIvPgo8cGF0aCBkPSJNMTI4IDUyYy0zMyAwLTYwIDI2LTYwIDU5IDAgNDQgNjAgOTUgNjAgOTVzNjAtNTEgNjAtOTVjMC0zMy0yNy01OS02MC01OXoiIGZpbGw9IiNmZmYiLz4KPGNpcmNsZSBjeD0iMTI4IiBjeT0iMTExIiByPSIyNiIgZmlsbD0iI2ZmOGMxZiIvPjxwYXRoIGQ9Ik0xMTYgMTExbDkgOSAxNi0xOCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPgo=" x="260" y="300" width="200" height="200"/>
+<text x="360" y="600" text-anchor="middle" font-family="Inter Tight,Helvetica,Arial,sans-serif" font-size="68" font-weight="700" fill="#fff">Takeme</text>
+<text x="360" y="670" text-anchor="middle" font-family="Inter Tight,Helvetica,Arial,sans-serif" font-size="34" fill="#fff" opacity=".85">Real-time ride tracking</text>
+<text x="360" y="716" text-anchor="middle" font-family="Inter Tight,Helvetica,Arial,sans-serif" font-size="34" fill="#fff" opacity=".85">for riders and drivers</text>
+<g font-family="Inter Tight,Helvetica,Arial,sans-serif" font-size="28" fill="#fff" text-anchor="middle">
+<rect x="70" y="820" width="180" height="60" rx="30" fill="#fff" opacity=".18"/><text x="160" y="860">Live GPS</text>
+<rect x="270" y="820" width="180" height="60" rx="30" fill="#fff" opacity=".18"/><text x="360" y="860">Routes</text>
+<rect x="470" y="820" width="180" height="60" rx="30" fill="#fff" opacity=".18"/><text x="560" y="860">Kotlin Flow</text></g>
+</svg>

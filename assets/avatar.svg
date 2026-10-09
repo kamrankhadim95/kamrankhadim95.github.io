@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" width="360" height="640">
+<defs>
+  <radialGradient id="skin" cx="45%" cy="35%" r="70%"><stop offset="0" stop-color="#f2c6a0"/><stop offset=".7" stop-color="#dca37c"/><stop offset="1" stop-color="#c48a63"/></radialGradient>
+  <linearGradient id="skinL" x1="0" x2="1"><stop offset="0" stop-color="#e4b08a"/><stop offset="1" stop-color="#c48a63"/></linearGradient>
+  <linearGradient id="shirt" x1="0" x2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#f3f4f8"/><stop offset="1" stop-color="#d9dce6"/></linearGradient>
+  <linearGradient id="sleeve" x1="0" x2="1"><stop offset="0" stop-color="#fbfbfd"/><stop offset="1" stop-color="#d6d9e3"/></linearGradient>
+  <linearGradient id="pants" x1="0" x2="1"><stop offset="0" stop-color="#3a4066"/><stop offset=".5" stop-color="#2a2f52"/><stop offset="1" stop-color="#1b1f3b"/></linearGradient>
+  <radialGradient id="hair" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#3b2a20"/><stop offset="1" stop-color="#140d09"/></radialGradient>
+  <radialGradient id="beard" cx="50%" cy="20%" r="90%"><stop offset="0" stop-color="#3a2a20"/><stop offset="1" stop-color="#1a110c"/></radialGradient>
+  <radialGradient id="shadow"><stop offset="0" stop-color="#1d2140" stop-opacity=".28"/><stop offset="1" stop-color="#1d2140" stop-opacity="0"/></radialGradient>
+  <linearGradient id="shoe" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe1e8"/></linearGradient>
+</defs>
+<style>
+  .body{animation:breathe 4s ease-in-out infinite;transform-box:view-box;transform-origin:180px 600px}
+  .head{animation:tilt 8s ease-in-out infinite;transform-box:view-box;transform-origin:180px 200px}
+  .waveArm{animation:raise 8s cubic-bezier(.6,0,.3,1) infinite;transform-box:view-box;transform-origin:236px 228px}
+  .waveFore{animation:wave 8s ease-in-out infinite;transform-box:view-box;transform-origin:236px 300px}
+  .presentArm{animation:present 8s cubic-bezier(.6,0,.3,1) infinite;transform-box:view-box;transform-origin:124px 228px}
+  .presentFore{animation:presentF 8s cubic-bezier(.6,0,.3,1) infinite;transform-box:view-box;transform-origin:124px 300px}
+  .eye{animation:blink 4.5s infinite;transform-box:fill-box;transform-origin:center}
+  .shadowE{animation:shadowP 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes breathe{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-2px) scaleY(1.004)}}
+  @keyframes shadowP{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.97)}}
+  @keyframes tilt{0%,100%{transform:rotate(0)}12%,38%{transform:rotate(-4deg)}60%,85%{transform:rotate(3deg)}}
+  @keyframes raise{0%,4%{transform:rotate(-5deg)}14%,40%{transform:rotate(-158deg)}50%,100%{transform:rotate(-5deg)}}
+  @keyframes wave{0%,14%{transform:rotate(0)}18%{transform:rotate(-24deg)}22%{transform:rotate(18deg)}26%{transform:rotate(-24deg)}30%{transform:rotate(18deg)}34%{transform:rotate(-20deg)}38%,100%{transform:rotate(0)}}
+  @keyframes present{0%,50%{transform:rotate(-6deg)}60%,86%{transform:rotate(38deg)}96%,100%{transform:rotate(-6deg)}}
+  @keyframes presentF{0%,50%{transform:rotate(0)}60%,86%{transform:rotate(-58deg)}96%,100%{transform:rotate(0)}}
+  @keyframes blink{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.1)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+<ellipse class="shadowE" cx="180" cy="606" rx="96" ry="14" fill="url(#shadow)"/>
+
+<g class="body">
+  <!-- legs -->
+  <path d="M142 372 h38 l-2 214 a8 8 0 0 1 -8 8 h-20 a8 8 0 0 1 -8 -8 z" fill="url(#pants)"/>
+  <path d="M180 372 h38 l0 214 a8 8 0 0 1 -8 8 h-20 a8 8 0 0 1 -8 -8 z" fill="url(#pants)"/>
+  <path d="M180 380 v190" stroke="#14172e" stroke-width="2" opacity=".5"/>
+  <!-- shoes -->
+  <path d="M136 586 h44 v10 a10 10 0 0 1 -10 10 h-40 a12 12 0 0 1 -12 -12 a10 10 0 0 1 10 -8 z" fill="url(#shoe)"/>
+  <path d="M120 600 h60" stroke="#c4c7d2" stroke-width="5" stroke-linecap="round"/>
+  <path d="M182 586 h44 a10 10 0 0 1 10 8 a12 12 0 0 1 -12 12 h-40 a10 10 0 0 1 -10 -10 z" fill="url(#shoe)"/>
+  <path d="M182 600 h58" stroke="#c4c7d2" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- presenting arm (character's right, viewer's left) -->
+  <g class="presentArm">
+    <path d="M110 226 q14 -10 28 0 l-2 80 h-24 z" fill="url(#sleeve)"/>
+    <g class="presentFore">
+      <rect x="111" y="294" width="26" height="14" rx="6" fill="#e6e8ef"/>
+      <path d="M113 306 h22 l-2 52 h-18 z" fill="url(#skinL)"/>
+      <ellipse cx="124" cy="366" rx="13" ry="15" fill="url(#skin)"/>
+      <path d="M113 366 q-4 8 2 14" stroke="#c48a63" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </g>
+  </g>
+
+  <!-- torso -->
+  <path d="M126 222 q54 -22 108 0 q10 6 8 22 l-14 132 h-96 l-14 -132 q-2 -16 8 -22z" fill="url(#shirt)"/>
+  <path d="M138 376 h84 v10 h-84 z" fill="#1d2140"/>
+  <rect x="174" y="377" width="12" height="8" rx="2" fill="#b9b3a6"/>
+  <path d="M180 218 v156" stroke="#d3d6e0" stroke-width="2"/>
+  <g fill="#c9ccd8"><circle cx="184" cy="250" r="2.2"/><circle cx="184" cy="285" r="2.2"/><circle cx="184" cy="320" r="2.2"/><circle cx="184" cy="352" r="2.2"/></g>
+  <path d="M150 300 q30 8 60 0" stroke="#e1e3ea" stroke-width="3" fill="none"/>
+
+  <!-- waving arm (character's left, viewer's right) -->
+  <g class="waveArm">
+    <path d="M222 226 q14 -10 28 0 l-2 80 h-24 z" fill="url(#sleeve)"/>
+    <g class="waveFore">
+      <rect x="223" y="294" width="26" height="14" rx="6" fill="#e6e8ef"/>
+      <path d="M225 306 h22 l-2 52 h-18 z" fill="url(#skinL)"/>
+      <ellipse cx="236" cy="368" rx="14" ry="17" fill="url(#skin)"/>
+      <g stroke="#d49b74" stroke-width="5.5" stroke-linecap="round">
+        <path d="M229 378 v10"/><path d="M235 380 v12"/><path d="M241 379 v10"/><path d="M247 374 v8"/>
+      </g>
+      <path d="M223 360 q-8 4 -8 12" stroke="#d49b74" stroke-width="6" stroke-linecap="round" fill="none"/>
+    </g>
+  </g>
+
+  <!-- neck + collar -->
+  <path d="M166 186 h28 v34 q-14 10 -28 0 z" fill="#c9926b"/>
+  <path d="M158 214 l22 22 l-10 14 l-20 -26 z" fill="#ffffff" stroke="#d6d9e2" stroke-width="1.5"/>
+  <path d="M202 214 l-22 22 l10 14 l20 -26 z" fill="#ffffff" stroke="#d6d9e2" stroke-width="1.5"/>
+
+  <!-- head -->
+  <g class="head">
+    <ellipse cx="128" cy="134" rx="10" ry="14" fill="#d49b74"/>
+    <ellipse cx="232" cy="134" rx="10" ry="14" fill="#d49b74"/>
+    <ellipse cx="180" cy="128" rx="52" ry="60" fill="url(#skin)"/>
+    <!-- beard -->
+    <path d="M128 128 q2 48 26 64 q26 14 52 0 q24 -16 26 -64 q-8 22 -20 26 q-6 -10 -30 -10 q-24 0 -30 10 q-14 -4 -24 -26z" fill="url(#beard)"/>
+    <!-- mouth -->
+    <path d="M164 160 q16 14 32 0 q-2 -4 -16 -4 q-14 0 -16 4z" fill="#7a2e2a"/>
+    <path d="M166 160 q14 5 28 0 v2 q-14 4 -28 0z" fill="#fff"/>
+    <!-- mustache -->
+    <path d="M154 154 q12 -10 26 -4 q14 -6 26 4 q-12 2 -26 -2 q-14 4 -26 2z" fill="#1d130d"/>
+    <!-- nose -->
+    <path d="M178 120 q-6 20 -2 24 q6 3 12 0" stroke="#b87c56" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- cheeks -->
+    <ellipse cx="150" cy="140" rx="9" ry="5" fill="#e88f7a" opacity=".25"/>
+    <ellipse cx="210" cy="140" rx="9" ry="5" fill="#e88f7a" opacity=".25"/>
+    <!-- eyes -->
+    <g class="eye"><ellipse cx="160" cy="118" rx="8" ry="9" fill="#fff"/><circle cx="161" cy="119" r="5.5" fill="#2b1c14"/><circle cx="163" cy="116.5" r="1.8" fill="#fff"/></g>
+    <g class="eye"><ellipse cx="200" cy="118" rx="8" ry="9" fill="#fff"/><circle cx="201" cy="119" r="5.5" fill="#2b1c14"/><circle cx="203" cy="116.5" r="1.8" fill="#fff"/></g>
+    <!-- brows -->
+    <path d="M148 102 q12 -8 24 -2" stroke="#1d130d" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M188 100 q12 -6 24 2" stroke="#1d130d" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <!-- hair -->
+    <path d="M126 122 q-8 -52 30 -70 q30 -14 58 -2 q34 14 32 68 q-6 -18 -12 -26 q-8 8 -28 2 q-20 -6 -36 -2 q-22 6 -34 -2 q-6 12 -10 32z" fill="url(#hair)"/>
+    <path d="M156 60 q22 -8 46 0" stroke="#4a362a" stroke-width="3" fill="none" opacity=".6" stroke-linecap="round"/>
+  </g>
+</g>
+</svg>
