@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kamran Khadim — Senior Mobile Developer</title>
-<meta name="description" content="Kamran Khadim — Senior Mobile Developer in Dubai. Kotlin, Jetpack Compose, Flutter, mobile architecture.">
+<meta name="description" content="Kamran Khadim — Senior Mobile Developer in Dubai. Kotlin, Jetpack Compose, Flutter, mobile architecture and AI-assisted development with Claude Code and MCP.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -33,6 +33,8 @@ h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spa
 .menu{display:flex;gap:2px;padding:5px}
 .menu a{font-size:13px;padding:7px 14px;border-radius:999px;color:var(--ink-2);transition:.2s}
 .menu a.active,.menu a:hover{background:var(--ink);color:var(--bg)}
+.cvpill{pointer-events:auto;background:var(--ink);color:var(--bg);border-radius:999px;padding:10px 18px;font-size:13px;font-weight:600;box-shadow:var(--shadow);transition:.2s}
+.cvpill:hover{transform:translateY(-2px)}
 
 /* hero */
 .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 70px;overflow:hidden;background:var(--bg);isolation:isolate}
@@ -145,11 +147,40 @@ h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spa
 .stat small{display:block;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .stat .n{font-size:48px;font-weight:700;letter-spacing:-.04em;line-height:1}
 
+/* ai */
+.lead{max-width:720px;color:var(--ink-2);font-size:17px;margin-top:22px}
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:36px 0 28px}
+.flow .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 16px;line-height:1.25}
+.flow .step b{display:block;font-size:14px}
+.flow .step small{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.flow .step.core{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.flow .step.core small{color:#b9b6c9}
+.flow .arr{color:var(--muted);font-size:18px}
+.ai-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:16px;align-items:stretch}
+.ai-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ai-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.3s}
+.ai-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.ai-card small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ai-card h3{font-size:19px;letter-spacing:-.01em;margin:8px 0 6px}
+.ai-card p{font-size:13.5px;color:var(--ink-2)}
+.term{background:var(--tile-dark);color:#e9e5f5;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;min-height:360px}
+.term .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:rgba(255,255,255,.06);font-size:12px;color:#a9a6bd}
+.term .bar i{width:11px;height:11px;border-radius:50%;background:#ff5f57}
+.term .bar i:nth-child(2){background:#febc2e}.term .bar i:nth-child(3){background:#28c840}
+.term .bar span{margin-left:8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.term pre{flex:1;margin:0;padding:18px 20px;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word}
+.term .p{color:#8f8ca6}.term .u{color:#fff;font-weight:600}.term .t{color:#d4a373}.term .ok{color:#7ee2a8}
+.term .cur{display:inline-block;width:8px;height:15px;background:#e9e5f5;vertical-align:-3px;animation:caret 1s steps(1) infinite}
+.term .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#c9c6da}
+.term .foot a{color:#fff;font-weight:600;white-space:nowrap}
+.term .foot button{background:none;border:1px solid rgba(255,255,255,.25);color:#e9e5f5;border-radius:999px;padding:5px 12px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;flex:none}
+
 /* contact */
 .contact{text-align:center;padding-bottom:60px}
 .contact h2{font-size:clamp(48px,9vw,120px);line-height:.95;letter-spacing:-.045em;font-weight:700}
 .contact .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:36px}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
+footer a{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
@@ -160,7 +191,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
   .about-grid,.skills-grid{grid-template-columns:1fr}
   .detail{position:static}
   .hero .wrap{flex-direction:column;align-items:flex-start}
-  .ctas{align-items:flex-start;flex-direction:row}
+  .ctas{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .ai-grid,.ai-cards{grid-template-columns:1fr}
+  .flow .step{padding:8px 12px}
+  .term{min-height:0}
+  .term pre{font-size:12px;min-height:260px}
   .hero{flex-direction:column;justify-content:flex-start;min-height:auto;padding-top:84px}
   .avatar{position:relative;left:auto;right:auto;bottom:auto;width:100%;height:min(46vh,420px);align-self:center;margin-bottom:12px}
   .watermark{top:14vh}
@@ -187,9 +222,10 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
 <header class="nav">
   <a href="#top" class="brand"><i id="initials">KK</i><span id="brandName"></span></a>
   <nav class="menu" id="menu">
-    <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a>
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#ai">AI</a><a href="#work">Work</a>
     <a href="#experience">Experience</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
   </nav>
+  <a class="cvpill" data-cv href="assets/Kamran_Khadim_CV.pdf">CV ↓</a>
 </header>
 
 <section class="hero" id="top">
@@ -203,6 +239,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
     </div>
     <div class="ctas">
       <a href="#work" class="btn solid">Explore work →</a>
+      <a href="assets/Kamran_Khadim_CV.pdf" class="btn" data-cv>Download CV ↓</a>
       <a href="#contact" class="btn">Let's talk</a>
     </div>
   </div>
@@ -245,9 +282,26 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
   </div>
 </section>
 
+<section id="ai">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>03</b> AI</div>
+    <h2 class="title rv">Shipping with <span class="serif">AI agents.</span></h2>
+    <p class="lead rv" id="aiLead"></p>
+    <div class="flow rv" id="aiFlow"></div>
+    <div class="ai-grid">
+      <div class="ai-cards rv" id="aiCards"></div>
+      <div class="term rv" id="term">
+        <div class="bar"><i></i><i></i><i></i><span id="termTitle"></span></div>
+        <pre id="termOut" aria-live="off"></pre>
+        <div class="foot"><span id="termNote"></span><button type="button" id="termReplay">↻ Replay</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap">
-    <div class="eyebrow rv"><b>03</b> Work</div>
+    <div class="eyebrow rv"><b>04</b> Work</div>
     <h2 class="title rv">Things I've <span class="serif">shipped.</span></h2>
     <div class="work-row rv" id="work-row"></div>
   </div>
@@ -255,7 +309,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
 
 <section id="experience">
   <div class="wrap">
-    <div class="eyebrow rv"><b>04</b> Experience</div>
+    <div class="eyebrow rv"><b>05</b> Experience</div>
     <h2 class="title rv">Where I've <span class="serif">been.</span></h2>
     <div class="timeline" id="timeline"></div>
   </div>
@@ -263,7 +317,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
 
 <section id="achievements">
   <div class="wrap">
-    <div class="eyebrow rv"><b>05</b> Achievements</div>
+    <div class="eyebrow rv"><b>06</b> Achievements</div>
     <h2 class="title rv">Proud <span class="serif">moments.</span></h2>
     <div class="ach" id="ach"></div>
   </div>
@@ -271,7 +325,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
 
 <section class="contact" id="contact">
   <div class="wrap rv">
-    <div class="eyebrow" style="justify-content:center"><b>06</b> Contact</div>
+    <div class="eyebrow" style="justify-content:center"><b>07</b> Contact</div>
     <h2>Let's build <span class="serif">something.</span></h2>
     <div class="btns" id="contactBtns"></div>
   </div>
@@ -289,17 +343,20 @@ const PROFILE = {
   firstName: "Kamran",
   initials: "KK",
   title: "Senior Mobile Developer",
-  tagline: "Kotlin · Jetpack Compose · Flutter · Mobile Architecture — 7+ years",
+  tagline: "Kotlin · Jetpack Compose · Flutter · AI-assisted engineering — 7+ years",
+  cv: "assets/Kamran_Khadim_CV.pdf",               // built from cv.html; every "Download CV" button serves it
+  cvName: "Kamran_Khadim_Senior_Mobile_Developer_CV.pdf",
   heroVideo: "assets/hero.mp4",                    // waving 3D avatar (Google Flow, audio removed)
   heroPoster: "assets/hero-cartoon.png",            // 3D cartoon avatar, used when hero.mp4 is absent
   photo: "assets/photo.jpg",                       // ID-card photo (optional)
-  about: "Senior Mobile Developer with 7+ years designing, building and scaling secure, high-performance mobile apps — primarily Android with Kotlin, Jetpack Compose and Clean Architecture, plus cross-platform work in Flutter. I've delivered government-grade and enterprise products including Dubai Police (Esaad Card) and The ENTERTAINER, and I lead modules, review code and mentor developers alongside product, backend and QA teams.",
+  about: "Senior Mobile Developer with 7+ years designing, building and scaling secure, high-performance mobile apps — primarily Android with Kotlin, Jetpack Compose and Clean Architecture, plus cross-platform work in Flutter. I've delivered government-grade and enterprise products including Dubai Police (Esaad Card) and The ENTERTAINER, and I lead modules, review code and mentor developers alongside product, backend and QA teams. Day to day I build with AI: Claude Code is my engineering agent, connected to Figma, Jira and Confluence over MCP and guided by skills I wrote for my team.",
   quote: "“Secure, fast, and built to scale.”",
   facts: [
     ["Role", "Senior Mobile Developer"],
     ["Company", "The ENTERTAINER"],
     ["Based in", "Dubai, UAE"],
     ["Experience", "7+ years"],
+    ["AI stack", "Claude Code · MCP"],
     ["Education", "M.S. Computer Science"]
   ],
   links: {
@@ -312,8 +369,8 @@ const PROFILE = {
   }
 };
 
-// category: 0 Languages, 1 Android, 2 Flutter, 3 Architecture, 4 Network & Security, 5 Data, 6 Tools & CI/CD, 7 AI
-const CATEGORIES = ["Languages", "Android", "Flutter", "Architecture", "Network & Security", "Data", "Tools & CI/CD", "AI"];
+// category: 0 Languages, 1 Android, 2 Cross-platform, 3 Architecture, 4 Network & Security, 5 Data, 6 Tools & CI/CD, 7 AI
+const CATEGORIES = ["Languages", "Android", "Cross-platform", "Architecture", "Network & Security", "Data", "Tools & CI/CD", "AI"];
 const SKILLS = [
   ["Kt","Kotlin",0,95,"Primary language for native Android."],
   ["Jv","Java",0,85,"Legacy codebases and interop."],
@@ -327,6 +384,7 @@ const SKILLS = [
   ["Fl","Flutter",2,82,"Cross-platform apps (Android & iOS)."],
   ["Bl","BLoC",2,80,"Predictable state management."],
   ["Rp","Riverpod / Provider",2,75,"Flutter state & DI."],
+  ["Km","Compose Multiplatform",2,65,"Shared Kotlin UI for Android & iOS (certified 2025)."],
   ["Mv","MVVM / MVI",3,92,"ViewModel-driven, unidirectional screens."],
   ["Ca","Clean Architecture",3,90,"Layered, testable, modular codebases."],
   ["Sa","Single Activity",3,85,"Migrated legacy apps to single-activity MVVM."],
@@ -344,17 +402,21 @@ const SKILLS = [
   ["Fa","Fastlane",6,80,"Automated build & deploy."],
   ["Ga","GitHub Actions",6,78,"CI/CD for Android & Flutter."],
   ["Az","Azure DevOps",6,75,"Pipelines for mobile builds."],
-  ["Ju","JUnit / Espresso",6,78,"Unit and UI testing."],
-  ["Ag","AI Agents",7,82,"Configured AI agents for engagement & personalisation."],
-  ["Mc","MCP Servers",7,80,"Model Context Protocol integrations."]
+  ["Ju","JUnit · MockK · Espresso",6,80,"Unit and UI testing."],
+  ["Cc","Claude Code",7,92,"My engineering agent: plans, implements, tests and documents features with me."],
+  ["Mc","MCP",7,88,"Model Context Protocol connectors — Figma, Jira, Confluence."],
+  ["Sk","Agent Skills",7,88,"Wrote 9 custom Claude Code skills for the ENTERTAINER Android team."],
+  ["Fm","Figma MCP",7,86,"Design-to-code with value-by-value fidelity audits."],
+  ["Pe","Prompt & Context",7,85,"Prompt and context engineering for reliable agent output."],
+  ["Ag","AI Agents",7,82,"Configured AI agents for engagement & personalisation."]
 ];
 
 const PROJECTS = [
   {
     name: "The ENTERTAINER",
     blurb: "High-traffic lifestyle rewards app across the GCC — Android & iOS. Leading UI modernisation from legacy architecture to Kotlin, Jetpack Compose and Flutter.",
-    bullets: ["Led Compose & Flutter UI migration", "Build times cut by 15%", "AI agents + MCP for personalisation", "CI/CD with Fastlane & Actions"],
-    tags: ["Kotlin","Jetpack Compose","Flutter","MVVM","Coroutines"],
+    bullets: ["Led Compose & Flutter UI migration", "Build times cut by 15%", "Claude Code + MCP workflow", "CI/CD with Fastlane & Actions"],
+    tags: ["Kotlin","Jetpack Compose","Flutter","MVVM","Claude Code"],
     link: "https://play.google.com/store/apps/details?id=com.theentertainerme.entertainer",
     linkLabel: "View on Play Store",
     icon: "assets/projects/entertainer-icon.png",
@@ -413,7 +475,7 @@ const PROJECTS = [
 ];
 
 const EXPERIENCE = [
-  { when: "Jul 2023 — Present", role: "Senior Mobile Developer", company: "The ENTERTAINER · Dubai", text: "Lead Android (Kotlin, Compose) and Flutter development. Migrated a large codebase to the latest SDKs and Compose (−15% build time), built 50%+ of UI screens in Compose/Flutter, configured AI agents with MCP, and mentored developers (−20% production bugs)." },
+  { when: "Jul 2023 — Present", role: "Senior Mobile Developer", company: "The ENTERTAINER · Dubai", text: "Lead Android (Kotlin, Compose) and Flutter development. Brought AI-assisted development to the team — Claude Code connected to Figma, Jira and Confluence over MCP, guided by 9 custom agent skills I wrote. Migrated a large codebase to the latest SDKs and Compose (−15% build time), built 50%+ of UI screens in Compose/Flutter, and mentored developers (−20% production bugs)." },
   { when: "Sep 2022 — Jul 2023", role: "Senior Android Developer", company: "NeeoPal Software Solutions · Lahore", text: "Built and maintained Android (Java/Kotlin) and Flutter apps; integrated BLoC, Firebase, REST APIs and AI-powered chat; refactored for performance and large-screen support." },
   { when: "May 2020 — Aug 2022", role: "Junior Research Officer (Android)", company: "Bahria Enterprise Systems & Technologies · Islamabad", text: "Built a secure end-to-end encrypted VoIP and chat app and migrated it to single-activity MVVM." },
   { when: "Jun 2019 — Apr 2020", role: "Android Developer", company: "Cane Technologies & ODL", text: "Developed multiple Android apps focused on performance, stability and UX." },
@@ -426,8 +488,39 @@ const ACHIEVEMENTS = [
   { icon: "↓", name: "Crash rate", label: "Reduction at ODL", value: 30, suffix: "%" },
   { icon: "✓", name: "Production bugs", label: "Fewer via reviews", value: 20, suffix: "%" },
   { icon: "⚡", name: "Build time", label: "Faster after migration", value: 15, suffix: "%" },
+  { icon: "AI", name: "Agent skills", label: "Written for Claude Code", value: 9, suffix: "" },
   { icon: "🎓", name: "Certifications", label: "Flutter · Compose Multiplatform", value: 2, suffix: "" }
 ];
+
+const AI = {
+  lead: "I work with Claude Code as an engineering agent on a large, multi-module Android codebase. MCP connectors give it the same context I have — the PRD, the ticket, the Figma frame — and the skills I wrote keep its output on our architecture and design system. Every line that ships is reviewed and tested by me.",
+  // [tool, what it contributes, highlight]
+  flow: [["Confluence", "PRD"], ["Jira", "Ticket"], ["Figma", "Design"], ["Claude Code", "Agent + skills", true], ["Android Studio", "Review & test"], ["GitHub", "Pull request"]],
+  cards: [
+    { k: "Agent", t: "Claude Code", d: "Plans, implements, tests and documents features with me across Kotlin, Compose, XML and Gradle." },
+    { k: "Connectors", t: "MCP servers", d: "Figma for design-to-code and fidelity audits; Jira and Confluence for PRDs, tickets and handover docs." },
+    { k: "Skills", t: "9 custom skills", d: "Team conventions as reusable agent skills: API layering, Figma fidelity, analytics, Arabic localisation, currency formatting, module merges." },
+    { k: "Guardrails", t: "Human in the loop", d: "Repo context, unit tests and code review hold AI-written code to the same bar as mine." }
+  ],
+  // the "making of" this site, typed out in the terminal card
+  terminal: {
+    title: "~/kamrankhadim95.github.io — claude",
+    prompt: "kamran@mac kamrankhadim95.github.io % ",
+    note: "A mobile developer's website, pair-built with Claude Code.",
+    source: "https://github.com/kamrankhadim95/kamrankhadim95.github.io",
+    lines: [
+      ["cmd", "claude"],
+      ["ask", "I'm a mobile developer, not a web developer. Turn my CV into a portfolio — one HTML file, no framework."],
+      ["out", "● Read Kamran_cv_mobile.pdf"],
+      ["out", "● Write index.html — hero, skills table, work, experience"],
+      ["out", "● Write cv.html → assets/Kamran_Khadim_CV.pdf"],
+      ["ask", "Make it feel like me. Add a waving avatar and show how I build with AI."],
+      ["out", "● Update index.html — avatar loop, speech bubble, AI section"],
+      ["out", "● Bash git push origin main"],
+      ["ok", "✓ Live at kamrankhadim95.github.io"]
+    ]
+  }
+};
 
 /* ====================== rendering ====================== */
 const $ = id => document.getElementById(id);
@@ -545,13 +638,17 @@ const linkBtns = [
   L.whatsapp && [`https://wa.me/${L.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(L.whatsappText || "")}`, `${waIcon} WhatsApp`, "wa"],
   L.phone && [`tel:${L.phone.replace(/[^\d+]/g, "")}`, `📞 ${L.phone}`, "tel"],
   L.email && [`mailto:${L.email}`, "Email"],
+  P.cv && [P.cv, "Download CV ↓", "cv"],
   L.linkedin && [L.linkedin, "LinkedIn ↗"],
   L.github && [L.github, "GitHub ↗"]
 ].filter(Boolean);
+const linkAttrs = kind => kind === "tel" ? "" : kind === "cv" ? " data-cv" : ' target="_blank" rel="noopener"';
 $("aboutLinks").innerHTML = linkBtns.map(([h, t, kind], i) =>
-  `<a class="btn ${i ? "" : "solid"} ${kind || ""}" href="${h}"${kind === "tel" ? "" : ' target="_blank" rel="noopener"'}>${t}</a>`).join("");
+  `<a class="btn ${i ? "" : "solid"} ${kind || ""}" href="${h}"${linkAttrs(kind)}>${t}</a>`).join("");
 $("contactBtns").innerHTML = $("aboutLinks").innerHTML;
-$("footer").textContent = `© ${new Date().getFullYear()} ${P.name}`;
+// every "Download CV" link saves the PDF under a descriptive file name
+document.querySelectorAll("[data-cv]").forEach(a => { a.href = P.cv; a.download = P.cvName; });
+$("footer").innerHTML = `© ${new Date().getFullYear()} ${P.name} · Pair-built with Claude Code · <a href="${AI.terminal.source}" target="_blank" rel="noopener">View source</a>`;
 
 // skills periodic table
 let activeCat = -1;
@@ -571,6 +668,52 @@ $("chips").addEventListener("click", e => {
   document.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b));
   document.querySelectorAll(".el").forEach(el => el.classList.toggle("dim", activeCat >= 0 && +el.dataset.c !== activeCat));
 });
+
+// ai
+$("aiLead").textContent = AI.lead;
+$("aiFlow").innerHTML = AI.flow.map(([tool, role, core], i) =>
+  `${i ? '<span class="arr" aria-hidden="true">→</span>' : ""}<div class="step${core ? " core" : ""}"><b>${tool}</b><small>${role}</small></div>`).join("");
+$("aiCards").innerHTML = AI.cards.map(c => `<div class="ai-card"><small>${c.k}</small><h3>${c.t}</h3><p>${c.d}</p></div>`).join("");
+$("termTitle").textContent = AI.terminal.title;
+$("termNote").innerHTML = `${AI.terminal.note} <a href="${AI.terminal.source}" target="_blank" rel="noopener">Source ↗</a>`;
+
+// terminal "making of": types the session once it scrolls into view; Replay restarts it
+(function(){
+  const out = $("termOut"), T = AI.terminal;
+  const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const instant = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const lead = { cmd: `<span class="p">${esc(T.prompt)}</span>`, ask: '<span class="t">&gt; </span>', out: "", ok: "" };
+  const cls = { cmd: "u", ask: "u", out: "", ok: "ok" };
+  let run = 0;
+  out.innerHTML = lead.cmd + '<span class="cur"></span>';
+  async function play(){
+    const my = ++run;
+    let html = "";
+    const render = (tail, cursor) => { out.innerHTML = html + tail + (cursor ? '<span class="cur"></span>' : ""); };
+    for (const [kind, text] of T.lines){
+      if (my !== run) return;
+      if (kind === "ask" && html) html += "\n";
+      const open = lead[kind] + `<span class="${cls[kind]}">`;
+      if (instant) { /* no typing */ }
+      else if (kind === "cmd" || kind === "ask"){
+        for (const i of [...text].keys()){
+          if (my !== run) return;
+          render(open + esc([...text].slice(0, i + 1).join("")) + "</span>", true);
+          await sleep(kind === "cmd" ? 90 : 24);
+        }
+        await sleep(380);
+      } else {
+        render("", true);
+        await sleep(kind === "ok" ? 700 : 420);
+      }
+      html += open + esc(text) + "</span>\n";
+    }
+    render("", true);
+  }
+  new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); play(); } }, { threshold: .35 }).observe($("term"));
+  $("termReplay").onclick = play;
+})();
 
 // work accordion
 $("work-row").innerHTML = PROJECTS.map((p, i) => `

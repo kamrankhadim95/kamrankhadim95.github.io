@@ -1,0 +1,146 @@
+<!doctype html>
+<!--
+  ATS-friendly CV. Source of assets/Kamran_Khadim_CV.pdf, which the site's "Download CV" buttons serve.
+  After editing this file, regenerate the PDF:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer \
+    --print-to-pdf=assets/Kamran_Khadim_CV.pdf "file://$PWD/cv.html"
+  Keep it single-column, text-only, with standard section headings: ATS parsers read it top to bottom.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kamran Khadim — Senior Mobile Developer CV</title>
+<meta name="description" content="CV of Kamran Khadim, Senior Mobile Developer in Dubai: Android, Kotlin, Jetpack Compose, Flutter and AI-assisted development with Claude Code and MCP.">
+<style>
+@page{size:A4;margin:11mm 14mm 11mm}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;font-size:9.6pt;line-height:1.32;color:#1a1a1a;background:#fff;font-variant-ligatures:none;max-width:800px;margin:0 auto;padding:24px 16px}
+@media print{body{max-width:none;padding:0}}
+h1{font-size:21pt;letter-spacing:.01em;color:#1d2140}
+.headline{font-size:10.5pt;font-weight:bold;margin-top:2px}
+.contact{margin-top:4px;font-size:9.5pt}
+.contact a{color:inherit;text-decoration:none}
+h2{font-size:10.5pt;text-transform:uppercase;letter-spacing:.06em;color:#1d2140;border-bottom:1.2px solid #1d2140;padding-bottom:2px;margin:10px 0 5px}
+p{margin:0}
+ul{margin:3px 0 0 16px}
+li{margin:1.5px 0}
+.skills li{margin:1.5px 0}
+.role{margin-top:6px;break-inside:avoid}
+.role:first-of-type{margin-top:0}
+.title{font-weight:bold;font-size:10.3pt}
+.meta{color:#333}
+.org{font-style:italic}
+.proj{margin-top:6px;break-inside:avoid}
+.proj p{margin-top:1px}
+.edu p{margin-top:2px}
+</style>
+</head>
+<body>
+
+<h1>Kamran Khadim</h1>
+<p class="headline">Senior Mobile Developer | Android (Kotlin, Jetpack Compose) | Flutter | AI-Assisted Development (Claude Code, MCP)</p>
+<p class="contact">Dubai, UAE | UAE Residence Visa | +971 50 187 4359 | <a href="mailto:kamranch724@gmail.com">kamranch724@gmail.com</a></p>
+<p class="contact"><a href="https://www.linkedin.com/in/kamran-khadim-19b97a141/">linkedin.com/in/kamran-khadim-19b97a141</a> | <a href="https://github.com/kamrankhadim95">github.com/kamrankhadim95</a> | Portfolio: <a href="https://kamrankhadim95.github.io">kamrankhadim95.github.io</a></p>
+
+<h2>Professional Summary</h2>
+<p>Senior Mobile Developer with 7+ years of experience building secure, high-performance mobile applications, primarily native Android with Kotlin, Jetpack Compose and Clean Architecture, plus cross-platform apps in Flutter. Delivered government-grade and high-traffic consumer products, including Dubai Police (Esaad Card) and The ENTERTAINER (Android and iOS, GCC-wide). Brings AI-assisted development into day-to-day engineering: works with Claude Code as a coding agent, connects it to Figma, Jira and Confluence through Model Context Protocol (MCP) servers, and authored the custom agent skills the ENTERTAINER Android team uses to keep AI-generated code on its architecture and design system. Leads modules, code reviews and mentoring in Agile/Scrum teams. Based in Dubai and open to full-time roles.</p>
+
+<h2>Technical Skills</h2>
+<ul class="skills">
+  <li><b>Android:</b> Kotlin, Java, Android SDK, Jetpack Compose, XML Views, Data Binding, Coroutines, Flow, StateFlow, LiveData, Hilt, Navigation Component, Material Design, Custom Views, Animations</li>
+  <li><b>Cross-Platform:</b> Flutter, Dart, BLoC, Provider, Riverpod, Compose Multiplatform (Kotlin Multiplatform)</li>
+  <li><b>Architecture:</b> MVVM, MVI, Clean Architecture, Multi-Module Modularisation, Single-Activity Architecture, Dependency Injection</li>
+  <li><b>AI and Agentic Development:</b> Claude Code, Model Context Protocol (MCP), Agent Skills, Prompt and Context Engineering, Figma MCP (design-to-code), Atlassian MCP (Jira, Confluence), AI-Assisted Code Review and Unit Testing, AI Agents, LLM Chat Integration</li>
+  <li><b>Networking and Security:</b> Retrofit, OkHttp, Ktor, REST APIs, WebSockets, OAuth2, JWT, SSL Pinning, Mutual TLS (Client Certificates), AES, SRTP, End-to-End Encryption</li>
+  <li><b>Data and Persistence:</b> Room, SQLite, SQLCipher, DataStore, SharedPreferences, Hive</li>
+  <li><b>Testing and Quality:</b> JUnit, MockK, Espresso, Coroutines Test, Firebase Crashlytics, Performance Monitoring, Code Review</li>
+  <li><b>CI/CD and Tools:</b> Git, GitHub Actions, Fastlane, Azure DevOps Pipelines, Firebase (FCM, Auth, Remote Config), Google Play Console, Android Studio, AWS CodeCommit</li>
+  <li><b>Product and Process:</b> Localisation and RTL (Arabic), Analytics (Amplitude, Firebase), Feature Flags, Deep Linking, Agile/Scrum, Jira</li>
+</ul>
+
+<h2>Professional Experience</h2>
+
+<div class="role">
+  <p class="title">Senior Mobile Developer</p>
+  <p class="meta"><span class="org">The ENTERTAINER</span> | Dubai, UAE | Jul 2023 – Present</p>
+  <ul>
+    <li>Lead Android (Kotlin, Jetpack Compose) and Flutter development for The ENTERTAINER, a high-traffic lifestyle rewards app on Android and iOS across the GCC.</li>
+    <li>Introduced AI-assisted development to the Android team: authored 9 custom Claude Code agent skills that encode team conventions, covering API layering, Figma design fidelity, Amplitude analytics, Arabic localisation, currency formatting and module refactoring.</li>
+    <li>Connected Claude Code to Figma, Jira and Confluence through MCP servers to turn PRDs and Figma frames into implementation plans, code, unit tests and feature handover documents; configured AI-powered agents with MCP servers for customer engagement and personalised features.</li>
+    <li>Migrated the large multi-module codebase to the latest Android SDK, Jetpack libraries and Jetpack Compose, reducing build times by 15%, and consolidated legacy data and UI module pairs into single feature modules.</li>
+    <li>Built 50%+ of new UI screens in Jetpack Compose and Flutter, including membership, benefits and account flows, and introduced an app-wide typography system, shared toolbar component and locale-aware currency formatting for English and Arabic (RTL).</li>
+    <li>Built CI/CD pipelines with Fastlane and GitHub Actions for Android and Flutter, including per-environment builds for development, UAT and production.</li>
+    <li>Lead code reviews, enforce best practices and mentor developers, reducing production bugs by 20%.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <p class="title">Senior Android Developer</p>
+  <p class="meta"><span class="org">NeeoPal Software Solutions Pvt. Ltd.</span> | Lahore, Pakistan | Sep 2022 – Jul 2023</p>
+  <ul>
+    <li>Developed and maintained Android (Java, Kotlin) and Flutter (Dart) applications, delivering scalable, high-quality cross-platform solutions.</li>
+    <li>Integrated an AI-powered chat feature using NLP frameworks, alongside BLoC, Provider, Firebase and REST APIs, increasing user engagement.</li>
+    <li>Refactored code, fixed defects, optimised performance and added large-screen Android support, improving stability and reducing development time.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <p class="title">Junior Research Officer (Android)</p>
+  <p class="meta"><span class="org">Bahria Enterprise Systems &amp; Technologies Ltd.</span> | Islamabad, Pakistan | May 2020 – Aug 2022</p>
+  <ul>
+    <li>Built a secure VoIP and chat application with end-to-end encryption (AES, SRTP), improving data-security compliance by 30%.</li>
+    <li>Migrated the application to Single-Activity MVVM architecture, improving performance and reducing memory leaks.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <p class="title">Android Developer</p>
+  <p class="meta"><span class="org">Cane Technologies &amp; ODL</span> | Pakistan | Jun 2019 – Apr 2020</p>
+  <ul>
+    <li>Developed multiple Android applications with a focus on performance, stability and user experience.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <p class="title">Android Developer</p>
+  <p class="meta"><span class="org">ODL – Oxmite Digital Ltd.</span> | Pakistan | Jun 2018 – May 2019</p>
+  <ul>
+    <li>Reduced crash rates by 30% by monitoring and resolving production issues with Firebase Crashlytics and Google Play Console.</li>
+    <li>Accelerated release cycles by 20% through improved debugging and QA collaboration.</li>
+  </ul>
+</div>
+
+<h2>Key Projects</h2>
+
+<div class="proj">
+  <b>Esaad Card – Dubai Police</b> | Kotlin, Jetpack Compose, Clean Architecture, Mutual TLS
+  <p>Secure government application built from scratch with Clean Architecture and Jetpack Compose; implemented mutual SSL authentication with client-side certificates. Live on Google Play.</p>
+</div>
+<div class="proj">
+  <b>Indigo Rent A Car</b> | Android, Google Maps, REST APIs
+  <p>Car rental app for Dubai and Abu Dhabi with branch pickup or doorstep delivery, map-based delivery location, promotions and an end-to-end booking flow. Live on Google Play.</p>
+</div>
+<div class="proj">
+  <b>NEEO IM &amp; Chat Translator</b> | Android, Kotlin, Retrofit, OAuth2, AWS CodeCommit
+  <p>Messaging app with rewards and loyalty. Added an AI-powered chat feature using NLP frameworks and redesigned the channel and discussion UI to client specifications.</p>
+</div>
+<div class="proj">
+  <b>Takeme – Ride Hailing App</b> | Kotlin, Kotlin Flow, Retrofit, Firebase, Google Maps
+  <p>Real-time ride tracking with live GPS, route visualisation and custom markers, push notifications and deep linking via Firebase, and a Retrofit and Kotlin Flow network layer.</p>
+</div>
+
+<h2>Education</h2>
+<div class="edu">
+  <p><b>M.S. Computer Science</b> – COMSATS University Islamabad, Wah Campus | 2019 – 2022</p>
+  <p><b>B.S. Software Engineering</b> – COMSATS University Islamabad, Wah Campus | 2014 – 2018</p>
+</div>
+
+<h2>Certifications</h2>
+<ul>
+  <li>Compose Multiplatform – Android &amp; iOS Development, Udemy, May 2025</li>
+  <li>Dart &amp; Flutter – Complete Development Course, Udemy, Aug 2025</li>
+</ul>
+
+</body>
+</html>
