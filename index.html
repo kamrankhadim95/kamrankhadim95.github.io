@@ -405,7 +405,8 @@ const SKILLS = [
   ["Ju","JUnit · MockK · Espresso",6,80,"Unit and UI testing."],
   ["Cc","Claude Code",7,92,"My engineering agent: plans, implements, tests and documents features with me."],
   ["Mc","MCP",7,88,"Model Context Protocol connectors — Figma, Jira, Confluence."],
-  ["Sk","Agent Skills",7,88,"Wrote 9 custom Claude Code skills for the ENTERTAINER Android team."],
+  ["Sk","Agent Skills",7,88,"Wrote 11 custom Claude Code skills for the ENTERTAINER Android team — unit tests, device verification, API layering, Figma fidelity."],
+  ["Tv","AI Testing",7,86,"Agent-written unit tests for every edge case, then every scenario run on a real device."],
   ["Fm","Figma MCP",7,86,"Design-to-code with value-by-value fidelity audits."],
   ["Pe","Prompt & Context",7,85,"Prompt and context engineering for reliable agent output."],
   ["Ag","AI Agents",7,82,"Configured AI agents for engagement & personalisation."]
@@ -415,7 +416,7 @@ const PROJECTS = [
   {
     name: "The ENTERTAINER",
     blurb: "High-traffic lifestyle rewards app across the GCC — Android & iOS. Leading UI modernisation from legacy architecture to Kotlin, Jetpack Compose and Flutter.",
-    bullets: ["Led Compose & Flutter UI migration", "Build times cut by 15%", "Claude Code + MCP workflow", "CI/CD with Fastlane & Actions"],
+    bullets: ["Crash-free users 50% → 99%", "App startup 28% faster", "Led Compose & Flutter UI migration", "Build times cut by 15%", "Features built with Claude Code + MCP", "Every scenario tested on device"],
     tags: ["Kotlin","Jetpack Compose","Flutter","MVVM","Claude Code"],
     link: "https://play.google.com/store/apps/details?id=com.theentertainerme.entertainer",
     linkLabel: "View on Play Store",
@@ -434,9 +435,9 @@ const PROJECTS = [
   },
   {
     name: "Indigo Rent A Car",
-    blurb: "Car rental app for Dubai and Abu Dhabi: book a car, pick it up from a branch or have it delivered to your door.",
-    bullets: ["Branch pickup or doorstep delivery", "Map-based delivery location", "Promotions & flash deals", "End-to-end booking flow"],
-    tags: ["Android","Google Maps","Booking","REST APIs"],
+    blurb: "Car rental app for Dubai and Abu Dhabi, built largely by AI: generated with Claude from the design PDF, then reviewed, completed and shipped as a full product. Rebuilt in Flutter with Claude as a learning project.",
+    bullets: ["Built with AI from the design PDF", "Branch pickup or doorstep delivery", "Map-based delivery location", "Flutter rebuild with Claude"],
+    tags: ["Android","Google Maps","Claude","Flutter"],
     link: "https://play.google.com/store/apps/details?id=com.indigoicon.indigorentacar",
     linkLabel: "View on Play Store",
     icon: "assets/projects/indigo-icon.png",
@@ -475,7 +476,7 @@ const PROJECTS = [
 ];
 
 const EXPERIENCE = [
-  { when: "Jul 2023 — Present", role: "Senior Mobile Developer", company: "The ENTERTAINER · Dubai", text: "Lead Android (Kotlin, Compose) and Flutter development. Brought AI-assisted development to the team — Claude Code connected to Figma, Jira and Confluence over MCP, guided by 9 custom agent skills I wrote. Migrated a large codebase to the latest SDKs and Compose (−15% build time), built 50%+ of UI screens in Compose/Flutter, and mentored developers (−20% production bugs)." },
+  { when: "Jul 2023 — Present", role: "Senior Mobile Developer", company: "The ENTERTAINER · Dubai", text: "Lead Android (Kotlin, Compose) and Flutter development. Brought AI-assisted development to the team — Claude Code connected to Figma, Jira and Confluence over MCP, guided by 11 custom agent skills I wrote. Features ship end to end with AI: unit tests for every edge case and every scenario verified on a real device before review. Raised crash-free users from 50% to 99%, made app startup 28% faster in six months, migrated a large codebase to the latest SDKs and Compose (−15% build time), built 50%+ of UI screens in Compose/Flutter, and mentored developers (−20% production bugs)." },
   { when: "Sep 2022 — Jul 2023", role: "Senior Android Developer", company: "NeeoPal Software Solutions · Lahore", text: "Built and maintained Android (Java/Kotlin) and Flutter apps; integrated BLoC, Firebase, REST APIs and AI-powered chat; refactored for performance and large-screen support." },
   { when: "May 2020 — Aug 2022", role: "Junior Research Officer (Android)", company: "Bahria Enterprise Systems & Technologies · Islamabad", text: "Built a secure end-to-end encrypted VoIP and chat app and migrated it to single-activity MVVM." },
   { when: "Jun 2019 — Apr 2020", role: "Android Developer", company: "Cane Technologies & ODL", text: "Developed multiple Android apps focused on performance, stability and UX." },
@@ -485,10 +486,12 @@ const EXPERIENCE = [
 const ACHIEVEMENTS = [
   { icon: "7+", name: "Experience", label: "Years building mobile", value: 7, suffix: "+" },
   { icon: "UI", name: "Compose & Flutter", label: "Of UI screens built", value: 50, suffix: "%+" },
+  { icon: "♥", name: "Crash-free users", label: "Up from 50% at ENTERTAINER", value: 99, suffix: "%" },
+  { icon: "▶", name: "App startup", label: "Faster in six months", value: 28, suffix: "%" },
   { icon: "↓", name: "Crash rate", label: "Reduction at ODL", value: 30, suffix: "%" },
   { icon: "✓", name: "Production bugs", label: "Fewer via reviews", value: 20, suffix: "%" },
   { icon: "⚡", name: "Build time", label: "Faster after migration", value: 15, suffix: "%" },
-  { icon: "AI", name: "Agent skills", label: "Written for Claude Code", value: 9, suffix: "" },
+  { icon: "AI", name: "Agent skills", label: "Written for Claude Code", value: 11, suffix: "" },
   { icon: "🎓", name: "Certifications", label: "Flutter · Compose Multiplatform", value: 2, suffix: "" }
 ];
 
@@ -499,7 +502,7 @@ const AI = {
   cards: [
     { k: "Agent", t: "Claude Code", d: "Plans, implements, tests and documents features with me across Kotlin, Compose, XML and Gradle." },
     { k: "Connectors", t: "MCP servers", d: "Figma for design-to-code and fidelity audits; Jira and Confluence for PRDs, tickets and handover docs." },
-    { k: "Skills", t: "9 custom skills", d: "Team conventions as reusable agent skills: API layering, Figma fidelity, analytics, Arabic localisation, currency formatting, module merges." },
+    { k: "Skills", t: "11 custom skills", d: "Team standards as reusable agent skills: edge-case unit tests, on-device verification of every scenario, API layering and Figma fidelity." },
     { k: "Guardrails", t: "Human in the loop", d: "Repo context, unit tests and code review hold AI-written code to the same bar as mine." }
   ],
   // the "making of" this site, typed out in the terminal card
