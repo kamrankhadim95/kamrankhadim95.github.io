@@ -403,7 +403,7 @@ const SKILLS = [
   ["Fb","Firebase",6,88,"FCM, Auth, Crashlytics, Remote Config."],
   ["Gt","Git",6,92,"Branching, reviews, releases."],
   ["Fa","Fastlane",6,80,"Automated build & deploy."],
-  ["Ga","GitHub Actions",6,78,"CI/CD for Android & Flutter."],
+  ["Ga","GitHub Actions",6,78,"Tag-triggered CI/CD for Android & Flutter — builds run only when needed."],
   ["Az","Azure DevOps",6,75,"Pipelines for mobile builds."],
   ["Ju","JUnit · MockK · Espresso",6,80,"Unit and UI testing."],
   ["Cc","Claude Code",7,92,"My engineering agent: plans, implements, tests and documents features with me."],
@@ -419,7 +419,7 @@ const PROJECTS = [
   {
     name: "The ENTERTAINER",
     blurb: "High-traffic lifestyle rewards app across the GCC — Android & iOS. Leading UI modernisation from legacy architecture to Kotlin, Jetpack Compose and Flutter.",
-    bullets: ["Crash-free users 50% → 99%", "App startup 28% faster", "Led Compose & Flutter UI migration", "Build times cut by 15%", "Features built with Claude Code + MCP", "Every scenario tested on device"],
+    bullets: ["Crash-free users 50% → 99%", "App startup 28% faster", "Led Compose & Flutter UI migration", "Build times cut by 15%", "Features built with Claude Code + MCP", "Every scenario tested on device", "Tag-triggered CI/CD (Fastlane + Actions)", "Builds only when needed, not every push"],
     tags: ["Kotlin","Jetpack Compose","Flutter","MVVM","Claude Code"],
     link: "https://play.google.com/store/apps/details?id=com.theentertainerme.entertainer",
     linkLabel: "View on Play Store",
@@ -479,7 +479,7 @@ const PROJECTS = [
 ];
 
 const EXPERIENCE = [
-  { when: "Jul 2023 — Present", role: "Senior Mobile Developer", company: "The ENTERTAINER · Dubai", text: "Lead Android (Kotlin, Compose) and Flutter development. Brought AI-assisted development to the team — Claude Code connected to Figma, Jira and Confluence over MCP, guided by 11 custom agent skills I wrote. Features ship end to end with AI: unit tests for every edge case and every scenario verified on a real device before review. Raised crash-free users from 50% to 99%, made app startup 28% faster in six months, migrated a large codebase to the latest SDKs and Compose (−15% build time), built 50%+ of UI screens in Compose/Flutter, and mentored developers (−20% production bugs)." },
+  { when: "Jul 2023 — Present", role: "Senior Mobile Developer", company: "The ENTERTAINER · Dubai", text: "Lead Android (Kotlin, Compose) and Flutter development. Brought AI-assisted development to the team — Claude Code connected to Figma, Jira and Confluence over MCP, guided by 11 custom agent skills I wrote. Features ship end to end with AI: unit tests for every edge case and every scenario verified on a real device before review. Raised crash-free users from 50% to 99%, made app startup 28% faster in six months, migrated a large codebase to the latest SDKs and Compose (−15% build time), built 50%+ of UI screens in Compose/Flutter, made CI/CD tag-driven with Fastlane and GitHub Actions (a tag picks the dev, UAT or production build, so nothing builds on every push), and mentored developers (−20% production bugs)." },
   { when: "Sep 2022 — Jul 2023", role: "Senior Android Developer", company: "NeeoPal Software Solutions · Lahore", text: "Built and maintained Android (Java/Kotlin) and Flutter apps; integrated BLoC, Firebase, REST APIs and AI-powered chat; refactored for performance and large-screen support." },
   { when: "May 2020 — Aug 2022", role: "Junior Research Officer (Android)", company: "Bahria Enterprise Systems & Technologies · Islamabad", text: "Built a secure end-to-end encrypted VoIP and chat app and migrated it to single-activity MVVM." },
   { when: "Jun 2019 — Apr 2020", role: "Android Developer", company: "Cane Technologies & ODL", text: "Developed multiple Android apps focused on performance, stability and UX." },
