@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kamran Khadim — Senior Mobile Developer</title>
 <meta name="description" content="Kamran Khadim — Senior Mobile Developer in Dubai. Kotlin, Jetpack Compose, Flutter, mobile architecture and AI-assisted development with Claude Code and MCP.">
+<meta name="theme-color" content="#06070d">
 <link rel="canonical" href="https://kamrankhadim95.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kamrankhadim95.github.io/">
@@ -19,763 +20,633 @@
 <meta name="twitter:image" content="https://kamrankhadim95.github.io/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f3efe6; --bg-2:#ebe5d8; --card:#fbf9f4; --ink:#1d2140; --ink-2:#4a4e68; --muted:#8a8a96;
-  --line:#ddd6c6; --accent:#1d2140; --tile-dark:#232848; --tile-mid:#a39e95; --tile-light:#d8d2c5;
-  --radius:18px; --shadow:0 18px 40px -18px rgba(29,33,64,.25);
+  --bg:#06070d; --bg-2:#0b0d18; --panel:rgba(255,255,255,.035); --panel-2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
+  --text:#e9ebf7; --dim:#8d92ad; --faint:#5b6080;
+  --cyan:#5ce1ff; --green:#3ddc84; --violet:#8b7bff; --pink:#ff6bd5; --amber:#ffc65c;
+  --grad:linear-gradient(100deg,var(--cyan),var(--violet) 55%,var(--pink));
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius:20px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-.serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-section{padding:110px 0}
-.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;gap:14px;align-items:center;margin-bottom:18px}
-.eyebrow b{color:var(--ink);font-weight:600}
-h2.title{font-size:clamp(40px,6vw,72px);line-height:1;font-weight:700;letter-spacing:-.03em}
+img,video{display:block}
+::selection{background:var(--violet);color:#fff}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:110px 0;position:relative}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mono{font-family:var(--mono)}
+.tag{font:500 12px/1 var(--mono);color:var(--cyan);letter-spacing:.04em;display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.tag::before{content:"";width:22px;height:1px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+h2{font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.04em;font-weight:700}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.sec-head p{max-width:420px;color:var(--dim);font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:13px 22px;border-radius:14px;font-size:14px;font-weight:600;border:1px solid var(--line-2);background:var(--panel);color:var(--text);transition:.25s;font-family:inherit;cursor:pointer;backdrop-filter:blur(10px)}
+.btn:hover{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan),0 0 28px -6px var(--cyan);transform:translateY(-2px)}
+.btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn.primary:hover{background:var(--cyan);border-color:var(--cyan)}
+.glass{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+
+/* ambient */
+.cursor-glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(closest-side,rgba(92,225,255,.09),transparent);transform:translate(-50%,-50%);left:-999px;top:-999px;transition:left .15s linear,top .15s linear}
+main{position:relative;z-index:1}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* nav */
 .nav{position:fixed;inset:16px 16px auto;z-index:50;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
-.brand,.menu{pointer-events:auto;background:rgba(251,249,244,.75);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px}
-.brand{display:flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;font-weight:600;font-size:14px}
-.brand i{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-style:normal;font-size:12px}
+.nav>*{pointer-events:auto}
+.brand,.menu{background:rgba(11,13,24,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:14px}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;font-weight:600;font-size:14px}
+.brand b{width:30px;height:30px;border-radius:9px;background:var(--grad);display:grid;place-items:center;font:700 12px var(--mono);color:#0b0d18}
+.brand .on{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
 .menu{display:flex;gap:2px;padding:5px}
-.menu a{font-size:13px;padding:7px 14px;border-radius:999px;color:var(--ink-2);transition:.2s}
-.menu a.active,.menu a:hover{background:var(--ink);color:var(--bg)}
-.cvpill{pointer-events:auto;background:var(--ink);color:var(--bg);border-radius:999px;padding:10px 18px;font-size:13px;font-weight:600;box-shadow:var(--shadow);transition:.2s}
-.cvpill:hover{transform:translateY(-2px)}
+.menu a{font:500 12.5px var(--mono);padding:8px 12px;border-radius:9px;color:var(--dim);transition:.2s}
+.menu a:hover,.menu a.active{color:var(--text);background:var(--panel-2)}
+.menu a.active{color:var(--cyan)}
+.cv{font:600 12.5px var(--mono);padding:11px 16px;border-radius:12px;background:var(--text);color:var(--bg)}
 
 /* hero */
-.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:0 0 70px;overflow:hidden;background:var(--bg);isolation:isolate}
-.watermark{position:absolute;top:10vh;left:50%;transform:translateX(-50%);font-size:min(30vw,380px);font-weight:800;letter-spacing:-.06em;color:var(--ink);opacity:.045;white-space:nowrap;user-select:none;line-height:1}
-.avatar{position:absolute;left:0;right:0;bottom:0;height:88vh;max-height:860px;display:flex;align-items:flex-end;justify-content:center;pointer-events:none}
-.bubble{position:absolute;top:3%;left:calc(50% + 10vh);background:var(--card);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:10px 16px;font-size:15px;font-weight:600;white-space:nowrap;box-shadow:var(--shadow);transform-origin:bottom left;opacity:0;transform:scale(.6);transition:opacity .35s,transform .35s cubic-bezier(.3,1.6,.5,1);z-index:2}
-.bubble.show{opacity:1;transform:scale(1)}
-.bubble::after{content:"";position:absolute;left:-1px;bottom:-9px;border:9px solid transparent;border-top-color:var(--card);border-left-color:var(--card)}
-.bubble .caret{display:inline-block;width:2px;height:1em;background:var(--ink);margin-left:2px;vertical-align:-2px;animation:caret 1s steps(1) infinite}
-@keyframes caret{50%{opacity:0}}
-.avatar img{animation:sway 6s ease-in-out infinite!important}
-@keyframes sway{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-1.2deg) translateY(-3px)}50%{transform:rotate(0) translateY(0)}75%{transform:rotate(1.2deg) translateY(-3px)}}
-.avatar .stage{position:relative;height:100%;display:flex;align-items:flex-end}
-.avatar .stage video+video{position:absolute;left:0;top:0}
-.avatar video{height:100%;width:auto;mix-blend-mode:multiply;object-fit:contain;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 6%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 6%);mask-composite:intersect}
-.avatar img{height:94%;width:auto;object-fit:contain;object-position:bottom;position:relative;margin-bottom:3%;animation:breath 5s ease-in-out infinite;transform-origin:bottom center}
-@keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.012) translateY(-2px)}}
-.avatar .placeholder{height:78%;width:70%;border:2px dashed var(--line);border-radius:200px 200px 24px 24px;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:13px;padding:30px;background:linear-gradient(var(--bg),var(--bg-2))}
-.avatar .placeholder b{display:block;font-size:64px;color:var(--ink);opacity:.15;font-weight:800;margin-bottom:8px}
-.hero .wrap{position:relative;width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
-.hero .wrap>div:first-child{max-width:min(36%,520px)}
-.hero h1{font-size:clamp(40px,5vw,76px);line-height:.92;font-weight:700;letter-spacing:-.045em}
-.hero h1 span{color:var(--muted)}
-.hero .sub{margin-top:18px;color:var(--ink-2);font-size:15px;max-width:340px}
-.ctas{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
-.btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid var(--ink);transition:.2s;cursor:pointer;background:none;color:var(--ink);font-family:inherit}
-.btn.solid{background:var(--ink);color:var(--bg)}
-.btn.wa{background:#25d366;border-color:#25d366;color:#fff}
-.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55}
+.orb.a{width:520px;height:520px;background:#2a3cff;left:-160px;top:-120px;opacity:.35}
+.orb.b{width:460px;height:460px;background:#a23cff;right:-120px;top:20%;opacity:.3;animation:drift 14s ease-in-out infinite}
+.orb.c{width:380px;height:380px;background:#00c2ff;right:25%;bottom:-200px;opacity:.22;animation:drift 18s ease-in-out infinite reverse}
+@keyframes drift{50%{transform:translate(-60px,40px)}}
+.floor{position:absolute;left:-50%;right:-50%;bottom:-10%;height:55%;background-image:linear-gradient(rgba(92,225,255,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(92,225,255,.22) 1px,transparent 1px);background-size:56px 56px;transform:perspective(520px) rotateX(62deg);transform-origin:bottom;animation:floor 3s linear infinite;-webkit-mask-image:linear-gradient(transparent,#000 70%);mask-image:linear-gradient(transparent,#000 70%)}
+@keyframes floor{to{background-position:0 56px}}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;width:100%}
+.boot{font:13px/1.8 var(--mono);color:var(--dim);min-height:48px}
+.boot .p{color:var(--green)}.boot .c{color:var(--text)}
+.caret{display:inline-block;width:8px;height:15px;background:var(--cyan);vertical-align:-3px;animation:blink 1s steps(1) infinite;box-shadow:0 0 8px var(--cyan)}
+@keyframes blink{50%{opacity:0}}
+.hero h1{font-size:clamp(48px,7.2vw,104px);line-height:.92;letter-spacing:-.055em;font-weight:700;margin-top:14px}
+.hero h1 .out{-webkit-text-stroke:1.5px rgba(233,235,247,.55);color:transparent}
+.hero .sub{margin-top:24px;font-size:18px;color:var(--dim);max-width:520px}
+.hero .sub b{color:var(--text);font-weight:500}
+.hero .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.hud{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:44px;max-width:620px}
+.hud div{padding:14px;border-radius:14px;background:var(--panel);border:1px solid var(--line);position:relative;overflow:hidden}
+.hud div::after{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--grad);opacity:.8}
+.hud b{display:block;font-size:28px;letter-spacing:-.04em;line-height:1.1}
+.hud span{font:11px/1.35 var(--mono);color:var(--dim);display:block;margin-top:4px}
 
-/* about */
-.about-grid{display:grid;grid-template-columns:1.2fr .9fr 1fr;gap:48px;align-items:start}
-.about h2{font-size:clamp(44px,6vw,76px);line-height:1;letter-spacing:-.03em;font-weight:700}
-.about p{color:var(--ink-2);margin-top:22px;font-size:16px}
-.about .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-.lanyard{display:flex;flex-direction:column;align-items:center}
-.strap{width:22px;height:110px;background:repeating-linear-gradient(180deg,var(--ink) 0 14px,#2c3160 14px 28px);border-radius:3px}
-.clip{width:40px;height:16px;background:#b9b3a6;border-radius:4px;margin-top:-2px}
-.idcard{width:250px;background:var(--card);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-top:6px;transform-origin:top center;animation:swing 5s ease-in-out infinite;border:1px solid var(--line)}
-@keyframes swing{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
-.idcard .top{background:var(--ink);color:var(--bg);padding:14px 18px;font-size:11px;letter-spacing:.15em;display:flex;justify-content:space-between}
-.idcard .photo{width:120px;height:140px;margin:22px auto 14px;border-radius:12px;background:var(--bg-2) center/cover;display:grid;place-items:center;font-weight:800;font-size:40px;color:var(--ink);opacity:.9}
-.idcard h4{text-align:center;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
-.idcard .role{text-align:center;font-size:12px;color:var(--muted)}
-.idcard .bar{margin:16px 18px 18px;height:34px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,var(--ink) 5px 6px,transparent 6px 9px);opacity:.8}
-.facts{border-top:1px solid var(--line)}
-.facts div{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;gap:16px}
-.facts span{color:var(--muted)}
-.quote{margin-top:26px;font-size:24px;line-height:1.25;color:var(--ink-2)}
+/* phone */
+.stage{position:relative;height:min(680px,82vh);display:grid;place-items:center;perspective:1400px}
+.phone{position:relative;width:min(300px,24vw);aspect-ratio:9/19.3;border-radius:46px;padding:11px;background:linear-gradient(145deg,#2c2f45,#0e1020 45%,#22253a);box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 50px 100px -30px rgba(92,225,255,.35),0 0 120px -20px rgba(139,123,255,.45);transform:rotateY(-14deg) rotateX(6deg);transform-style:preserve-3d;transition:transform .2s ease-out}
+.phone::before{content:"";position:absolute;right:-3px;top:22%;width:3px;height:64px;border-radius:2px;background:#2c2f45}
+.screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;container-type:inline-size;background:radial-gradient(120% 60% at 0% 0%,rgba(92,225,255,.45),transparent 60%),radial-gradient(90% 60% at 100% 45%,rgba(139,123,255,.55),transparent 60%),radial-gradient(90% 50% at 20% 100%,rgba(255,107,213,.35),transparent 60%),#0a0c1c}
+.island{position:absolute;top:3.5cqw;left:50%;transform:translateX(-50%);width:32%;height:9cqw;border-radius:20px;background:#000;z-index:5}
+.sbar{position:absolute;top:4.6cqw;left:8cqw;right:8cqw;display:flex;justify-content:space-between;font:600 4.2cqw var(--mono);color:#fff;z-index:2}
+.home{position:absolute;inset:0;padding:22cqw 6cqw 0;display:flex;flex-direction:column;gap:6cqw}
+.widget{border-radius:6cqw;padding:4.5cqw 5cqw;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;justify-content:space-between;align-items:flex-end;gap:3cqw}
+.widget small{display:block;font:500 3.1cqw/1.3 var(--mono);color:rgba(255,255,255,.7)}
+.widget b{display:block;font-size:12cqw;line-height:1;letter-spacing:-.04em;margin-top:1.5cqw}
+.widget em{font:600 3.1cqw var(--mono);color:var(--green);font-style:normal}
+.bars{display:flex;align-items:flex-end;gap:1.4cqw;height:13cqw}
+.bars i{width:2.6cqw;border-radius:1cqw;background:linear-gradient(var(--cyan),var(--violet));animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes grow{from{height:0}}
+.icons{display:grid;grid-template-columns:repeat(4,1fr);gap:5cqw 4cqw}
+.icons a{display:flex;flex-direction:column;align-items:center;gap:1.6cqw;min-width:0;transition:transform .2s}
+.icons a:hover{transform:scale(1.08)}
+.icons a:active{transform:scale(.92)}
+.ico{width:100%;aspect-ratio:1;border-radius:24%;overflow:hidden;display:grid;place-items:center;font:700 5cqw var(--mono);color:#fff;box-shadow:0 2cqw 5cqw -2cqw rgba(0,0,0,.6)}
+.ico img{width:100%;height:100%;object-fit:cover}
+.icons span{font-size:3.1cqw;color:#fff;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:4cqw}
+.mini div{border-radius:6cqw;padding:4cqw 4.5cqw;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.mini small{display:block;font:500 3cqw var(--mono);color:rgba(255,255,255,.7)}
+.mini b{display:block;font-size:9cqw;line-height:1.05;letter-spacing:-.04em;margin-top:1.5cqw}
+.mini em{font:500 2.9cqw var(--mono);color:var(--cyan);font-style:normal}
+.dock{position:absolute;left:4.5cqw;right:4.5cqw;bottom:7cqw;border-radius:8cqw;padding:3.5cqw;display:grid;grid-template-columns:repeat(4,1fr);gap:4cqw;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.dock a{transition:transform .2s}.dock a:hover{transform:translateY(-1.5cqw)}
+.homebar{position:absolute;bottom:2.4cqw;left:50%;transform:translateX(-50%);width:36%;height:1.3cqw;border-radius:2cqw;background:rgba(255,255,255,.75)}
+.notif{position:absolute;left:3.5cqw;right:3.5cqw;top:3cqw;z-index:6;background:rgba(245,246,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:6.5cqw;padding:3.4cqw 4cqw;display:flex;gap:3.4cqw;align-items:center;color:#14162a;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);transform:translateY(-130%);opacity:0;transition:transform .55s cubic-bezier(.2,1.2,.3,1),opacity .3s}
+.notif.show{transform:none;opacity:1}
+.notif i{width:11cqw;height:11cqw;border-radius:3cqw;display:grid;place-items:center;font:700 3.8cqw var(--mono);color:#fff;font-style:normal;flex:none}
+.notif small{display:block;font:600 3.2cqw var(--mono);color:#6a6d85}
+.notif b{display:block;font-size:4.4cqw;font-weight:600;line-height:1.25}
+.app.flash{background:var(--grad);box-shadow:0 0 50px -10px var(--violet)}
+.orbit{position:absolute;font:500 12px var(--mono);padding:8px 12px;border-radius:12px;background:rgba(11,13,24,.75);border:1px solid var(--line-2);backdrop-filter:blur(10px);white-space:nowrap;animation:float 6s ease-in-out infinite;display:flex;gap:8px;align-items:center}
+.orbit i{width:8px;height:8px;border-radius:50%;font-style:normal}
+.orbit.o1{left:0;top:16%}.orbit.o2{right:-4%;top:30%;animation-delay:-2s}.orbit.o3{left:4%;bottom:22%;animation-delay:-4s}.orbit.o4{right:2%;bottom:12%;animation-delay:-1s}
+@keyframes float{50%{transform:translateY(-14px)}}
+.ring{position:absolute;width:118%;aspect-ratio:1;border-radius:50%;border:1px dashed rgba(92,225,255,.18);animation:spin 60s linear infinite}
+.ring.r2{width:92%;border-style:solid;border-color:rgba(139,123,255,.12);animation-duration:90s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-/* skills */
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0}
-.chip{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-family:inherit;color:var(--ink-2);transition:.2s}
-.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.skills-grid{display:grid;grid-template-columns:1fr 260px;gap:32px;align-items:start}
-.table{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px}
-.el{aspect-ratio:1;border-radius:10px;padding:7px 8px;display:flex;flex-direction:column;justify-content:space-between;cursor:default;transition:.25s;position:relative}
-.el small{font-size:9px;opacity:.7}
-.el strong{font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1}
-.el em{font-size:9px;font-style:normal;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.el.t0,.el.t3,.el.t6{background:var(--tile-dark);color:#f3efe6}
-.el.t1,.el.t4,.el.t7{background:var(--tile-mid);color:#fff}
-.el.t2,.el.t5{background:var(--tile-light);color:var(--ink)}
-.el:hover{transform:translateY(-4px) scale(1.04);box-shadow:var(--shadow);z-index:2}
-.el.dim{opacity:.18;filter:grayscale(1)}
-.detail{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:sticky;top:100px;min-height:240px}
-.detail .sym{width:84px;height:84px;border-radius:14px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:34px;font-weight:700}
-.detail h3{margin-top:18px;font-size:22px}
-.detail p{color:var(--ink-2);font-size:14px;margin-top:6px}
-.detail .lvl{margin-top:18px;height:6px;background:var(--bg-2);border-radius:9px;overflow:hidden}
-.detail .lvl i{display:block;height:100%;background:var(--ink);transition:width .5s}
+/* ticker */
+.ticker{border-block:1px solid var(--line);overflow:hidden;padding:18px 0;background:rgba(255,255,255,.015)}
+.ticker .track{display:flex;gap:44px;width:max-content;animation:tick 38s linear infinite}
+.ticker span{font:500 14px var(--mono);color:var(--dim);display:flex;align-items:center;gap:44px;white-space:nowrap}
+.ticker span::after{content:"◆";color:var(--violet);font-size:9px}
+@keyframes tick{to{transform:translateX(-50%)}}
 
-/* work */
-.work-row{display:flex;gap:12px;margin-top:40px;height:440px}
-.proj{flex:0 0 84px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:flex .6s cubic-bezier(.7,0,.2,1);position:relative}
-.proj.open{flex:1 1 auto;cursor:default}
-.proj .spine{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:14px;padding:22px 0;transition:opacity .3s}
-.proj .spine b{writing-mode:vertical-rl;transform:rotate(180deg);font-size:17px;letter-spacing:-.01em;flex:1;text-align:center}
-.proj .spine i{font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:13px}
-.proj.open .spine{opacity:0;pointer-events:none}
-.proj .body{position:absolute;inset:0;padding:40px;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;opacity:0;transition:opacity .3s;min-width:640px}
-.proj.open .body{opacity:1;transition-delay:.35s}
-.proj .num{font-size:12px;color:var(--muted);letter-spacing:.15em}
-.proj h3{font-size:clamp(28px,3vw,40px);letter-spacing:-.03em;margin:10px 0 12px;line-height:1.05}
-.proj p{color:var(--ink-2);font-size:15px}
-.proj ul{list-style:none;margin:18px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:13px}
-.proj li::before{content:"• ";color:var(--muted)}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
-.tags span{font-size:11px;padding:4px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
-.shot{border-radius:14px;background:var(--bg-2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;border:1px solid var(--line);text-align:center;padding:16px;overflow:hidden;min-height:0}
-.shot img{height:100%;max-height:360px;width:auto;max-width:100%;object-fit:contain;border-radius:18px;box-shadow:var(--shadow)}
-.proj .ico{width:34px;height:34px;border-radius:9px;flex:none}
-.proj h3 .ico{width:44px;height:44px;border-radius:12px;vertical-align:middle;margin-right:12px;position:relative;top:-3px}
-.proj h3 a{color:inherit;text-decoration:none}
-.proj h3 a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
-.proj h3 .lk{width:.55em;height:.55em;margin-left:.3em;vertical-align:.2em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;opacity:.7}
+/* apps */
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.app{position:relative;border-radius:var(--radius);padding:1px;background:var(--line);transition:transform .35s,background .35s;transform-style:preserve-3d}
+.app:hover{background:var(--grad);transform:translateY(-6px)}
+.app .in{border-radius:calc(var(--radius) - 1px);background:var(--bg-2);overflow:hidden;height:100%;display:flex;flex-direction:column}
+.app .shot{position:relative;aspect-ratio:4/3.3;overflow:hidden;background:#101325}
+.app .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .7s}
+.app:hover .shot img{transform:scale(1.05)}
+.app .shot.contain img{object-fit:contain;padding:30px}
+.app .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,var(--bg-2))}
+.app .plat{position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:2}
+.app .plat span{font:600 10.5px/1 var(--mono);padding:6px 9px;border-radius:8px;background:rgba(6,7,13,.75);border:1px solid var(--line-2);backdrop-filter:blur(8px)}
+.app .idx{position:absolute;top:12px;right:14px;z-index:2;font:600 11px var(--mono);color:rgba(255,255,255,.7)}
+.app .body{padding:4px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1;margin-top:-34px;position:relative;z-index:2}
+.app .head{display:flex;gap:12px;align-items:center}
+.app .head img{width:46px;height:46px;border-radius:12px;border:1px solid var(--line-2)}
+.app h3{font-size:19px;letter-spacing:-.02em;line-height:1.15}
+.app .head small{display:block;font:11.5px var(--mono);color:var(--dim)}
+.app p{font-size:14px;color:var(--dim)}
+.app .kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.app .kpi div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.app .kpi b{display:block;font-size:18px;letter-spacing:-.02em}
+.app .kpi span{font:11px/1.3 var(--mono);color:var(--dim);display:block}
+.app .stack{display:flex;gap:5px;flex-wrap:wrap}
+.app .stack span{font:11px var(--mono);padding:4px 8px;border-radius:7px;color:var(--cyan);background:rgba(92,225,255,.07);border:1px solid rgba(92,225,255,.18)}
+.app .foot{margin-top:auto;padding-top:4px}
+.app .foot a{font:600 12.5px var(--mono);display:inline-flex;gap:8px;align-items:center;padding:9px 14px;border-radius:10px;background:var(--text);color:var(--bg)}
+.app .foot a:hover{background:var(--cyan)}
+.app .foot em{font:12px var(--mono);color:var(--faint);font-style:normal}
 
-/* experience */
-.timeline{margin-top:40px;border-top:1px solid var(--line)}
-.job{display:grid;grid-template-columns:200px 1fr auto;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.job .when{color:var(--muted);font-size:14px}
-.job h3{font-size:22px;letter-spacing:-.02em}
-.job p{color:var(--ink-2);font-size:14px;margin-top:6px;max-width:640px}
-.job .co{font-size:14px;font-weight:600}
+/* case study */
+.case{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+.case .copy{padding:40px}
+.case .lede{color:var(--dim);margin-top:16px;font-size:16px}
+.steps{margin-top:26px}
+.steps div{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.steps b{font:600 11.5px/1.7 var(--mono);color:var(--cyan);text-transform:uppercase;letter-spacing:.08em}
+.steps p{font-size:14.5px;color:var(--text)}
+.case .copy .btn{margin-top:24px}
+.arch{padding:28px;position:relative;overflow:hidden}
+.arch .t{font:500 12px var(--mono);color:var(--dim);margin-bottom:18px;display:flex;justify-content:space-between}
+.arch .t b{color:var(--green);font-weight:500}
+.layers{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.layers::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(var(--cyan),var(--violet));opacity:.4}
+.packet{position:absolute;left:calc(50% - 4px);width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px 3px var(--cyan);animation:packet 3.2s cubic-bezier(.6,0,.4,1) infinite;z-index:3}
+.packet.p2{animation-delay:-1.6s;background:var(--pink);box-shadow:0 0 14px 3px var(--pink);animation-direction:reverse}
+@keyframes packet{0%{top:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:100%;opacity:0}}
+.layer{position:relative;z-index:2;border:1px solid var(--line-2);border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:15px;background:rgba(11,13,24,.92)}
+.layer small{font:11px var(--mono);color:var(--dim);text-align:right}
+.layer.hl{border-color:var(--cyan);box-shadow:0 0 24px -8px var(--cyan)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;position:relative;z-index:2}
+.secure{margin-top:16px;display:flex;align-items:center;gap:10px;font:500 12px/1.45 var(--mono);color:var(--green);background:rgba(61,220,132,.06);border:1px dashed rgba(61,220,132,.4);padding:12px 14px;border-radius:12px;position:relative;z-index:2}
 
-/* achievements */
-.ach{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:30px;transition:.3s}
-.stat:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.stat .ic{min-width:44px;padding:0 8px;font-size:14px;width:max-content;height:44px;border-radius:12px;background:var(--bg-2);display:grid;place-items:center;font-weight:700}
-.stat .row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
-.stat h4{font-size:16px}
-.stat small{display:block;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-.stat .n{font-size:48px;font-weight:700;letter-spacing:-.04em;line-height:1}
+
+/* IDE stack */
+.ide{overflow:hidden;display:grid;grid-template-columns:220px 1fr;min-height:430px}
+.ide .side{border-right:1px solid var(--line);padding:16px 10px;background:rgba(0,0,0,.2)}
+.ide .side small{display:block;font:600 10.5px var(--mono);color:var(--faint);letter-spacing:.12em;padding:0 10px 10px}
+.ide .side button{display:flex;width:100%;gap:10px;align-items:center;text-align:left;background:none;border:0;color:var(--dim);font:13px var(--mono);padding:9px 10px;border-radius:9px;cursor:pointer}
+.ide .side button i{font-style:normal;width:16px;text-align:center}
+.ide .side button.on{background:var(--panel-2);color:var(--text)}
+.ide .side button:hover{color:var(--text)}
+.ide .main{display:flex;flex-direction:column;min-width:0}
+.ide .tabs{display:flex;border-bottom:1px solid var(--line);font:12px var(--mono)}
+.ide .tabs span{padding:12px 18px;border-right:1px solid var(--line);color:var(--text);background:var(--panel);border-top:2px solid var(--cyan)}
+.ide .tabs em{margin-left:auto;padding:12px 16px;color:var(--faint);font-style:normal}
+.ide pre{padding:20px 0;font:13.5px/1.85 var(--mono);overflow-x:auto;flex:1}
+.ide pre .ln{display:inline-block;width:46px;text-align:right;padding-right:18px;color:var(--faint);user-select:none}
+.k{color:var(--violet)}.s{color:var(--green)}.c{color:var(--faint);font-style:italic}.n{color:var(--cyan)}.f{color:var(--amber)}
 
 /* ai */
-.lead{max-width:720px;color:var(--ink-2);font-size:17px;margin-top:22px}
-.flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:36px 0 28px}
-.flow .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 16px;line-height:1.25}
-.flow .step b{display:block;font-size:14px}
-.flow .step small{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-.flow .step.core{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.flow .step.core small{color:#b9b6c9}
-.flow .arr{color:var(--muted);font-size:18px}
-.ai-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:16px;align-items:stretch}
-.ai-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.ai-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.3s}
-.ai-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.ai-card small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.ai-card h3{font-size:19px;letter-spacing:-.01em;margin:8px 0 6px}
-.ai-card p{font-size:13.5px;color:var(--ink-2)}
-.term{background:var(--tile-dark);color:#e9e5f5;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;min-height:360px}
-.term .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:rgba(255,255,255,.06);font-size:12px;color:#a9a6bd}
-.term .bar i{width:11px;height:11px;border-radius:50%;background:#ff5f57}
-.term .bar i:nth-child(2){background:#febc2e}.term .bar i:nth-child(3){background:#28c840}
-.term .bar span{margin-left:8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.term pre{flex:1;margin:0;padding:18px 20px;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word}
-.term .p{color:#8f8ca6}.term .u{color:#fff;font-weight:600}.term .t{color:#d4a373}.term .ok{color:#7ee2a8}
-.term .cur{display:inline-block;width:8px;height:15px;background:#e9e5f5;vertical-align:-3px;animation:caret 1s steps(1) infinite}
-.term .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#c9c6da}
-.term .foot a{color:#fff;font-weight:600;white-space:nowrap}
-.term .foot button{background:none;border:1px solid rgba(255,255,255,.25);color:#e9e5f5;border-radius:999px;padding:5px 12px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;flex:none}
+.pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;position:relative;margin-bottom:22px}
+.pipe::before{content:"";position:absolute;left:4%;right:4%;top:50%;height:1px;background:var(--line-2)}
+.pipe .beam{position:absolute;top:calc(50% - 1px);height:3px;width:12%;border-radius:3px;background:var(--grad);box-shadow:0 0 18px var(--violet);animation:beam 4s linear infinite}
+@keyframes beam{from{left:2%}to{left:86%}}
+.node{position:relative;z-index:2;padding:16px 14px;border-radius:16px;background:var(--bg-2);border:1px solid var(--line-2);text-align:center}
+.node small{display:block;font:10.5px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+.node b{display:block;font-size:15px;margin-top:4px}
+.node.core{border-color:transparent;background:linear-gradient(var(--bg-2),var(--bg-2)) padding-box,var(--grad) border-box;border:1px solid transparent;box-shadow:0 0 40px -10px var(--violet)}
+.ai-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:18px}
+.ai-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ai-card{padding:22px}
+.ai-card small{font:11px var(--mono);color:var(--cyan);letter-spacing:.06em}
+.ai-card h3{font-size:18px;margin:8px 0 6px;letter-spacing:-.01em}
+.ai-card p{font-size:13.5px;color:var(--dim)}
+.term{border-radius:var(--radius);overflow:hidden;background:#05060b;border:1px solid var(--line-2);display:flex;flex-direction:column;box-shadow:0 30px 80px -40px rgba(92,225,255,.4)}
+.term .bar{display:flex;gap:7px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font:12px var(--mono);color:var(--dim)}
+.term .bar i{width:11px;height:11px;border-radius:50%;background:#ff5f57}.term .bar i:nth-child(2){background:#febc2e}.term .bar i:nth-child(3){background:#28c840}
+.term .bar span{margin-left:8px}
+.term pre{padding:18px 20px;font:13px/1.75 var(--mono);white-space:pre-wrap;min-height:290px;flex:1}
+.term .p{color:var(--green)}.term .u{color:#fff;font-weight:600}.term .ok{color:var(--green)}.term .t{color:var(--pink)}.term .d{color:var(--dim)}
+
+/* git log */
+.log{font-family:var(--mono)}
+.commit{display:grid;grid-template-columns:34px 1fr;gap:14px;position:relative}
+.commit .g{position:relative;display:flex;justify-content:center}
+.commit .g::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:var(--line-2)}
+.commit:first-child .g::before{top:22px;background:linear-gradient(var(--cyan),var(--line-2))}
+.commit:last-child .g::before{bottom:calc(100% - 22px)}
+.commit .g i{position:relative;margin-top:16px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--dim)}
+.commit:first-child .g i{border-color:var(--cyan);box-shadow:0 0 14px var(--cyan);background:var(--cyan)}
+.commit .cb{padding:10px 0 28px}
+.commit .meta{font-size:12px;color:var(--faint);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.commit .meta .h{color:var(--amber)}
+.commit .meta .ref{color:var(--cyan);border:1px solid rgba(92,225,255,.35);padding:2px 8px;border-radius:6px}
+.commit h3{font-family:"Space Grotesk",sans-serif;font-size:21px;letter-spacing:-.02em;margin-top:6px}
+.commit h3 span{color:var(--dim);font-weight:500}
+.commit p{font-family:"Space Grotesk",sans-serif;font-size:14.5px;color:var(--dim);margin-top:6px;max-width:720px}
 
 /* contact */
-.contact{text-align:center;padding-bottom:60px}
-.contact h2{font-size:clamp(48px,9vw,120px);line-height:.95;letter-spacing:-.045em;font-weight:700}
-.contact .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:36px}
-footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 0 40px}
-footer a{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px}
+.contact{text-align:center;overflow:hidden}
+.contact h2{font-size:clamp(50px,10vw,140px);letter-spacing:-.06em;line-height:.9}
+.contact .ping{display:inline-block;margin-top:28px;font:13px var(--mono);color:var(--dim);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-align:left}
+.contact .ping b{color:var(--green);font-weight:500}
+.contact .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+footer{text-align:center;color:var(--faint);font:12px var(--mono);padding:24px 0 44px}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
-.rv.in{opacity:1;transform:none}
-
-@media (max-width:900px){
+@media (max-width:980px){
   .menu{display:none}
-  .about-grid,.skills-grid{grid-template-columns:1fr}
-  .detail{position:static}
-  .hero .wrap{flex-direction:column;align-items:flex-start}
-  .ctas{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
-  .ai-grid,.ai-cards{grid-template-columns:1fr}
-  .flow .step{padding:8px 12px}
-  .term{min-height:0}
-  .term pre{font-size:12px;min-height:260px}
-  .hero{flex-direction:column;justify-content:flex-start;min-height:auto;padding-top:84px}
-  .avatar{position:relative;left:auto;right:auto;bottom:auto;width:100%;height:min(46vh,420px);align-self:center;margin-bottom:12px}
-  .watermark{top:14vh}
-  .hero .wrap>div:first-child{max-width:none}
-  .hero h1{font-size:clamp(40px,11vw,60px)}
-  .bubble{left:calc(50% + min(5.5vh,50px));top:1%;font-size:13px;padding:8px 12px}
-  .work-row{flex-direction:column;height:auto}
-  .proj{flex:0 0 64px}
-  .proj.open{flex:0 0 auto}
-  .proj .spine{flex-direction:row;padding:0 22px}
-  .proj .spine b{writing-mode:horizontal-tb;transform:none;text-align:left}
-  .proj .body{position:relative;min-width:0;grid-template-columns:1fr;padding:26px;display:none}
-  .proj.open .body{display:grid}
-  .proj .shot{min-height:180px}
-  .shot img{max-height:420px}
-  .job{grid-template-columns:1fr}
+  .hero{padding-top:100px;min-height:auto}
+  .hero .wrap{grid-template-columns:1fr}
+  .stage{height:520px;order:-1;margin-bottom:-10px}
+  .phone{width:220px;border-radius:38px;padding:9px}
+  .screen{border-radius:30px}
+  .orbit{font-size:11px;padding:6px 10px}
+  .hud{grid-template-columns:repeat(2,1fr)}
+  .apps{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -24px;padding:6px 24px 18px;scrollbar-width:none}
+  .apps::-webkit-scrollbar{display:none}
+  .app{flex:0 0 84%;scroll-snap-align:center}
+  .case,.ai-grid{grid-template-columns:1fr}
+  .case .copy{padding:26px 22px}
+  .arch{padding:20px 16px}
+  .layer{padding:12px;font-size:14px}
+  .layer small{font-size:10px}
+  .steps div{grid-template-columns:1fr;gap:4px}
+  .ide{grid-template-columns:1fr}
+  .ide .side{display:flex;overflow-x:auto;gap:4px;border-right:0;border-bottom:1px solid var(--line);padding:10px}
+  .ide .side small{display:none}
+  .ide .side button{width:auto;white-space:nowrap}
+  .ide pre{font-size:12px}
+  .pipe{grid-template-columns:repeat(2,1fr)}
+  .pipe::before,.pipe .beam{display:none}
+  .ai-cards{grid-template-columns:1fr}
   section{padding:80px 0}
+  .swipe{display:inline!important}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<div class="cursor-glow" id="glow"></div>
+<div class="noise"></div>
 
 <header class="nav">
-  <a href="#top" class="brand"><i id="initials">KK</i><span id="brandName"></span></a>
+  <a href="#top" class="brand"><b>KK</b><span>Kamran Khadim</span><i class="on" title="Open to opportunities"></i></a>
   <nav class="menu" id="menu">
-    <a href="#about">About</a><a href="#skills">Skills</a><a href="#ai">AI</a><a href="#work">Work</a>
-    <a href="#experience">Experience</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
+    <a href="#apps">./apps</a><a href="#case">./case-study</a><a href="#stack">./stack</a><a href="#ai">./ai</a><a href="#log">./git-log</a><a href="#contact">./contact</a>
   </nav>
-  <a class="cvpill" data-cv href="assets/Kamran_Khadim_CV.pdf">CV ↓</a>
+  <a class="cv" href="assets/Kamran_Khadim_CV.pdf" download="Kamran_Khadim_Senior_Mobile_Developer_CV.pdf">CV ↓</a>
 </header>
 
+<main>
+<!-- HERO -->
 <section class="hero" id="top">
-  <div class="watermark" id="watermark"></div>
-  <div class="avatar" id="avatar"></div>
+  <div class="bg"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div><div class="floor"></div></div>
   <div class="wrap">
     <div>
-      <div class="eyebrow" id="heroEyebrow"></div>
-      <h1 id="heroTitle"></h1>
-      <div class="sub" id="heroSub"></div>
+      <div class="boot" id="boot"></div>
+      <h1>Senior<br><span class="grad">Mobile</span> <span class="out">Engineer</span></h1>
+      <p class="sub">I build <b>secure, fast Android &amp; Flutter apps</b> used across the GCC — from Dubai Police to the ENTERTAINER — and ship them faster with <b>AI agents</b>.</p>
+      <div class="ctas">
+        <a href="#apps" class="btn primary">Explore the apps →</a>
+        <a href="#case" class="btn">Read a case study</a>
+      </div>
+      <div class="hud" id="hud"></div>
     </div>
-    <div class="ctas">
-      <a href="#work" class="btn solid">Explore work →</a>
-      <a href="assets/Kamran_Khadim_CV.pdf" class="btn" data-cv>Download CV ↓</a>
-      <a href="#contact" class="btn">Let's talk</a>
+    <div class="stage" id="stage">
+      <div class="ring"></div><div class="ring r2"></div>
+      <div class="phone" id="phone">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="sbar"><span id="clock">9:41</span><span>5G ▮</span></div>
+          <div class="notif" id="notif"><i id="notifIco"></i><div><small id="notifApp"></small><b id="notifText"></b></div></div>
+          <div class="home">
+            <div class="widget">
+              <div><small>Crashlytics · ENTERTAINER</small><b>99%</b><em>▲ crash-free, from 50%</em></div>
+              <div class="bars" aria-hidden="true"><i style="height:30%"></i><i style="height:38%;animation-delay:.1s"></i><i style="height:52%;animation-delay:.2s"></i><i style="height:70%;animation-delay:.3s"></i><i style="height:86%;animation-delay:.4s"></i><i style="height:100%;animation-delay:.5s"></i></div>
+            </div>
+            <div class="icons" id="homeIcons"></div>
+            <div class="mini"><div><small>App startup</small><b>−28%</b><em>in six months</em></div><div><small>Claude Code</small><b>11</b><em>agent skills</em></div></div>
+          </div>
+          <div class="dock" id="dock"></div>
+          <div class="homebar"></div>
+        </div>
+      </div>
+      <div class="orbit o1"><i style="background:var(--violet)"></i>Kotlin</div>
+      <div class="orbit o2"><i style="background:var(--green)"></i>Jetpack Compose</div>
+      <div class="orbit o3"><i style="background:var(--cyan)"></i>Flutter</div>
+      <div class="orbit o4"><i style="background:var(--pink)"></i>Claude Code · MCP</div>
     </div>
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="wrap about-grid">
-    <div class="rv">
-      <div class="eyebrow"><b>01</b> About</div>
-      <h2 id="aboutHi"></h2>
-      <p id="aboutText"></p>
-      <div class="links" id="aboutLinks"></div>
+<div class="ticker"><div class="track" id="ticker"></div></div>
+
+<!-- APPS -->
+<section id="apps">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="tag">01 — installed apps</div><h2>Shipped to <span class="grad">real pockets.</span></h2></div>
+      <p>Six production apps: platform, stack and a measurable result for each. <span class="swipe mono" style="display:none;color:var(--cyan);font-size:12px">← swipe →</span></p>
     </div>
-    <div class="lanyard rv">
-      <div class="strap"></div><div class="clip"></div>
-      <div class="idcard">
-        <div class="top"><span>DEVELOPER ID</span><span id="idYear"></span></div>
-        <div class="photo" id="idPhoto"></div>
-        <h4 id="idName"></h4>
-        <div class="role" id="idRole"></div>
-        <div class="bar"></div>
+    <div class="apps" id="appGrid"></div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="case" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="tag">02 — case study</div><h2>Esaad Card · <span class="grad">Dubai Police</span></h2></div></div>
+    <div class="case">
+      <div class="copy glass">
+        <p class="lede" style="margin-top:0">A government-grade Android app, built from scratch, where every request has to prove which device sent it.</p>
+        <div class="steps">
+          <div><b>Problem</b><p>A secure government app for Esaad cardholders, with security requirements beyond standard HTTPS.</p></div>
+          <div><b>Approach</b><p>Clean Architecture with a Jetpack Compose UI. Mutual SSL with client-side certificates, so the server authenticates the app as well as the app authenticating the server.</p></div>
+          <div><b>Result</b><p>Built from scratch and live on Google Play.</p></div>
+        </div>
+        <a class="btn primary" href="https://play.google.com/store/apps/details?id=dubaipolice.esaad.ae.esaad_dubaipolice" target="_blank" rel="noopener">View on Google Play ↗</a>
+      </div>
+      <div class="arch glass">
+        <div class="t"><span>// architecture.kt</span><b>● build passing</b></div>
+        <div class="layers">
+          <span class="packet"></span><span class="packet p2"></span>
+          <div class="layer hl"><span>UI · Jetpack Compose</span><small>screens · state</small></div>
+          <div class="layer"><span>ViewModel</span><small>StateFlow · coroutines</small></div>
+          <div class="layer"><span>Use cases</span><small>domain · pure Kotlin</small></div>
+          <div class="layer"><span>Repository</span><small>single source of truth</small></div>
+          <div class="split">
+            <div class="layer"><span>Remote</span><small>Retrofit<br>OkHttp</small></div>
+            <div class="layer"><span>Local</span><small>Room<br>DataStore</small></div>
+          </div>
+        </div>
+        <div class="secure">🔒 mTLS handshake · client certificate on every request · server verifies the device</div>
       </div>
     </div>
-    <div class="rv">
-      <div class="facts" id="facts"></div>
-      <div class="quote serif" id="quote"></div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="tag">03 — tech stack</div><h2>My stack, <span class="grad">as code.</span></h2></div>
+      <p>Open a file. <span class="mono" style="color:var(--green)">// daily</span> marks what I use every day.</p>
+    </div>
+    <div class="ide glass">
+      <div class="side" id="files"><small>EXPLORER</small></div>
+      <div class="main">
+        <div class="tabs"><span id="tabName"></span><em>Kotlin · UTF-8</em></div>
+        <pre id="code"></pre>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="skills">
+<!-- AI -->
+<section id="ai" style="padding-top:30px">
   <div class="wrap">
-    <div class="eyebrow rv"><b>02</b> Skills</div>
-    <h2 class="title rv">The <span class="serif">elements</span> I work with.</h2>
-    <div class="chips rv" id="chips"></div>
-    <div class="skills-grid rv">
-      <div class="table" id="table"></div>
-      <aside class="detail" id="detail"></aside>
+    <div class="sec-head">
+      <div><div class="tag">04 — ai workflow</div><h2>Shipping with <span class="grad">AI agents.</span></h2></div>
+      <p>Claude Code gets the same context I have through MCP. Skills I wrote keep it on our architecture. Every line is reviewed and tested by me.</p>
     </div>
-  </div>
-</section>
-
-<section id="ai">
-  <div class="wrap">
-    <div class="eyebrow rv"><b>03</b> AI</div>
-    <h2 class="title rv">Shipping with <span class="serif">AI agents.</span></h2>
-    <p class="lead rv" id="aiLead"></p>
-    <div class="flow rv" id="aiFlow"></div>
+    <div class="pipe" id="pipe"><div class="beam"></div></div>
     <div class="ai-grid">
-      <div class="ai-cards rv" id="aiCards"></div>
-      <div class="term rv" id="term">
-        <div class="bar"><i></i><i></i><i></i><span id="termTitle"></span></div>
-        <pre id="termOut" aria-live="off"></pre>
-        <div class="foot"><span id="termNote"></span><button type="button" id="termReplay">↻ Replay</button></div>
+      <div class="ai-cards" id="aiCards"></div>
+      <div class="term" id="term">
+        <div class="bar"><i></i><i></i><i></i><span>~/kamrankhadim95.github.io — claude</span></div>
+        <pre id="termOut"></pre>
       </div>
     </div>
   </div>
 </section>
 
-<section id="work">
+<!-- GIT LOG -->
+<section id="log" style="padding-top:30px">
   <div class="wrap">
-    <div class="eyebrow rv"><b>04</b> Work</div>
-    <h2 class="title rv">Things I've <span class="serif">shipped.</span></h2>
-    <div class="work-row rv" id="work-row"></div>
+    <div class="sec-head"><div><div class="tag">05 — git log --career</div><h2>Where I've <span class="grad">committed.</span></h2></div></div>
+    <div class="log" id="commits"></div>
   </div>
 </section>
 
-<section id="experience">
-  <div class="wrap">
-    <div class="eyebrow rv"><b>05</b> Experience</div>
-    <h2 class="title rv">Where I've <span class="serif">been.</span></h2>
-    <div class="timeline" id="timeline"></div>
-  </div>
-</section>
-
-<section id="achievements">
-  <div class="wrap">
-    <div class="eyebrow rv"><b>06</b> Achievements</div>
-    <h2 class="title rv">Proud <span class="serif">moments.</span></h2>
-    <div class="ach" id="ach"></div>
-  </div>
-</section>
-
+<!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="wrap rv">
-    <div class="eyebrow" style="justify-content:center"><b>07</b> Contact</div>
-    <h2>Let's build <span class="serif">something.</span></h2>
-    <div class="btns" id="contactBtns"></div>
+  <div class="wrap">
+    <div class="tag">06 — contact</div>
+    <h2>Let's ship<br><span class="grad">something.</span></h2>
+    <div><div class="ping"><b>$</b> ping kamran --role senior-mobile<br><b>→</b> Senior Mobile Developer · Dubai, UAE · WhatsApp, email or LinkedIn</div></div>
+    <div class="btns">
+      <a class="btn primary" href="https://wa.me/971501874359?text=Hi%20Kamran%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="tel:+971501874359">📞 +971 50 187 4359</a>
+      <a class="btn" href="mailto:kamranch724@gmail.com">Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/kamran-khadim-19b97a141/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/kamrankhadim95" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="assets/Kamran_Khadim_CV.pdf" download="Kamran_Khadim_Senior_Mobile_Developer_CV.pdf">Download CV ↓</a>
+    </div>
   </div>
 </section>
-
-<footer id="footer"></footer>
+<footer id="footer">© Kamran Khadim · pair-built with Claude Code · <a href="https://github.com/kamrankhadim95/kamrankhadim95.github.io" target="_blank" rel="noopener" style="color:var(--dim);text-decoration:underline;text-underline-offset:3px">View source</a></footer>
+</main>
 
 <script>
-/* ============================================================
-   EDIT EVERYTHING HERE — the rest of the page reads from this.
-   Lines marked TODO are placeholders: replace before publishing.
-   ============================================================ */
-const PROFILE = {
-  name: "Kamran Khadim",
-  firstName: "Kamran",
-  initials: "KK",
-  title: "Senior Mobile Developer",
-  tagline: "Kotlin · Jetpack Compose · Flutter · AI-assisted engineering — 7+ years",
-  cv: "assets/Kamran_Khadim_CV.pdf",               // built from cv.html; every "Download CV" button serves it
-  cvName: "Kamran_Khadim_Senior_Mobile_Developer_CV.pdf",
-  heroVideo: "assets/hero.mp4",                    // waving 3D avatar (Google Flow, audio removed)
-  heroPoster: "assets/hero-cartoon.png",            // 3D cartoon avatar, used when hero.mp4 is absent
-  photo: "assets/photo.jpg",                       // ID-card photo (optional)
-  about: "Senior Mobile Developer with 7+ years designing, building and scaling secure, high-performance mobile apps — primarily Android with Kotlin, Jetpack Compose and Clean Architecture, plus cross-platform work in Flutter. I've delivered government-grade and enterprise products including Dubai Police (Esaad Card) and The ENTERTAINER, and I lead modules, review code and mentor developers alongside product, backend and QA teams. Day to day I build with AI: Claude Code is my engineering agent, connected to Figma, Jira and Confluence over MCP and guided by skills I wrote for my team.",
-  quote: "“Secure, fast, and built to scale.”",
-  facts: [
-    ["Role", "Senior Mobile Developer"],
-    ["Company", "The ENTERTAINER"],
-    ["Based in", "Dubai, UAE"],
-    ["Experience", "7+ years"],
-    ["AI stack", "Claude Code · MCP"],
-    ["Education", "M.S. Computer Science"]
-  ],
-  links: {
-    email: "kamranch724@gmail.com",
-    linkedin: "https://www.linkedin.com/in/kamran-khadim-19b97a141/",
-    github: "https://github.com/kamrankhadim95",
-    phone: "+971 50 187 4359",                     // shows a Call button (tel: link)
-    whatsapp: "+971501874359",                     // shows a WhatsApp button that opens a chat
-    whatsappText: "Hi Kamran, I came across your portfolio and would love to connect."
-  }
-};
-
-// category: 0 Languages, 1 Android, 2 Cross-platform, 3 Architecture, 4 Network & Security, 5 Data, 6 Tools & CI/CD, 7 AI
-const CATEGORIES = ["Languages", "Android", "Cross-platform", "Architecture", "Network & Security", "Data", "Tools & CI/CD", "AI"];
-const SKILLS = [
-  ["Kt","Kotlin",0,95,"Primary language for native Android."],
-  ["Jv","Java",0,85,"Legacy codebases and interop."],
-  ["Dt","Dart",0,80,"Flutter apps for Android & iOS."],
-  ["Jc","Jetpack Compose",1,92,"Declarative UI — 50%+ of new screens at ENTERTAINER."],
-  ["Xm","XML & Custom Views",1,92,"ConstraintLayout, animations, responsive UI."],
-  ["Co","Coroutines",1,90,"Structured concurrency for async work."],
-  ["Fw","Flow / StateFlow",1,88,"Reactive streams and UI state."],
-  ["Hi","Hilt",1,82,"Dependency injection."],
-  ["Nv","Navigation",1,85,"Single-activity navigation and deeplinks."],
-  ["Fl","Flutter",2,82,"Cross-platform apps (Android & iOS)."],
-  ["Bl","BLoC",2,80,"Predictable state management."],
-  ["Rp","Riverpod / Provider",2,75,"Flutter state & DI."],
-  ["Km","Compose Multiplatform",2,65,"Shared Kotlin UI for Android & iOS (certified 2025)."],
-  ["Mv","MVVM / MVI",3,92,"ViewModel-driven, unidirectional screens."],
-  ["Ca","Clean Architecture",3,90,"Layered, testable, modular codebases."],
-  ["Sa","Single Activity",3,85,"Migrated legacy apps to single-activity MVVM."],
-  ["Rf","Retrofit",4,92,"REST networking with OkHttp."],
-  ["Kr","Ktor",4,70,"Kotlin-first HTTP client."],
-  ["Ws","WebSockets",4,75,"Real-time messaging and tracking."],
-  ["Oa","OAuth2 / JWT",4,85,"Secure authentication flows."],
-  ["Ms","Mutual SSL",4,85,"Client certificates & SSL pinning — Dubai Police."],
-  ["E2","E2E Encryption",4,80,"AES, SRTP — secure VoIP & chat."],
-  ["Rm","Room / SQLite",5,85,"Local persistence."],
-  ["Ds","DataStore",5,80,"Typed preferences storage."],
-  ["Sc","SQLCipher",5,72,"Encrypted local databases."],
-  ["Fb","Firebase",6,88,"FCM, Auth, Crashlytics, Remote Config."],
-  ["Gt","Git",6,92,"Branching, reviews, releases."],
-  ["Fa","Fastlane",6,80,"Automated build & deploy."],
-  ["Ga","GitHub Actions",6,78,"Tag-triggered CI/CD for Android & Flutter — builds run only when needed."],
-  ["Az","Azure DevOps",6,75,"Pipelines for mobile builds."],
-  ["Ju","JUnit · MockK · Espresso",6,80,"Unit and UI testing."],
-  ["Cc","Claude Code",7,92,"My engineering agent: plans, implements, tests and documents features with me."],
-  ["Mc","MCP",7,88,"Model Context Protocol connectors — Figma, Jira, Confluence."],
-  ["Sk","Agent Skills",7,88,"Wrote 11 custom Claude Code skills for the ENTERTAINER Android team — unit tests, device verification, API layering, Figma fidelity."],
-  ["Tv","AI Testing",7,86,"Agent-written unit tests for every edge case, then every scenario run on a real device."],
-  ["Fm","Figma MCP",7,86,"Design-to-code with value-by-value fidelity audits."],
-  ["Pe","Prompt & Context",7,85,"Prompt and context engineering for reliable agent output."],
-  ["Ag","AI Agents",7,82,"Configured AI agents for engagement & personalisation."]
-];
-
-const PROJECTS = [
-  {
-    name: "The ENTERTAINER",
-    blurb: "High-traffic lifestyle rewards app across the GCC — Android & iOS. Leading UI modernisation from legacy architecture to Kotlin, Jetpack Compose and Flutter.",
-    bullets: ["Crash-free users 50% → 99%", "App startup 28% faster", "Led Compose & Flutter UI migration", "Build times cut by 15%", "Features built with Claude Code + MCP", "Every scenario tested on device", "Tag-triggered CI/CD (Fastlane + Actions)", "Builds only when needed, not every push"],
-    tags: ["Kotlin","Jetpack Compose","Flutter","MVVM","Claude Code"],
-    link: "https://play.google.com/store/apps/details?id=com.theentertainerme.entertainer",
-    linkLabel: "View on Play Store",
-    icon: "assets/projects/entertainer-icon.png",
-    image: "assets/projects/entertainer.png"
-  },
-  {
-    name: "Esaad Card — Dubai Police",
-    blurb: "Secure government application, built from scratch with Clean Architecture and Jetpack Compose. Live on Google Play.",
-    bullets: ["Built from scratch", "Mutual SSL authentication", "Client-side certificates", "Government-grade security"],
-    tags: ["Kotlin","Jetpack Compose","Clean Architecture","mTLS"],
-    link: "https://play.google.com/store/apps/details?id=dubaipolice.esaad.ae.esaad_dubaipolice",
-    linkLabel: "View on Play Store",
-    icon: "assets/projects/esaad-icon.png",
-    image: "assets/projects/esaad.jpg"
-  },
-  {
-    name: "Indigo Rent A Car",
-    blurb: "Car rental app for Dubai and Abu Dhabi, built largely by AI: generated with Claude from the design PDF, then reviewed, completed and shipped as a full product. Rebuilt in Flutter with Claude as a learning project.",
-    bullets: ["Built with AI from the design PDF", "Branch pickup or doorstep delivery", "Map-based delivery location", "Flutter rebuild with Claude"],
-    tags: ["Android","Google Maps","Claude","Flutter"],
-    link: "https://play.google.com/store/apps/details?id=com.indigoicon.indigorentacar",
-    linkLabel: "View on Play Store",
-    icon: "assets/projects/indigo-icon.png",
-    image: "assets/projects/indigo.jpg"
-  },
-  {
-    name: "NEEO IM & Chat Translator",
-    blurb: "Messaging app with rewards and loyalty — maintained, modernised and extended with an AI-powered chat feature.",
-    bullets: ["AI chat using NLP frameworks", "Java → Kotlin improvements", "Redesigned channel & discussion UI", "OAuth2 secured APIs"],
-    tags: ["Android","Kotlin","Retrofit","OAuth2"],
-    link: "https://apps.apple.com/app/id629518300",
-    linkLabel: "View on App Store",
-    icon: "assets/projects/neeo-icon.png",
-    image: "assets/projects/neeo.png"
-  },
-  {
-    name: "Takeme — Ride Hailing",
-    blurb: "\u201CYour Every Day Travel Partner\u201D \u2014 a ride-hailing app launched in Karachi: book a ride in a minute, choose a scooter, rickshaw or car, and follow it live on the map.",
-    bullets: ["Launched in Karachi", "Scooter, rickshaw & car rides", "Real-time GPS & custom markers", "Route visualisation", "Push + deep linking", "Retrofit + Kotlin Flow network layer"],
-    tags: ["Kotlin","Flow","Firebase","Maps"],
-    link: "",                                      // no store listing
-    linkLabel: "",
-    icon: "assets/projects/takeme-icon.jpg",
-    image: "assets/projects/takeme.jpg"
-  },
-  {
-    name: "Secure VoIP & Chat",
-    blurb: "End-to-end encrypted VoIP and chat app built at Bahria Enterprise Systems & Technologies.",
-    bullets: ["End-to-end encryption", "Security compliance up 30%", "Single-activity MVVM migration", "Fewer memory leaks"],
-    tags: ["Android","AES","SRTP","MVVM"],
-    link: "",
-    linkLabel: "",
-    icon: "assets/projects/voip-icon.svg",
-    image: "assets/projects/voip.svg"
-  }
-];
-
-const EXPERIENCE = [
-  { when: "Jul 2023 — Present", role: "Senior Mobile Developer", company: "The ENTERTAINER · Dubai", text: "Lead Android (Kotlin, Compose) and Flutter development. Brought AI-assisted development to the team — Claude Code connected to Figma, Jira and Confluence over MCP, guided by 11 custom agent skills I wrote. Features ship end to end with AI: unit tests for every edge case and every scenario verified on a real device before review. Raised crash-free users from 50% to 99%, made app startup 28% faster in six months, migrated a large codebase to the latest SDKs and Compose (−15% build time), built 50%+ of UI screens in Compose/Flutter, made CI/CD tag-driven with Fastlane and GitHub Actions (a tag picks the dev, UAT or production build, so nothing builds on every push), and mentored developers (−20% production bugs)." },
-  { when: "Sep 2022 — Jul 2023", role: "Senior Android Developer", company: "NeeoPal Software Solutions · Lahore", text: "Built and maintained Android (Java/Kotlin) and Flutter apps; integrated BLoC, Firebase, REST APIs and AI-powered chat; refactored for performance and large-screen support." },
-  { when: "May 2020 — Aug 2022", role: "Junior Research Officer (Android)", company: "Bahria Enterprise Systems & Technologies · Islamabad", text: "Built a secure end-to-end encrypted VoIP and chat app and migrated it to single-activity MVVM." },
-  { when: "Jun 2019 — Apr 2020", role: "Android Developer", company: "Cane Technologies & ODL", text: "Developed multiple Android apps focused on performance, stability and UX." },
-  { when: "Jun 2018 — May 2019", role: "Android Developer", company: "ODL – Oxmite Digital Ltd.", text: "Cut crash rates by 30% using Crashlytics and Play Console; accelerated release cycles by 20%." }
-];
-
-const ACHIEVEMENTS = [
-  { icon: "7+", name: "Experience", label: "Years building mobile", value: 7, suffix: "+" },
-  { icon: "UI", name: "Compose & Flutter", label: "Of UI screens built", value: 50, suffix: "%+" },
-  { icon: "♥", name: "Crash-free users", label: "Up from 50% at ENTERTAINER", value: 99, suffix: "%" },
-  { icon: "▶", name: "App startup", label: "Faster in six months", value: 28, suffix: "%" },
-  { icon: "↓", name: "Crash rate", label: "Reduction at ODL", value: 30, suffix: "%" },
-  { icon: "✓", name: "Production bugs", label: "Fewer via reviews", value: 20, suffix: "%" },
-  { icon: "⚡", name: "Build time", label: "Faster after migration", value: 15, suffix: "%" },
-  { icon: "AI", name: "Agent skills", label: "Written for Claude Code", value: 11, suffix: "" },
-  { icon: "🎓", name: "Certifications", label: "Flutter · Compose Multiplatform", value: 2, suffix: "" }
-];
-
-const AI = {
-  lead: "I work with Claude Code as an engineering agent on a large, multi-module Android codebase. MCP connectors give it the same context I have — the PRD, the ticket, the Figma frame — and the skills I wrote keep its output on our architecture and design system. Every line that ships is reviewed and tested by me.",
-  // [tool, what it contributes, highlight]
-  flow: [["Confluence", "PRD"], ["Jira", "Ticket"], ["Figma", "Design"], ["Claude Code", "Agent + skills", true], ["Android Studio", "Review & test"], ["GitHub", "Pull request"]],
-  cards: [
-    { k: "Agent", t: "Claude Code", d: "Plans, implements, tests and documents features with me across Kotlin, Compose, XML and Gradle." },
-    { k: "Connectors", t: "MCP servers", d: "Figma for design-to-code and fidelity audits; Jira and Confluence for PRDs, tickets and handover docs." },
-    { k: "Skills", t: "11 custom skills", d: "Team standards as reusable agent skills: edge-case unit tests, on-device verification of every scenario, API layering and Figma fidelity." },
-    { k: "Guardrails", t: "Human in the loop", d: "Repo context, unit tests and code review hold AI-written code to the same bar as mine." }
-  ],
-  // the "making of" this site, typed out in the terminal card
-  terminal: {
-    title: "~/kamrankhadim95.github.io — claude",
-    prompt: "kamran@mac kamrankhadim95.github.io % ",
-    note: "A mobile developer's website, pair-built with Claude Code.",
-    source: "https://github.com/kamrankhadim95/kamrankhadim95.github.io",
-    lines: [
-      ["cmd", "claude"],
-      ["ask", "I'm a mobile developer, not a web developer. Turn my CV into a portfolio — one HTML file, no framework."],
-      ["out", "● Read Kamran_cv_mobile.pdf"],
-      ["out", "● Write index.html — hero, skills table, work, experience"],
-      ["out", "● Write cv.html → assets/Kamran_Khadim_CV.pdf"],
-      ["ask", "Make it feel like me. Add a waving avatar and show how I build with AI."],
-      ["out", "● Update index.html — avatar loop, speech bubble, AI section"],
-      ["out", "● Bash git push origin main"],
-      ["ok", "✓ Live at kamrankhadim95.github.io"]
-    ]
-  }
-};
-
-/* ====================== rendering ====================== */
 const $ = id => document.getElementById(id);
-const P = PROFILE;
-document.title = `${P.name} — ${P.title}`;
-$("initials").textContent = P.initials;
-$("brandName").textContent = P.name;
-$("watermark").textContent = P.firstName.toUpperCase();
-$("heroEyebrow").innerHTML = `<b>${P.name.toUpperCase()}</b>`;
-const tw = P.title.split(" ");
-$("heroTitle").innerHTML = `${tw.slice(0, -1).join(" ")}<br>${tw.slice(-1)}<span>.</span>`;
-$("heroSub").textContent = P.tagline;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
 
-// hero avatar: video → poster image → placeholder
-// Two stacked copies of the clip take turns: while one holds its last frame the other starts
-// from the beginning and they crossfade, so the loop never jumps or flickers.
-const HOLD_MS = 4000, FADE_MS = 700;
-(function(){
-  const box = $("avatar");
-  const placeholder = () => box.innerHTML = `<div class="placeholder"><div><b>${P.initials}</b>Your animated 3D avatar goes here<br><code>assets/hero.mp4</code></div></div>`;
-  const make = () => {
-    const el = document.createElement("video");
-    Object.assign(el, { src: P.heroVideo, muted: true, playsInline: true, preload: "auto", poster: "assets/hero-poster.jpg" });
-    el.setAttribute("aria-label", P.name);
-    el.style.transition = `opacity ${FADE_MS}ms ease`;
-    return el;
-  };
-  const a = make(), b = make();
-  b.style.opacity = 0;
-  a.classList.add("active");
-  const stage = document.createElement("div"); stage.className = "stage";
-  stage.append(a, b);
-  const play = el => el.play().catch(() => {});
-  const onEnd = function(){
-    if (!this.classList.contains("active")) return;
-    const cur = this, next = cur === a ? b : a;
-    box.dispatchEvent(new CustomEvent("avatar:hold"));
-    setTimeout(() => {
-      next.currentTime = 0; play(next);
-      next.classList.add("active"); cur.classList.remove("active");
-      next.style.opacity = 1; cur.style.opacity = 0;
-      setTimeout(() => { cur.pause(); cur.currentTime = 0; }, FADE_MS + 50);
-    }, HOLD_MS);
-  };
-  a.onended = onEnd; b.onended = onEnd;
-  document.addEventListener("visibilitychange", () => {
-    const cur = box.querySelector("video.active");
-    if (!document.hidden && cur && cur.paused && !cur.ended) play(cur);
-  });
-  a.onerror = () => {
-    const img = new Image(); img.src = P.heroPoster; img.alt = P.name;
-    img.onload = () => { box.innerHTML = ""; box.appendChild(img); };
-    img.onerror = placeholder;
-  };
-  a.onloadeddata = () => { if (stage.isConnected) return; box.innerHTML = ""; box.appendChild(stage); play(a); };
-  placeholder();
-  a.load(); b.load();
+/* cursor glow */
+addEventListener("pointermove", e => { const g = $("glow"); g.style.left = e.clientX + "px"; g.style.top = e.clientY + "px"; });
+
+/* boot line */
+(async () => {
+  const cmd = "./kamran --whoami";
+  const out = "→ 7+ yrs · Android · Flutter · Dubai, UAE";
+  const el = $("boot");
+  let t = "";
+  for (const ch of cmd) { t += ch; el.innerHTML = `<span class="p">~ $</span> <span class="c">${t}</span><span class="caret"></span>`; await sleep(calm ? 0 : 55); }
+  await sleep(calm ? 0 : 300);
+  el.innerHTML = `<span class="p">~ $</span> <span class="c">${cmd}</span><br>${out} <span class="caret"></span>`;
 })();
 
-// speech bubble next to the avatar, timed to the wave in the video
-(function(){
-  const box = $("avatar");
-  const b = document.createElement("div"); b.className = "bubble";
-  const t = document.createElement("span"); const c = document.createElement("i"); c.className = "caret";
-  b.append(t, c);
-  const attach = () => { if (!b.isConnected && box.querySelector("img,video")) box.appendChild(b); };
-  new MutationObserver(attach).observe(box, { childList: true });
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-  let current = null, token = 0;
-  async function say(text){
-    if (text === current) return;
-    current = text; const my = ++token;
-    attach();
-    while (t.textContent) { if (my !== token) return; t.textContent = [...t.textContent].slice(0, -1).join(""); await sleep(18); }
-    if (!text) { b.classList.remove("show"); return; }
-    b.classList.add("show");
-    for (const ch of [...text]) { if (my !== token) return; t.textContent += ch; await sleep(50); }
-  }
-  // seconds into hero.mp4: arms uncross by ~2.8s, wave ~4.2-5.6s, arms cross again from ~7s; during the end hold the last line stays 1.5s, then "Let's work together"
-  const script = [[3.4, "Hello! 👋"], [6.0, `I'm ${P.firstName}`], [7.6, "I build mobile apps"]];
-  const lineAt = time => { let line = ""; for (const [at, text] of script) if (time >= at) line = text; return line; };
-  let holdUntil = 0;
-  box.addEventListener("avatar:hold", () => {
-    holdUntil = Date.now() + HOLD_MS;
-    setTimeout(() => say("Let's work together"), 1500);
-  });
-  setInterval(() => {
-    const v = box.querySelector("video.active");
-    if (v && !v.ended && Date.now() > holdUntil) say(lineAt(v.currentTime));
-  }, 100);
-  // still-image fallback (no video): cycle the lines on a timer
-  (async function(){
-    await sleep(1500);
-    if (box.querySelector("video")) return;
-    for (;;) for (const [, text] of [...script, [0, "Let's work together"]]) { say(text); await sleep(2600); }
-  })();
-})();
+/* HUD */
+const HUD = [["99%", "crash-free users ↑ from 50%"], ["28%", "faster app startup"], ["6", "apps in production"], ["11", "AI agent skills written"]];
+$("hud").innerHTML = HUD.map(([b, s]) => `<div><b>${b}</b><span>${s}</span></div>`).join("");
 
-// about
-$("aboutHi").innerHTML = `Hi, I'm <span class="serif">${P.firstName}.</span>`;
-$("aboutText").textContent = P.about;
-$("quote").textContent = P.quote;
-$("facts").innerHTML = P.facts.map(([k, v]) => `<div><span>${k}</span><b>${v}</b></div>`).join("");
-$("idYear").textContent = new Date().getFullYear();
-$("idName").textContent = P.name;
-$("idRole").textContent = P.title;
-(function(){
-  const img = new Image(); img.src = P.photo;
-  img.onload = () => { $("idPhoto").style.backgroundImage = `url(${P.photo})`; };
-  img.onerror = () => { $("idPhoto").textContent = P.initials; };
-})();
-const L = P.links;
-const waIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>`;
-const linkBtns = [
-  L.whatsapp && [`https://wa.me/${L.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(L.whatsappText || "")}`, `${waIcon} WhatsApp`, "wa"],
-  L.phone && [`tel:${L.phone.replace(/[^\d+]/g, "")}`, `📞 ${L.phone}`, "tel"],
-  L.email && [`mailto:${L.email}`, "Email"],
-  P.cv && [P.cv, "Download CV ↓", "cv"],
-  L.linkedin && [L.linkedin, "LinkedIn ↗"],
-  L.github && [L.github, "GitHub ↗"]
-].filter(Boolean);
-const linkAttrs = kind => kind === "tel" ? "" : kind === "cv" ? " data-cv" : ' target="_blank" rel="noopener"';
-$("aboutLinks").innerHTML = linkBtns.map(([h, t, kind], i) =>
-  `<a class="btn ${i ? "" : "solid"} ${kind || ""}" href="${h}"${linkAttrs(kind)}>${t}</a>`).join("");
-$("contactBtns").innerHTML = $("aboutLinks").innerHTML;
-// every "Download CV" link saves the PDF under a descriptive file name
-document.querySelectorAll("[data-cv]").forEach(a => { a.href = P.cv; a.download = P.cvName; });
-$("footer").innerHTML = `© ${new Date().getFullYear()} ${P.name} · Pair-built with Claude Code · <a href="${AI.terminal.source}" target="_blank" rel="noopener">View source</a>`;
+/* ticker */
+const TICK = ["Kotlin", "Jetpack Compose", "Flutter", "Clean Architecture", "MVVM / MVI", "Coroutines · Flow", "Mutual SSL", "Retrofit", "Firebase", "Fastlane", "GitHub Actions", "Claude Code", "MCP"];
+$("ticker").innerHTML = [...TICK, ...TICK].map(t => `<span>${t}</span>`).join("");
 
-// skills periodic table
-let activeCat = -1;
-$("chips").innerHTML = ["All", ...CATEGORIES].map((c, i) => `<button class="chip ${i ? "" : "on"}" data-c="${i - 1}">${c}</button>`).join("");
-$("table").innerHTML = SKILLS.map(([s, n, c], i) =>
-  `<div class="el t${c}" data-i="${i}" data-c="${c}"><small>${String(i + 1).padStart(2, "0")}</small><strong>${s}</strong><em>${n}</em></div>`).join("");
-function showSkill(i){
-  const [s, n, c, lvl, txt] = SKILLS[i];
-  $("detail").innerHTML = `<div class="sym">${s}</div><h3>${n}</h3><p style="color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase">${CATEGORIES[c]}</p><p>${txt}</p><div class="lvl"><i style="width:${lvl}%"></i></div>`;
-}
-showSkill(0);
-$("table").addEventListener("mouseover", e => { const el = e.target.closest(".el"); if (el) showSkill(+el.dataset.i); });
-$("table").addEventListener("click", e => { const el = e.target.closest(".el"); if (el) showSkill(+el.dataset.i); });
-$("chips").addEventListener("click", e => {
-  const b = e.target.closest(".chip"); if (!b) return;
-  activeCat = +b.dataset.c;
-  document.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b));
-  document.querySelectorAll(".el").forEach(el => el.classList.toggle("dim", activeCat >= 0 && +el.dataset.c !== activeCat));
-});
-
-// ai
-$("aiLead").textContent = AI.lead;
-$("aiFlow").innerHTML = AI.flow.map(([tool, role, core], i) =>
-  `${i ? '<span class="arr" aria-hidden="true">→</span>' : ""}<div class="step${core ? " core" : ""}"><b>${tool}</b><small>${role}</small></div>`).join("");
-$("aiCards").innerHTML = AI.cards.map(c => `<div class="ai-card"><small>${c.k}</small><h3>${c.t}</h3><p>${c.d}</p></div>`).join("");
-$("termTitle").textContent = AI.terminal.title;
-$("termNote").innerHTML = `${AI.terminal.note} <a href="${AI.terminal.source}" target="_blank" rel="noopener">Source ↗</a>`;
-
-// terminal "making of": types the session once it scrolls into view; Replay restarts it
-(function(){
-  const out = $("termOut"), T = AI.terminal;
-  const esc = s => s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-  const instant = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const lead = { cmd: `<span class="p">${esc(T.prompt)}</span>`, ask: '<span class="t">&gt; </span>', out: "", ok: "" };
-  const cls = { cmd: "u", ask: "u", out: "", ok: "ok" };
-  let run = 0;
-  out.innerHTML = lead.cmd + '<span class="cur"></span>';
-  async function play(){
-    const my = ++run;
-    let html = "";
-    const render = (tail, cursor) => { out.innerHTML = html + tail + (cursor ? '<span class="cur"></span>' : ""); };
-    for (const [kind, text] of T.lines){
-      if (my !== run) return;
-      if (kind === "ask" && html) html += "\n";
-      const open = lead[kind] + `<span class="${cls[kind]}">`;
-      if (instant) { /* no typing */ }
-      else if (kind === "cmd" || kind === "ask"){
-        for (const i of [...text].keys()){
-          if (my !== run) return;
-          render(open + esc([...text].slice(0, i + 1).join("")) + "</span>", true);
-          await sleep(kind === "cmd" ? 90 : 24);
-        }
-        await sleep(380);
-      } else {
-        render("", true);
-        await sleep(kind === "ok" ? 700 : 420);
-      }
-      html += open + esc(text) + "</span>\n";
-    }
-    render("", true);
-  }
-  new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); play(); } }, { threshold: .35 }).observe($("term"));
-  $("termReplay").onclick = play;
-})();
-
-// work accordion
-$("work-row").innerHTML = PROJECTS.map((p, i) => `
-  <article class="proj ${i ? "" : "open"}" data-i="${i}">
-    <div class="spine"><img class="ico" src="${p.icon}" alt=""><b>${p.name}</b><i>+</i></div>
-    <div class="body">
-      <div>
-        <div class="num">${String(i + 1).padStart(2, "0")} / ${String(PROJECTS.length).padStart(2, "0")}</div>
-        <h3><img class="ico" src="${p.icon}" alt="">${p.link ? `<a href="${p.link}" target="_blank" rel="noopener" title="${p.linkLabel}">${p.name}<svg class="lk" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg></a>` : p.name}</h3>
-        <p>${p.blurb}</p>
-        <ul>${p.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
-        <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
-        ${p.link ? `<a class="btn solid" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel} ↗</a>` : ""}
-      </div>
-      <div class="shot">${p.image ? `<img src="${p.image}" alt="${p.name} screenshot" loading="lazy">` : "Add a screenshot"}</div>
+/* apps */
+const APPS = [
+  { name: "The ENTERTAINER", sub: "lifestyle rewards · GCC", plat: ["Android", "iOS"], img: "entertainer.png", icon: "entertainer-icon.png",
+    text: "High-traffic rewards app. Leading the UI move from legacy views to Compose and Flutter.",
+    kpi: [["50→99%", "crash-free users"], ["−28%", "startup time"]], stack: ["Kotlin", "Compose", "Flutter", "Claude Code"],
+    link: "https://play.google.com/store/apps/details?id=com.theentertainerme.entertainer", store: "Google Play" },
+  { name: "Esaad Card", sub: "dubai police · government", plat: ["Android"], img: "esaad.jpg", icon: "esaad-icon.png",
+    text: "Secure government app, built from scratch with Clean Architecture and mutual SSL.",
+    kpi: [["mTLS", "client certificates"], ["0→1", "built from scratch"]], stack: ["Kotlin", "Compose", "Clean Arch"],
+    link: "https://play.google.com/store/apps/details?id=dubaipolice.esaad.ae.esaad_dubaipolice", store: "Google Play" },
+  { name: "Indigo Rent A Car", sub: "car rental · UAE", plat: ["Android", "Flutter"], img: "indigo.jpg", icon: "indigo-icon.png",
+    text: "Branch pickup or doorstep delivery with map-based locations. Built largely with AI from the design PDF.",
+    kpi: [["AI-built", "from design PDF"], ["Flutter", "rebuild with Claude"]], stack: ["Android", "Maps", "Claude"],
+    link: "https://play.google.com/store/apps/details?id=com.indigoicon.indigorentacar", store: "Google Play" },
+  { name: "NEEO IM", sub: "messaging · rewards", plat: ["Android"], img: "neeo.png", icon: "neeo-icon.png",
+    text: "Messaging app with loyalty rewards, extended with an AI-powered chat translator.",
+    kpi: [["AI chat", "NLP translator"], ["Java→Kt", "modernised"]], stack: ["Kotlin", "Retrofit", "OAuth2"],
+    link: "https://apps.apple.com/app/id629518300", store: "App Store" },
+  { name: "Takeme", sub: "ride hailing · Karachi", plat: ["Android"], img: "takeme.jpg", icon: "takeme-icon.jpg", contain: true,
+    text: "Book a scooter, rickshaw or car in a minute and follow it live on the map.",
+    kpi: [["Live GPS", "custom markers"], ["3", "vehicle types"]], stack: ["Kotlin", "Flow", "Maps"] },
+  { name: "Secure VoIP & Chat", sub: "enterprise · encrypted", plat: ["Android"], img: "voip.svg", icon: "voip-icon.svg",
+    text: "End-to-end encrypted calls and chat, migrated to single-activity MVVM.",
+    kpi: [["+30%", "security compliance"], ["E2E", "AES · SRTP"]], stack: ["Android", "AES", "MVVM"] }
+];
+$("appGrid").innerHTML = APPS.map((a, i) => `
+  <article class="app"><div class="in">
+    <div class="shot${a.contain ? " contain" : ""}">
+      <img src="assets/projects/${a.img}" alt="${a.name} screenshot" loading="lazy">
+      <div class="plat">${a.plat.map(p => `<span>${p}</span>`).join("")}</div>
+      <div class="idx">0${i + 1}/0${APPS.length}</div>
     </div>
-  </article>`).join("");
-$("work-row").addEventListener("click", e => {
-  const card = e.target.closest(".proj"); if (!card || card.classList.contains("open")) return;
-  document.querySelectorAll(".proj").forEach(c => c.classList.toggle("open", c === card));
-});
+    <div class="body">
+      <div class="head"><img src="assets/projects/${a.icon}" alt=""><div><h3>${a.name}</h3><small>${a.sub}</small></div></div>
+      <p>${a.text}</p>
+      <div class="kpi">${a.kpi.map(([b, s]) => `<div><b>${b}</b><span>${s}</span></div>`).join("")}</div>
+      <div class="stack">${a.stack.map(t => `<span>${t}</span>`).join("")}</div>
+      <div class="foot">${a.link ? `<a href="${a.link}" target="_blank" rel="noopener">${a.store} ↗</a>` : `<em>// not on a public store</em>`}</div>
+    </div>
+  </div></article>`).join("");
 
-// experience
-$("timeline").innerHTML = EXPERIENCE.map(j => `
-  <div class="job rv"><div class="when">${j.when}</div><div><h3>${j.role}</h3><p>${j.text}</p></div><div class="co">${j.company}</div></div>`).join("");
+/* phone: tilt, home-screen icons and rotating notifications */
+(() => {
+  const stage = $("stage"), phone = $("phone");
+  stage.addEventListener("pointermove", e => {
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    phone.style.transform = `rotateY(${x * 26}deg) rotateX(${-y * 18}deg)`;
+  });
+  stage.addEventListener("pointerleave", () => phone.style.transform = "");
 
-// achievements with count-up
-$("ach").innerHTML = ACHIEVEMENTS.map(a => `
-  <div class="stat rv"><div class="ic">${a.icon}</div>
-  <div class="row"><div><h4>${a.name}</h4><small>${a.label}</small></div><div class="n" data-v="${a.value}" data-s="${a.suffix}">0</div></div></div>`).join("");
-function countUp(el){
-  const end = +el.dataset.v, suf = el.dataset.s, t0 = performance.now();
-  const step = t => { const k = Math.min((t - t0) / 1400, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + suf; if (k < 1) requestAnimationFrame(step); };
-  requestAnimationFrame(step);
+  // home screen: the six shipped apps (tap → jump to its card) + CV and stack shortcuts
+  const short = ["ENTERTAINER", "Esaad", "Indigo", "NEEO", "Takeme", "VoIP"];
+  $("homeIcons").innerHTML = APPS.map((a, i) =>
+    `<a href="#apps" data-app="${i}" aria-label="${a.name}"><div class="ico"><img src="assets/projects/${a.icon}" alt=""></div><span>${short[i]}</span></a>`).join("") +
+    `<a href="#stack"><div class="ico" style="background:linear-gradient(135deg,#3ddc84,#1a8f55)">{ }</div><span>Stack</span></a>` +
+    `<a href="assets/Kamran_Khadim_CV.pdf" download="Kamran_Khadim_Senior_Mobile_Developer_CV.pdf"><div class="ico" style="background:var(--grad);color:#0b0d18">CV</div><span>Résumé</span></a>`;
+  $("homeIcons").addEventListener("click", e => {
+    const a = e.target.closest("[data-app]"); if (!a) return;
+    const card = document.querySelectorAll(".app")[+a.dataset.app];
+    setTimeout(() => { card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" }); card.classList.add("flash"); setTimeout(() => card.classList.remove("flash"), 1600); }, 500);
+  });
+  const DOCK = [["https://wa.me/971501874359?text=Hi%20Kamran%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.", "WA", "#25d366", "WhatsApp"], ["mailto:kamranch724@gmail.com", "@", "#4f7cff", "Email"], ["https://www.linkedin.com/in/kamran-khadim-19b97a141/", "in", "#0a66c2", "LinkedIn"], ["https://github.com/kamrankhadim95", "GH", "#24292f", "GitHub"]];
+  $("dock").innerHTML = DOCK.map(([h, t, c, l]) => `<a href="${h}" target="_blank" rel="noopener" aria-label="${l}"><div class="ico" style="background:${c}">${t}</div></a>`).join("");
+
+  // live clock in the status bar
+  const tick = () => { const d = new Date(); $("clock").textContent = d.getHours() + ":" + String(d.getMinutes()).padStart(2, "0"); };
+  tick(); setInterval(tick, 10000);
+
+  // notifications drop in from the top, one at a time
+  const NOTES = [
+    ["Crashlytics", "Crash-free users at 99%", "CR", "#f57c00"],
+    ["GitHub Actions", "Production build passed ✓", "GH", "#24292f"],
+    ["Claude Code", "PR ready for review", "CC", "#d97757"],
+    ["Google Play", "Esaad Card is live", "▶", "#01875f"],
+    ["Kamran", "Let's build something 🚀", "KK", "#8b7bff"]
+  ];
+  const n = $("notif");
+  let k = 0;
+  const show = () => {
+    const [app, text, ico, c] = NOTES[k++ % NOTES.length];
+    $("notifApp").textContent = app + " · now"; $("notifText").textContent = text;
+    $("notifIco").textContent = ico; $("notifIco").style.background = c;
+    n.classList.add("show");
+    setTimeout(() => n.classList.remove("show"), 2600);
+  };
+  setTimeout(() => { show(); setInterval(show, 3400); }, 1200);
+})();
+
+/* IDE stack: [file, icon, object name, [[property, [values], daily]]] */
+const FILES = [
+  ["Android.kt", "◆", "Android", [["language", ["Kotlin", "Java"], 1], ["ui", ["Jetpack Compose", "XML & Custom Views"], 1], ["async", ["Coroutines", "Flow / StateFlow"], 1], ["di", ["Hilt"]], ["navigation", ["Navigation", "Single Activity"]]]],
+  ["CrossPlatform.kt", "◇", "CrossPlatform", [["framework", ["Flutter", "Dart"], 1], ["state", ["BLoC", "Riverpod", "Provider"]], ["shared", ["Compose Multiplatform"]], ["certified", ["Flutter", "Compose Multiplatform (2025)"]]]],
+  ["Architecture.kt", "▲", "Architecture", [["pattern", ["Clean Architecture", "MVVM", "MVI"], 1], ["structure", ["Multi-module", "Single Activity"]], ["testing", ["JUnit", "MockK", "Espresso"]]]],
+  ["Security.kt", "■", "NetworkSecurity", [["http", ["Retrofit", "OkHttp", "Ktor"], 1], ["auth", ["OAuth2", "JWT"]], ["transport", ["Mutual SSL", "SSL pinning"], 1], ["crypto", ["AES", "SRTP", "SQLCipher"]], ["realtime", ["WebSockets"]]]],
+  ["Delivery.kt", "●", "Delivery", [["ci", ["GitHub Actions", "Azure DevOps"], 1], ["release", ["Fastlane", "tag-triggered builds"], 1], ["monitoring", ["Firebase Crashlytics", "Play Console"], 1], ["storage", ["Room", "DataStore"]]]],
+  ["AI.kt", "✦", "AiEngineering", [["agent", ["Claude Code"], 1], ["mcp", ["Figma", "Jira", "Confluence"], 1], ["skills", ["11 custom agent skills"]], ["practice", ["prompt & context engineering", "AI-written tests, human-reviewed"]]]]
+];
+function openFile(i){
+  const [file, , obj, props] = FILES[i];
+  $("tabName").textContent = file;
+  const w = Math.max(...props.map(p => p[0].length));
+  const lines = [
+    `<span class="c">// ${file} — ${obj === "AiEngineering" ? "how I build with AI" : "what I build with"}</span>`,
+    `<span class="k">object</span> <span class="f">${obj}</span> {`,
+    ...props.map(([k, vals, daily]) => `    <span class="k">val</span> <span class="n">${k}</span>${" ".repeat(w - k.length)} = <span class="f">listOf</span>(${vals.map(v => `<span class="s">"${esc(v)}"</span>`).join(", ")})${daily ? `  <span class="c">// daily</span>` : ""}`),
+    `}`
+  ];
+  $("code").innerHTML = lines.map((l, n) => `<span class="ln">${n + 1}</span>${l}`).join("\n");
+  document.querySelectorAll("#files button").forEach((b, j) => b.classList.toggle("on", j === i));
 }
+$("files").insertAdjacentHTML("beforeend", FILES.map(([f, ic], i) => `<button type="button" data-i="${i}"><i>${ic}</i>${f}</button>`).join(""));
+$("files").addEventListener("click", e => { const b = e.target.closest("button"); if (b) openFile(+b.dataset.i); });
+openFile(0);
 
-// reveal on scroll + nav highlight
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (!e.isIntersecting) return;
-  e.target.classList.add("in");
-  e.target.querySelectorAll(".n").forEach(countUp);
-  io.unobserve(e.target);
-}), { threshold: .15 });
-document.querySelectorAll(".rv").forEach(el => io.observe(el));
+/* AI pipeline + cards */
+const PIPE = [["prd", "Confluence"], ["ticket", "Jira"], ["design", "Figma"], ["agent", "Claude Code", 1], ["test", "Device"], ["ship", "Pull request"]];
+$("pipe").insertAdjacentHTML("beforeend", PIPE.map(([s, b, core]) => `<div class="node${core ? " core" : ""}"><small>${s}</small><b>${b}</b></div>`).join(""));
+const CARDS = [["agent", "Claude Code", "Plans, implements, tests and documents features with me across Kotlin, Compose and Gradle."],
+  ["connectors", "MCP servers", "Figma for design-to-code; Jira and Confluence for PRDs and tickets."],
+  ["skills", "11 custom skills", "Team standards as agent skills: edge-case tests, device checks, API layering, Figma fidelity."],
+  ["guardrails", "Human in the loop", "Unit tests and code review hold AI-written code to the same bar as mine."]];
+$("aiCards").innerHTML = CARDS.map(([k, t, d]) => `<div class="ai-card glass"><small>${k}</small><h3>${t}</h3><p>${d}</p></div>`).join("");
+
+/* terminal: types once it scrolls into view */
+const TERM = [["cmd", "claude"], ["ask", "I'm a mobile developer, not a web developer. Turn my CV into a portfolio — one HTML file, no framework."], ["out", "● Read  Kamran_cv_mobile.pdf"], ["out", "● Write index.html · cv.html → Kamran_Khadim_CV.pdf"], ["ask", "Make it feel like a mobile engineer's site — futuristic, my apps up front."], ["out", "● Update index.html — phone home screen, apps, case study, stack as code"], ["out", "● Bash  git push origin main"], ["ok", "✓ Live at kamrankhadim95.github.io"]];
+async function playTerm(){
+  const out = $("termOut"); let html = "";
+  const lead = { cmd: '<span class="p">kamran@mac kamrankhadim95.github.io %</span> ', ask: '<span class="t">❯</span> ', out: '<span class="d">', ok: "" };
+  const close = { cmd: "", ask: "", out: "</span>", ok: "" };
+  const cls = { cmd: "u", ask: "u", out: "", ok: "ok" };
+  for (const [k, t] of TERM){
+    if (k === "ask") html += "\n";
+    if ((k === "cmd" || k === "ask") && !calm){
+      for (let i = 1; i <= t.length; i++){ out.innerHTML = html + lead[k] + `<span class="${cls[k]}">${esc(t.slice(0, i))}</span><span class="caret"></span>`; await sleep(k === "cmd" ? 80 : 22); }
+      await sleep(300);
+    } else if (!calm){ out.innerHTML = html + '<span class="caret"></span>'; await sleep(450); }
+    html += lead[k] + `<span class="${cls[k]}">${esc(t)}</span>` + close[k] + "\n";
+    out.innerHTML = html + '<span class="caret"></span>';
+  }
+}
+new IntersectionObserver((es, o) => { if (es[0].isIntersecting){ o.disconnect(); playTerm(); } }, { threshold: .3 }).observe($("term"));
+
+/* git log */
+const LOG = [
+  ["a3f9c21", "HEAD → main", "Jul 2023 — now", "Senior Mobile Developer", "The ENTERTAINER · Dubai", "Lead Android and Flutter. Crash-free users 50% → 99%, startup 28% faster, build time −15%, tag-driven CI/CD, AI-assisted delivery with Claude Code, and mentoring that cut production bugs by 20%."],
+  ["7be04d8", "", "Sep 2022 — Jul 2023", "Senior Android Developer", "NeeoPal · Lahore", "Android and Flutter apps with BLoC, Firebase and an AI-powered chat translator."],
+  ["4c21e9a", "", "May 2020 — Aug 2022", "Junior Research Officer", "Bahria Enterprise Systems · Islamabad", "End-to-end encrypted VoIP and chat, migrated to single-activity MVVM."],
+  ["19d7f02", "", "Jun 2018 — Apr 2020", "Android Developer", "Cane Technologies · ODL", "Crash rate down 30% with Crashlytics and Play Console; release cycles 20% faster."],
+  ["0000001", "init", "2018", "git init career", "M.S. Computer Science", "Started building Android apps."]
+];
+$("commits").innerHTML = LOG.map(([h, ref, when, role, co, txt]) => `
+  <div class="commit"><div class="g"><i></i></div><div class="cb">
+    <div class="meta"><span class="h">${h}</span>${ref ? `<span class="ref">${ref}</span>` : ""}<span>${when}</span></div>
+    <h3>${role} <span>@ ${co}</span></h3><p>${txt}</p>
+  </div></div>`).join("");
+
+$("footer").firstChild.textContent = `© ${new Date().getFullYear()} Kamran Khadim · pair-built with Claude Code · `;
+
+/* nav highlight */
 const navIo = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) document.querySelectorAll(".menu a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
 }), { rootMargin: "-45% 0px -50% 0px" });
