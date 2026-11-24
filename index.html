@@ -358,7 +358,7 @@ footer{text-align:center;color:var(--faint);font:12px var(--mono);padding:24px 0
   <div class="wrap">
     <div class="sec-head">
       <div><div class="tag">01 — installed apps</div><h2>Shipped to <span class="grad">real pockets.</span></h2></div>
-      <p>Six production apps: platform, stack and a measurable result for each. <span class="swipe mono" style="display:none;color:var(--cyan);font-size:12px">← swipe →</span></p>
+      <p>Seven apps: platform, stack and a measurable result for each. <span class="swipe mono" style="display:none;color:var(--cyan);font-size:12px">← swipe →</span></p>
     </div>
     <div class="apps" id="appGrid"></div>
   </div>
@@ -480,7 +480,7 @@ addEventListener("pointermove", e => { const g = $("glow"); g.style.left = e.cli
 })();
 
 /* HUD */
-const HUD = [["99%", "crash-free users ↑ from 50%"], ["28%", "faster app startup"], ["6", "apps in production"], ["11", "AI agent skills written"]];
+const HUD = [["99%", "crash-free users ↑ from 50%"], ["28%", "faster app startup"], ["7", "apps built and shipped"], ["11", "AI agent skills written"]];
 $("hud").innerHTML = HUD.map(([b, s]) => `<div><b>${b}</b><span>${s}</span></div>`).join("");
 
 /* ticker */
@@ -510,7 +510,10 @@ const APPS = [
     kpi: [["Live GPS", "custom markers"], ["3", "vehicle types"]], stack: ["Kotlin", "Flow", "Maps"] },
   { name: "Secure VoIP & Chat", sub: "enterprise · encrypted", plat: ["Android"], img: "voip.svg", icon: "voip-icon.svg",
     text: "End-to-end encrypted calls and chat, migrated to single-activity MVVM.",
-    kpi: [["+30%", "security compliance"], ["E2E", "AES · SRTP"]], stack: ["Android", "AES", "MVVM"] }
+    kpi: [["+30%", "security compliance"], ["E2E", "AES · SRTP"]], stack: ["Android", "AES", "MVVM"] },
+  { name: "Ring Tok", sub: "messaging & calling · free", plat: ["Native Android"], img: "ringtok.svg", icon: "ringtok-icon.svg",
+    text: "Free instant messaging and calling app to stay connected with friends. Built from scratch in native Android.",
+    kpi: [["0→1", "built from scratch"], ["Native", "Android"]], stack: ["Kotlin", "Android"] }
 ];
 $("appGrid").innerHTML = APPS.map((a, i) => `
   <article class="app"><div class="in">
@@ -538,8 +541,8 @@ $("appGrid").innerHTML = APPS.map((a, i) => `
   });
   stage.addEventListener("pointerleave", () => phone.style.transform = "");
 
-  // home screen: the six shipped apps (tap → jump to its card) + CV and stack shortcuts
-  const short = ["ENTERTAINER", "Esaad", "Indigo", "NEEO", "Takeme", "VoIP"];
+  // home screen: the shipped apps (tap → jump to its card) + CV and stack shortcuts
+  const short = ["ENTERTAINER", "Esaad", "Indigo", "NEEO", "Takeme", "VoIP", "Ring Tok"];
   $("homeIcons").innerHTML = APPS.map((a, i) =>
     `<a href="#apps" data-app="${i}" aria-label="${a.name}"><div class="ico"><img src="assets/projects/${a.icon}" alt=""></div><span>${short[i]}</span></a>`).join("") +
     `<a href="#stack"><div class="ico" style="background:linear-gradient(135deg,#3ddc84,#1a8f55)">{ }</div><span>Stack</span></a>` +
