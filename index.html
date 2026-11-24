@@ -511,9 +511,9 @@ const APPS = [
   { name: "Secure VoIP & Chat", sub: "enterprise · encrypted", plat: ["Android"], img: "voip.svg", icon: "voip-icon.svg",
     text: "End-to-end encrypted calls and chat, migrated to single-activity MVVM.",
     kpi: [["+30%", "security compliance"], ["E2E", "AES · SRTP"]], stack: ["Android", "AES", "MVVM"] },
-  { name: "Ring Tok", sub: "messaging & calling · free", plat: ["Native Android"], img: "ringtok.svg", icon: "ringtok-icon.svg",
-    text: "Free instant messaging and calling app to stay connected with friends. Built from scratch in native Android.",
-    kpi: [["0→1", "built from scratch"], ["Native", "Android"]], stack: ["Kotlin", "Android"] }
+  { name: "Ring Tok", sub: "messaging · AI chat · live streaming", plat: ["Native Android"], img: "ringtok.svg", icon: "ringtok-icon.svg",
+    text: "Free messaging and calling app with message language translation, an AI chat option and live streaming. Built from scratch in native Android.",
+    kpi: [["AI chat", "+ live streaming"], ["Translate", "messages by language"]], stack: ["Kotlin", "Android"] }
 ];
 $("appGrid").innerHTML = APPS.map((a, i) => `
   <article class="app"><div class="in">
